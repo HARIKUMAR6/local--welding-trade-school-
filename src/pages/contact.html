@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!--@head-->
+  <title>Contact Admissions | Welding Trade School</title>
+  <meta name="description" content="Contact Welding Trade School: ways to reach the school, an enquiry form for programs, enrollment and certification questions, and where to find the school.">
+</head>
+<body id="top">
+<!--@sprite-->
+<!--@header-->
+
+<main id="main-content">
+
+  <!-- ===== 1. HERO: arc-tone statement + notched photo plate (shared inner-page hero height) ===== -->
+  <section class="inner-hero ct-hero tone-arc" aria-labelledby="ct-title">
+    <div class="wrap ct-hero-grid">
+      <div class="ct-hero-copy">
+        <p class="eyebrow">Contact</p>
+        <h1 id="ct-title" class="display ct-title mt-4">Questions before you strike an arc?</h1>
+        <p class="ct-hero-lead mt-4">Ask about programs, enrollment, certification or the student portal. Start with the enquiry form below.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#enquiry" class="btn btn-primary">Send an enquiry <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="#ways" class="btn btn-secondary">Ways to reach us</a>
+        </div>
+      </div>
+      <div class="ct-hero-media">
+        <div class="photo ct-hero-photo">
+          {{pic key="ct-hero" alt="A smiling student with a welding helmet raised, turning the regulator on a gas cylinder in a school shop" sizes="(min-width:768px) 40vw, 100vw" pos="40% 35%" eager}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. CONTACT INFORMATION: the channels that exist today ===== -->
+  <section class="section section-compact tone-paper" id="ways" aria-labelledby="ways-title">
+    <div class="wrap ct-ways">
+      <header class="pg-head ct-ways-head">
+        <p class="eyebrow">Contact information</p>
+        <h2 id="ways-title" class="display d-lg mt-4">Pick the right way in.</h2>
+        <p class="lead mt-4">Each kind of question has its own route, so it reaches the right place.</p>
+      </header>
+      <ul class="ct-routes">
+        <li>
+          <span class="ct-route-k">Programs, enrollment and certification</span>
+          <span class="ct-route-v">Send an enquiry with the form on this page.</span>
+          <a href="#enquiry" class="arrow-link">Go to the form <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li>
+          <span class="ct-route-k">Enrolled students</span>
+          <span class="ct-route-v">Lab hours, enrollment and exam results are in the student portal.</span>
+          <a href="login.html" class="arrow-link">Student login <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li>
+          <span class="ct-route-k">Comparing welding processes</span>
+          <span class="ct-route-v">MIG, TIG and Stick welding are explained side by side.</span>
+          <a href="programs.html" class="arrow-link">Programs page <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li>
+          <span class="ct-route-k">Visiting the school</span>
+          <span class="ct-route-v">An interactive general map of the area.</span>
+          <a href="#location" class="arrow-link">Explore the map <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 3. SEND AN ENQUIRY: validated form (frontend demonstration, not connected) ===== -->
+  <section class="section section-compact tone-alt" id="enquiry" aria-labelledby="enq-title">
+    <div class="wrap ct-enq">
+      <div class="ct-enq-intro">
+        <header class="pg-head">
+          <p class="eyebrow">Send an enquiry</p>
+          <h2 id="enq-title" class="display d-lg mt-4">Ask admissions a question.</h2>
+          <p class="lead mt-4">Tell us what you want to know. Fields marked required must be filled in.</p>
+        </header>
+        <div class="ct-demo" role="note">
+          <p class="ct-demo-k">Demonstration form</p>
+          <p>This form checks your entries but is not yet connected to an email service. Submitting it will <strong>not</strong> send your enquiry.</p>
+        </div>
+      </div>
+
+      <form class="ct-form" id="enquiry-form" novalidate data-demo-form aria-describedby="form-note">
+        <p id="form-note" class="sr-only">Demonstration form. Enquiries are not sent.</p>
+        <div class="ct-errors" id="form-errors" role="alert" tabindex="-1" hidden>
+          <p class="ct-errors-t">Please fix <span data-error-count></span> before continuing:</p>
+          <ul data-error-list></ul>
+        </div>
+
+        <div class="ct-row">
+          <div class="ct-field">
+            <label for="f-name">Full name <span class="ct-req">(required)</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby="f-name-err">
+            <p class="ct-err" id="f-name-err" hidden></p>
+          </div>
+          <div class="ct-field">
+            <label for="f-email">Email address <span class="ct-req">(required)</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" aria-describedby="f-email-err">
+            <p class="ct-err" id="f-email-err" hidden></p>
+          </div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-field">
+            <label for="f-phone">Phone <span class="ct-opt">(optional)</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" aria-describedby="f-phone-hint f-phone-err">
+            <p class="ct-hint" id="f-phone-hint">Digits, spaces, + ( ) and - only.</p>
+            <p class="ct-err" id="f-phone-err" hidden></p>
+          </div>
+          <div class="ct-field">
+            <label for="f-topic">Topic <span class="ct-req">(required)</span></label>
+            <div class="ct-select">
+            <select id="f-topic" name="topic" required aria-describedby="f-topic-err">
+              <option value="">Choose a topic</option>
+              <option>MIG / GMAW program</option>
+              <option>TIG / GTAW program</option>
+              <option>Stick / SMAW program</option>
+              <option>Not sure which process</option>
+              <option>Enrollment</option>
+              <option>Certification</option>
+              <option>Student portal</option>
+              <option>Something else</option>
+            </select>
+            </div>
+            <p class="ct-err" id="f-topic-err" hidden></p>
+          </div>
+        </div>
+        <div class="ct-field">
+          <label for="f-msg">Your question <span class="ct-req">(required)</span></label>
+          <textarea id="f-msg" name="message" rows="5" required minlength="20" maxlength="2000" aria-describedby="f-msg-hint f-msg-err"></textarea>
+          <p class="ct-hint" id="f-msg-hint">At least 20 characters. <span data-count>0</span> / 2000</p>
+          <p class="ct-err" id="f-msg-err" hidden></p>
+        </div>
+        <div class="ct-actions">
+          <button type="submit" class="btn btn-primary">Check my enquiry</button>
+          <button type="reset" class="btn btn-secondary">Clear form</button>
+        </div>
+
+        <div class="ct-result" id="form-result" role="status" tabindex="-1" hidden>
+          <p class="ct-result-t">Your enquiry looks complete, but it has not been sent.</p>
+          <p>This form is a demonstration and is not connected to an email service yet. Your details were not stored or sent anywhere.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== 4. FIND OUR LOCATION: real map once the address is verified ===== -->
+  <section class="section section-compact tone-ink" id="location" aria-labelledby="loc-title">
+    <div class="wrap">
+      <header class="pg-head">
+        <p class="eyebrow">Find our location</p>
+        <h2 id="loc-title" class="display d-lg mt-4">Explore the map.</h2>
+        <p class="lead mt-4">An interactive general map of Chennai, India. Pan and zoom to explore. It is a map demonstration and does not show where the school is.</p>
+      </header>
+      {{map}}
+    </div>
+  </section>
+
+  <!-- ===== 5. VISIT OR CONTACT THE SCHOOL ===== -->
+  <section class="section section-compact tone-paper" id="visit" aria-labelledby="visit-title">
+    <div class="wrap ct-visit">
+      <div class="ct-visit-copy">
+        <header class="pg-head">
+          <p class="eyebrow">Visit or contact the school</p>
+          <h2 id="visit-title" class="display d-lg mt-4">Ready for the next step?</h2>
+          <p class="lead mt-4">Compare the three welding processes, then send admissions any question that is still open.</p>
+        </header>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="programs.html" class="btn btn-primary">Explore programs <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="#enquiry" class="btn btn-secondary">Send an enquiry</a>
+        </div>
+      </div>
+      <div class="plate plate-flip ct-visit-plate">
+        <div class="photo ct-visit-photo">
+          {{pic key="ct-close" alt="Two students in welding helmets working at a steel table in a school workshop, with a welded box, tools and paper cups on the bench" sizes="(min-width:1024px) 36vw, 100vw" pos="50% 40%"}}
+          <span class="cap" style="position:absolute;inset-block-end:0;inset-inline-start:0">A school welding bench</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!--@footer-->
+<script src="assets/js/main.js"></script>
+</body>
+</html>

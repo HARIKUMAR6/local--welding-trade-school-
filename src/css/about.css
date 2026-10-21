@@ -1,0 +1,105 @@
+/* ==========================================================================
+   ABOUT PAGE
+   ========================================================================== */
+@layer components {
+  /* ---------- 1. Hero: statement + school rating plate ---------- */
+  .ab-hero-grid { display: grid; gap: 2rem; padding-block: clamp(2rem, 4vh, 2.75rem); }
+  .ab-title { font-size: clamp(2.4rem, 1rem + 3.2vw, 3.6rem); }
+  @media (min-width: 768px) {
+    .ab-hero-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; min-height: var(--inner-hero-h); padding-block: clamp(1rem, 2.4vh, 1.75rem); }
+  }
+  @media (max-height: 520px) and (orientation: landscape) and (min-width: 640px) {
+    .ab-hero-grid { min-height: 0; padding-block: 1rem; }
+    .ab-title { font-size: clamp(1.9rem, 9vh, 2.4rem); }
+    .ab-hero-copy .lead { font-size: 1rem; margin-top: .5rem; }
+    .ab-hero-copy .mt-6 { margin-top: .875rem; }
+  }
+
+  .ab-plate { position: relative; padding: 1rem 1rem 1.1rem; border: 3px solid var(--fg); box-shadow: .6rem .6rem 0 #FF5A1F; }
+  [dir='rtl'] .ab-plate { box-shadow: -.6rem .6rem 0 #FF5A1F; }
+  .ab-rivet { position: absolute; width: .55rem; height: .55rem; border-radius: 50%; background: var(--ui); box-shadow: inset 0 0 0 2px var(--bg); }
+  .ab-rivet:nth-of-type(1) { top: .3rem; left: .3rem; } .ab-rivet:nth-of-type(2) { top: .3rem; right: .3rem; }
+  .ab-rivet:nth-of-type(3) { bottom: .3rem; left: .3rem; } .ab-rivet:nth-of-type(4) { bottom: .3rem; right: .3rem; }
+  .ab-plate-photo { aspect-ratio: 16 / 9; }
+  @media (min-width: 768px) { .ab-plate-photo { aspect-ratio: 2 / 1; } }
+  @media (min-width: 768px) and (max-height: 820px) { .ab-plate-photo { aspect-ratio: 3 / 1; } }
+  .ab-plate-photo img { filter: contrast(1.05); }
+  .ab-plate-name {
+    margin: .6rem 0 0; padding-bottom: .4rem; border-bottom: 2px solid var(--fg);
+    font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 1.5rem; line-height: 1; letter-spacing: .04em; text-transform: uppercase;
+  }
+  .ab-plate-rows { margin: 0; display: grid; grid-template-columns: 1fr 1fr; }
+  .ab-plate-rows > div { padding: .45rem 0; border-bottom: 1px solid var(--ui); }
+  .ab-plate-rows > div:nth-child(odd) { padding-inline-end: .75rem; border-inline-end: 1px solid var(--ui); }
+  .ab-plate-rows > div:nth-child(even) { padding-inline-start: .75rem; }
+  .ab-plate-rows > div:nth-last-child(-n + 2) { border-bottom: 0; padding-bottom: 0; }
+  .ab-plate-rows dt { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--acc); }
+  .ab-plate-rows dd { margin: .15rem 0 0; font-weight: 700; font-size: .9375rem; line-height: 1.3; color: var(--fg); }
+
+  /* ---------- 2. Who we are ---------- */
+  .ab-who-top { display: grid; gap: 1.5rem; }
+  @media (min-width: 1024px) { .ab-who-top { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; align-items: end; } }
+  .ab-who { margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.25rem); }
+  .ab-who-plate { margin-bottom: .75rem; }
+  .ab-who-photo { aspect-ratio: 16 / 10; }
+  @media (min-width: 768px) { .ab-who-photo { aspect-ratio: 21 / 8; } }
+  .ab-short { margin: 0; display: grid; }
+  .ab-short > div { display: grid; grid-template-columns: 6.5rem 1fr; align-items: baseline; gap: 1rem; padding: .7rem 0; border-top: 2px solid var(--ui); }
+  .ab-short > div:first-child { border-top: 3px solid var(--fg); }
+  .ab-short dt { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 1.75rem; line-height: 1; text-transform: uppercase; color: var(--acc); }
+  .ab-short dd { margin: 0; font-weight: 600; font-size: 1.0625rem; color: var(--fg); }
+
+  /* ---------- 3. Philosophy: centred manifesto ---------- */
+  .ab-center { max-width: 44rem; margin-inline: auto; text-align: center; }
+  .ab-center .lead { margin-inline: auto; }
+  .ab-center .eyebrow::after { content: ''; width: 1.75rem; height: 3px; background: currentColor; flex: none; }
+  .ab-principles { list-style: none; margin: clamp(1.75rem, 1rem + 2vw, 2.5rem) 0 0; padding: 0; display: grid; gap: 1.25rem; }
+  .ab-principles li { padding-top: 1rem; border-top: 3px solid var(--fg); }
+  @media (min-width: 768px) {
+    .ab-principles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 3px solid var(--fg); }
+    .ab-principles li { border-top: 0; padding: 1.25rem 1.5rem 0; border-inline-start: 2px solid var(--ui); }
+    .ab-principles li:first-child { border-inline-start: 0; padding-inline-start: 0; }
+  }
+  .ab-principles b { display: block; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 2rem; line-height: 1; color: var(--acc); }
+  .ab-principles h3 { margin: .35rem 0 0; }
+  .ab-principles p { margin: .35rem 0 0; color: var(--fg-2); }
+  .ab-letterbox { margin-top: clamp(1.75rem, 1rem + 2vw, 2.5rem); aspect-ratio: 16 / 9; }
+  @media (min-width: 768px) { .ab-letterbox { aspect-ratio: 21 / 8; } }
+
+  /* ---------- 4. Learning the trade: joined triptych ---------- */
+  .ab-tri { list-style: none; margin: clamp(1.5rem, 1rem + 1.5vw, 2.25rem) 0 0; padding: 0; display: grid; gap: 1.75rem; }
+  .ab-tri li { display: flex; flex-direction: column; gap: .75rem; }
+  .ab-tri-photo { aspect-ratio: 16 / 10; }
+  .ab-tri-name {
+    position: absolute; inset-block-end: 0; inset-inline-start: 0; margin: 0; padding: .45rem .9rem;
+    background: #14161A; color: #F4F0E7; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 1.5rem; line-height: 1.1; text-transform: uppercase;
+  }
+  .ab-tri-name b { color: #FF6A33; margin-inline-end: .35rem; }
+  .ab-tri-text { margin: 0; font-weight: 600; font-size: 1.0625rem; color: var(--fg); }
+  .ab-tri .arrow-link { align-self: flex-start; margin-top: auto; }
+  @media (min-width: 768px) {
+    .ab-tri { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+    .ab-tri li { position: relative; }
+    .ab-tri li + li::before { content: ''; position: absolute; inset-block: 0; inset-inline-start: -1.25rem; width: 2px; margin-inline-start: -1px; background: var(--ui); }
+    .ab-tri-photo { aspect-ratio: 3 / 4; }
+  }
+  @media (min-width: 1024px) { .ab-tri-photo { aspect-ratio: 4 / 5; } }
+
+  /* ---------- 5. Next steps: two doors ---------- */
+  /* --door-focus resolves to the section's foreground before each door re-declares its own tone */
+  .ab-doors { --door-focus: var(--fg); display: grid; gap: 1rem; margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.25rem); }
+  .ab-door:focus-visible { outline: 3px solid var(--door-focus); outline-offset: 4px; }
+  @media (min-width: 768px) { .ab-doors { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+  .ab-door {
+    position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: .5rem; min-height: 11rem;
+    padding: 1.5rem 4.5rem 1.5rem 1.5rem; border: 3px solid #14161A; text-decoration: none; color: var(--fg); transition: transform .15s ease;
+  }
+  [dir='rtl'] .ab-door { padding: 1.5rem 1.5rem 1.5rem 4.5rem; }
+  @media (min-width: 1024px) { .ab-door { min-height: 13rem; padding: 2rem 5rem 2rem 2rem; } [dir='rtl'] .ab-door { padding: 2rem 2rem 2rem 5rem; } }
+  .ab-door-k { font-weight: 800; font-size: .8125rem; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-2); }
+  .ab-door-t { font-size: clamp(2rem, 1.2rem + 2.4vw, 3.25rem); }
+  .ab-door-i { position: absolute; inset-inline-end: 1.5rem; inset-block-end: 1.6rem; width: 2.25rem; height: 2.25rem; stroke-width: 2.4; }
+  .ab-door:hover .ab-door-t { text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: .12em; }
+  .ab-door:hover .ab-door-i { transform: translateX(.35rem); }
+  [dir='rtl'] .ab-door:hover .ab-door-i { transform: translateX(-.35rem) scaleX(-1); }
+}

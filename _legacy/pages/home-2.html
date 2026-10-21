@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industrial Exhibition & Field Guide | Welding Trade School</title>
+  <meta name="description" content="Industrial welding training, hands-on workshop practice, verified methods, and qualification standards at Welding Trade School.">
+
+  <!-- Immediate Head Script for Theme & Direction Sync (prevents flash) -->
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('wts_theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        const savedDir = localStorage.getItem('wts_dir');
+        if (savedDir === 'rtl' || savedDir === 'ltr') {
+          document.documentElement.setAttribute('dir', savedDir);
+        } else {
+          document.documentElement.setAttribute('dir', 'ltr');
+        }
+      } catch (e) {
+        console.warn('Theme/Dir initialization error', e);
+      }
+    })();
+  </script>
+
+  <!-- Compiled Tailwind CSS & Design System Tokens -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-[var(--surface-canvas)] text-[var(--text-primary)] antialiased min-h-screen flex flex-col">
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Shared Header Area -->
+  <header id="site-header" class="sticky top-0 z-50 w-full border-b border-[var(--border-hairline)] bg-[var(--surface-header)]/95 backdrop-blur-sm transition-colors duration-150">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4">
+      
+      <!-- Left: Brand Wordmark Typographic Lockup -->
+      <a href="index.html" class="brand-lockup focus-ring-tech group rounded-sm py-0.5" aria-label="Welding Trade School Home">
+        <span class="brand-lockup-dominant">
+          WELDING
+        </span>
+        <span class="brand-lockup-sub">
+          TRADE SCHOOL
+        </span>
+      </a>
+
+      <!-- Center: Primary Navigation with Home Dropdown -->
+      <nav aria-label="Primary Navigation" class="hidden md:flex items-center">
+        <ul role="list" class="flex items-center gap-6 lg:gap-8 list-none m-0 p-0">
+          <li class="relative">
+            <button
+              type="button"
+              id="home-dropdown-trigger"
+              class="nav-desktop-link focus-ring-tech flex items-center gap-1 cursor-pointer bg-transparent border-0"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="home-dropdown-menu"
+            >
+              <span>Home</span>
+              <svg id="home-dropdown-chevron" class="h-3.5 w-3.5 text-[var(--text-secondary)] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              id="home-dropdown-menu"
+              class="hidden absolute start-0 top-full mt-2 w-40 rounded-sm border border-[var(--border-hairline)] bg-[var(--surface-panel)] py-1.5 shadow-lg z-50"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="home-dropdown-trigger"
+            >
+              <a
+                href="index.html"
+                role="menuitem"
+                class="block px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-control)] focus-ring-tech transition-colors duration-150"
+              >
+                Home 1
+              </a>
+              <a
+                href="home-2.html"
+                role="menuitem"
+                class="block px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-control)] focus-ring-tech transition-colors duration-150"
+              >
+                Home 2
+              </a>
+            </div>
+          </li>
+          <li>
+            <a href="programs.html" class="nav-desktop-link focus-ring-tech">Programs</a>
+          </li>
+          <li>
+            <a href="instructors.html" class="nav-desktop-link focus-ring-tech">Instructors</a>
+          </li>
+          <li>
+            <a href="about.html" class="nav-desktop-link focus-ring-tech">About</a>
+          </li>
+          <li>
+            <a href="contact.html" class="nav-desktop-link focus-ring-tech">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right: Action Controls (Theme, Direction, Student Login) -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        
+        <!-- Theme Toggle -->
+        <button
+          type="button"
+          data-action="toggle-theme"
+          class="btn-icon-control focus-ring-tech"
+          aria-label="Switch theme"
+          aria-pressed="false"
+          title="Switch theme"
+        >
+          <span class="sr-only" data-theme-label>LIGHT</span>
+          <span data-theme-icon class="inline-flex items-center justify-center" aria-hidden="true">
+            <svg class="icon-sun h-4 w-4 text-gold-500 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4" stroke-width="2" />
+              <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+            <svg class="icon-moon h-4 w-4 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </span>
+        </button>
+
+        <!-- Direction Toggle -->
+        <button
+          type="button"
+          data-action="toggle-dir"
+          class="btn-icon-control focus-ring-tech"
+          aria-label="Switch text direction"
+          aria-pressed="false"
+          title="Switch text direction"
+        >
+          <span class="sr-only" data-dir-label>LTR</span>
+          <svg class="h-4 w-4 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </button>
+
+        <!-- Primary Button: Student Login -->
+        <a href="login.html" class="btn-primary-login focus-ring-tech site-login-btn">
+          Student Login
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          class="md:hidden btn-icon-control focus-ring-tech"
+          aria-controls="mobile-nav-panel"
+          aria-expanded="false"
+          aria-label="Open navigation menu"
+        >
+          <svg id="mobile-menu-open-icon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="mobile-menu-close-icon" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer Panel -->
+    <div
+      id="mobile-nav-panel"
+      class="hidden md:hidden border-t border-[var(--border-hairline)] bg-[var(--surface-panel)] max-h-[calc(100vh-4.5rem)] overflow-y-auto shadow-md"
+      aria-label="Mobile Navigation"
+    >
+      <div class="px-4 py-4 space-y-4">
+        
+        <!-- Mobile Links List -->
+        <nav aria-label="Mobile Navigation Menu">
+          <ul role="list" class="space-y-1 list-none m-0 p-0">
+            <li>
+              <div>
+                <button
+                  type="button"
+                  id="mobile-home-dropdown-trigger"
+                  class="nav-mobile-link w-full justify-between items-center text-start focus-ring-tech cursor-pointer bg-transparent border-0"
+                  aria-expanded="false"
+                  aria-controls="mobile-home-submenu"
+                >
+                  <span>Home</span>
+                  <svg id="mobile-home-chevron" class="h-4 w-4 text-[var(--text-secondary)] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div id="mobile-home-submenu" class="hidden ps-4 pt-1 pb-1 space-y-1">
+                  <a
+                    href="index.html"
+                    class="nav-mobile-link text-sm py-2 focus-ring-tech"
+                  >
+                    Home 1
+                  </a>
+                  <a
+                    href="home-2.html"
+                    class="nav-mobile-link text-sm py-2 focus-ring-tech"
+                  >
+                    Home 2
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="programs.html" class="nav-mobile-link focus-ring-tech">
+                Programs
+              </a>
+            </li>
+            <li>
+              <a href="instructors.html" class="nav-mobile-link focus-ring-tech">
+                Instructors
+              </a>
+            </li>
+            <li>
+              <a href="about.html" class="nav-mobile-link focus-ring-tech">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="contact.html" class="nav-mobile-link focus-ring-tech">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Login Action -->
+        <div class="pt-2 border-t border-[var(--border-subtle)]">
+          <a href="login.html" class="btn-primary-login focus-ring-tech site-login-btn w-full justify-center">
+            Student Login
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content: Home 2 — Industrial Exhibition + Technical Field Guide -->
+  <main id="main-content" class="flex-grow">
+
+    <!-- =======================================================================
+         SECTION 01: The Welding Workbench Hero (Art-Directed Editorial Composition)
+         ======================================================================= -->
+    <section id="workshop-statement" class="border-b border-[var(--border-hairline)] bg-[var(--surface-canvas)] py-12 sm:py-16 lg:py-20 relative overflow-hidden" aria-labelledby="workbench-hero-heading">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Tier 1: Asymmetrical Typographic Monolith & Deliberate Upper Negative Space -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          
+          <!-- Dedicated Solid-Color Area: Industrial Graphite Monolith (Cols 1 to 7) -->
+          <div class="lg:col-span-7 text-start">
+            <div class="bg-[#222A30] text-[#F1F0EB] p-6 sm:p-10 lg:p-12 border-s-4 border-gold-500 shadow-2xl space-y-6">
+              
+              <!-- Restrained Welding-Discipline Label -->
+              <p class="font-mono text-xs font-bold text-gold-500 uppercase tracking-widest">
+                DISCIPLINE // MIG &bull; TIG &bull; STICK
+              </p>
+
+              <!-- Short, Bold Typographic Statement -->
+              <h1 id="workbench-hero-heading" class="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-workshop-100 leading-[0.96]">
+                THE WELDING<br>WORKBENCH.
+              </h1>
+
+              <!-- One Compact Supporting Sentence (9 words) -->
+              <p class="text-sm sm:text-base text-alloy-300 leading-relaxed font-normal max-w-md">
+                Intensive hands-on training for industrial and structural fabrication careers.
+              </p>
+
+              <!-- One Primary CTA -->
+              <div class="pt-2">
+                <a href="programs.html" class="btn-action-primary focus-ring-tech inline-flex items-center gap-2 text-sm px-7 py-3.5">
+                  <span>Explore Programs</span>
+                  <svg class="h-4 w-4 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Upper Deliberate Negative Space with Minimal Editorial Datum (Cols 8 to 12) -->
+          <div class="hidden lg:flex lg:col-span-5 flex-col justify-between self-stretch ps-8 py-2 font-mono text-[0.6875rem] text-[var(--text-muted)]" aria-hidden="true">
+            <div class="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
+              <span class="tracking-widest uppercase">STATION 01 // FABRICATION BENCH</span>
+              <span class="text-gold-500 font-bold">ARC 100% REAL</span>
+            </div>
+            <div class="py-6 space-y-2 text-[var(--text-muted)] opacity-60">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-px bg-[var(--border-subtle)]"></span>
+                <span class="text-[0.625rem] tracking-wider uppercase">BENCH DATUM &bull; ELEVATION 850MM</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-px bg-[var(--border-subtle)]"></span>
+                <span class="text-[0.625rem] tracking-wider uppercase">TORCH CONTROL &bull; MOLTEN PUDDLE</span>
+              </div>
+            </div>
+            <div class="border-t border-[var(--border-subtle)] pt-3 flex justify-between text-[0.625rem]">
+              <span>COORDINATE: 45&deg; T-JOINT</span>
+              <span>PLATE: ASTM A36</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Tier 2: Staggered Diagonal Shift — Dominant Visual Focus (Cols 4 to 12) -->
+        <div class="mt-8 lg:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
+          
+          <!-- Lower Deliberate Negative Space Margin (Cols 1 to 3 on Desktop) -->
+          <div class="hidden lg:flex lg:col-span-3 flex-col justify-end pb-4 font-mono text-[0.625rem] text-[var(--text-muted)]" aria-hidden="true">
+            <div class="border-s border-[var(--border-subtle)] ps-4 py-2 space-y-1">
+              <div class="text-gold-500 font-semibold tracking-wider uppercase">WORKSHOP FLOOR</div>
+              <div class="text-[var(--text-secondary)]">ACTIVE ARC PRACTICE</div>
+            </div>
+          </div>
+
+          <!-- Primary Visual Focus: Realistic Welding Workbench Photograph (Cols 4 to 12) -->
+          <div class="lg:col-span-9">
+            <div class="relative overflow-hidden border border-[var(--border-strong)] bg-graphite-950 shadow-2xl">
+              
+              <!-- Subtle Precision Corner Accents -->
+              <div class="absolute -top-[1px] -start-[1px] w-3 h-3 border-t-2 border-s-2 border-gold-500 z-10" aria-hidden="true"></div>
+              <div class="absolute -bottom-[1px] -end-[1px] w-3 h-3 border-b-2 border-e-2 border-gold-500 z-10" aria-hidden="true"></div>
+
+              <!-- Uniquely Cropped Workshop Photograph as Primary Visual Focus -->
+              <div class="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] max-h-[520px]">
+                <img
+                  src="assets/images/home2-workbench-welder.jpg"
+                  alt="Professional welder in protective helmet and leather gloves welding metal on a steel workshop workbench with bright blue electric arc and sparks"
+                  class="w-full h-full object-cover object-center"
+                  loading="eager"
+                  width="2100"
+                  height="1400"
+                >
+              </div>
+
+              <!-- Minimal Technical Datum Footer -->
+              <div class="flex items-center justify-between font-mono text-[0.6875rem] text-alloy-300 bg-graphite-950/90 px-4 py-2 border-t border-graphite-800">
+                <span class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse" aria-hidden="true"></span>
+                  <span class="text-xs uppercase tracking-wider">LIVE WORKBENCH // GMAW PROCESS</span>
+                </span>
+                <span class="text-[0.625rem] text-alloy-400 tracking-widest hidden sm:inline">AWS SPECIFICATION D1.1</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 02: Welding Methods (Typographic Editorial Index)
+         ======================================================================= -->
+    <section id="welding-methods" class="py-16 sm:py-20 border-b border-[var(--border-hairline)] bg-[var(--surface-elevated)]">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Left-Aligned Header Block -->
+        <div class="text-start space-y-2 mb-10 max-w-2xl">
+          <span class="font-mono text-xs font-bold uppercase tracking-widest text-gold-500 block">
+            QUALIFIED PROCESSES
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[var(--text-primary)]">
+            WELDING METHODS.
+          </h2>
+          <!-- Concise Sentence (10 words) -->
+          <p class="text-base text-[var(--text-secondary)]">
+            Comprehensive technical qualification across commercial manufacturing and structural codes.
+          </p>
+        </div>
+
+        <!-- Shared Visual Field & Editorial Typographic Index -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Shared Visual Canvas (5 cols) -->
+          <div class="lg:col-span-5">
+            <div class="border border-[var(--border-strong)] bg-graphite-950 p-2 shadow-sm">
+              <div class="relative overflow-hidden aspect-[4/3] bg-graphite-900">
+                <img
+                  src="assets/images/home2-welding-programs.jpg"
+                  alt="Student completing practical metal welding joint fabrication project"
+                  class="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  width="1280"
+                  height="853"
+                >
+                <div class="absolute bottom-2 start-2 font-mono text-[0.6875rem] px-2 py-1 bg-graphite-950/85 text-alloy-200 border border-graphite-700">
+                  COUPON FABRICATION
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editorial Typographic Index (7 cols, NOT cards) -->
+          <div class="lg:col-span-7 divide-y divide-[var(--border-subtle)] border-y border-[var(--border-subtle)] text-start">
+            
+            <!-- Method 01: GMAW -->
+            <div class="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-xs font-bold text-gold-500">01 / GMAW</span>
+                  <span class="font-mono text-[0.6875rem] text-[var(--text-muted)]">MIG PROCESS</span>
+                </div>
+                <h3 class="text-xl font-black uppercase text-[var(--text-primary)]">
+                  Gas Metal Arc Welding
+                </h3>
+                <p class="text-sm text-[var(--text-secondary)]">
+                  Continuous wire feed for structural assembly and production manufacturing.
+                </p>
+              </div>
+              <a href="programs.html" class="font-mono text-xs font-bold text-gold-500 hover:underline inline-flex items-center gap-1 self-start sm:self-auto shrink-0">
+                <span>View Syllabus</span>
+                <span class="rtl:rotate-180">&rarr;</span>
+              </a>
+            </div>
+
+            <!-- Method 02: GTAW -->
+            <div class="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-xs font-bold text-gold-500">02 / GTAW</span>
+                  <span class="font-mono text-[0.6875rem] text-[var(--text-muted)]">TIG PROCESS</span>
+                </div>
+                <h3 class="text-xl font-black uppercase text-[var(--text-primary)]">
+                  Gas Tungsten Arc Welding
+                </h3>
+                <p class="text-sm text-[var(--text-secondary)]">
+                  Precision tungsten arc for sanitary stainless and high-pressure piping.
+                </p>
+              </div>
+              <a href="programs.html" class="font-mono text-xs font-bold text-gold-500 hover:underline inline-flex items-center gap-1 self-start sm:self-auto shrink-0">
+                <span>View Syllabus</span>
+                <span class="rtl:rotate-180">&rarr;</span>
+              </a>
+            </div>
+
+            <!-- Method 03: SMAW -->
+            <div class="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-xs font-bold text-gold-500">03 / SMAW</span>
+                  <span class="font-mono text-[0.6875rem] text-[var(--text-muted)]">STICK PROCESS</span>
+                </div>
+                <h3 class="text-xl font-black uppercase text-[var(--text-primary)]">
+                  Shielded Metal Arc Welding
+                </h3>
+                <p class="text-sm text-[var(--text-secondary)]">
+                  Consumable electrode welding for outdoor structural and field repair operations.
+                </p>
+              </div>
+              <a href="programs.html" class="font-mono text-xs font-bold text-gold-500 hover:underline inline-flex items-center gap-1 self-start sm:self-auto shrink-0">
+                <span>View Syllabus</span>
+                <span class="rtl:rotate-180">&rarr;</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 03: Practice in Action (Immersive Photographic Statement)
+         ======================================================================= -->
+    <section id="practice-action" class="py-16 sm:py-20 border-b border-[var(--border-hairline)] bg-[var(--surface-canvas)]">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Left-Aligned Header Block -->
+        <div class="text-start space-y-2 mb-8 max-w-2xl">
+          <span class="font-mono text-xs font-bold uppercase tracking-widest text-gold-500 block">
+            HANDS-ON BENCH
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[var(--text-primary)]">
+            PRACTICE IN ACTION.
+          </h2>
+          <!-- Concise Sentence (8 words) -->
+          <p class="text-base text-[var(--text-secondary)]">
+            Dedicated booth time mastering real-time torch control.
+          </p>
+        </div>
+
+        <!-- Large Immersive Training Photograph -->
+        <div class="relative border border-[var(--border-strong)] bg-graphite-950 overflow-hidden shadow-lg">
+          <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[300px]">
+            <img
+              src="assets/images/home2-training-workflow.jpg"
+              alt="Trade student welder practicing torch manipulation in workshop"
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+              width="1280"
+              height="853"
+            >
+            <div class="absolute bottom-3 start-3 font-mono text-[0.6875rem] px-3 py-1.5 bg-graphite-950/90 text-alloy-200 border border-graphite-700">
+              ACTIVE BOOTH // MOLTEN PUDDLE MANIPULATION
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 04: Skills That Matter (Field Guide Standards Ledger)
+         ======================================================================= -->
+    <section id="skills-standards" class="py-16 sm:py-20 border-b border-[var(--border-hairline)] bg-graphite-900 text-workshop-100">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Left-Aligned Header Block -->
+        <div class="text-start space-y-2 mb-10 max-w-2xl">
+          <span class="font-mono text-xs font-bold uppercase tracking-widest text-gold-500 block">
+            QUALIFICATION STANDARDS
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-workshop-100">
+            SKILLS THAT MATTER.
+          </h2>
+          <!-- Concise Sentence (11 words) -->
+          <p class="text-base text-alloy-300">
+            Rigorous workshop standards preparing trainees for third-party CWI qualification tests.
+          </p>
+        </div>
+
+        <!-- Concise Horizontal Field Guide Standards (NOT cards, NOT paragraphs) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-graphite-700 font-mono text-start mb-10">
+          
+          <div class="space-y-1">
+            <span class="text-gold-500 font-bold text-xs block">01 / SAFETY</span>
+            <h3 class="font-sans text-base font-bold text-workshop-100 uppercase">
+              Safe Work Practices
+            </h3>
+            <p class="font-sans text-xs text-alloy-400">
+              OSHA workshop safety and equipment protection.
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <span class="text-gold-500 font-bold text-xs block">02 / QUALITY</span>
+            <h3 class="font-sans text-base font-bold text-workshop-100 uppercase">
+              Weld Quality
+            </h3>
+            <p class="font-sans text-xs text-alloy-400">
+              Visual inspection and defect tolerance criteria.
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <span class="text-gold-500 font-bold text-xs block">03 / TESTING</span>
+            <h3 class="font-sans text-base font-bold text-workshop-100 uppercase">
+              Practical Skills
+            </h3>
+            <p class="font-sans text-xs text-alloy-400">
+              Root penetration and guided mechanical bend tests.
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <span class="text-gold-500 font-bold text-xs block">04 / CODE</span>
+            <h3 class="font-sans text-base font-bold text-workshop-100 uppercase">
+              Exam Preparation
+            </h3>
+            <p class="font-sans text-xs text-alloy-400">
+              AWS D1.1 and ASME Section IX test coupon fit-up.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Inspection Photograph Specimen Plate -->
+        <div class="border border-graphite-700 bg-graphite-950 p-2 shadow-sm">
+          <div class="relative overflow-hidden aspect-[21/9] sm:aspect-[3.5/1] bg-graphite-950">
+            <img
+              src="assets/images/home2-skills-inspection.jpg"
+              alt="Precision weld seam inspection and mechanical quality measurement system"
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+              width="1280"
+              height="853"
+            >
+            <div class="absolute bottom-2 start-2 font-mono text-[0.6875rem] px-2 py-1 bg-graphite-900/90 text-alloy-200 border border-graphite-700">
+              SEAM QUALITY METROLOGY // AWS D1.1 BENCHMARK
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 05: Guided Training (Narrow Photographic Band)
+         ======================================================================= -->
+    <section id="guided-training" class="py-16 sm:py-20 border-b border-[var(--border-hairline)] bg-[var(--surface-elevated)]">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Left-Aligned Header Block with Action Link -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 text-start">
+          <div class="space-y-2 max-w-2xl">
+            <span class="font-mono text-xs font-bold uppercase tracking-widest text-gold-500 block">
+              FACULTY OVERSIGHT
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[var(--text-primary)]">
+              GUIDED TRAINING.
+            </h2>
+            <!-- Concise Statement (10 words) -->
+            <p class="text-base text-[var(--text-secondary)]">
+              Instructors observe and correct torch angle directly at your booth.
+            </p>
+          </div>
+          <div>
+            <a href="instructors.html" class="font-mono text-xs font-bold text-gold-500 hover:underline inline-flex items-center gap-1">
+              <span>Faculty Directory</span>
+              <span class="rtl:rotate-180">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Narrow Photographic Band -->
+        <div class="border border-[var(--border-strong)] bg-graphite-950 p-2 shadow-sm">
+          <div class="relative overflow-hidden aspect-[21/9] sm:aspect-[3/1] bg-graphite-900">
+            <img
+              src="assets/images/home2-guided-instruction.jpg"
+              alt="Senior trade instructor guiding student welder during torch operation"
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+              width="1280"
+              height="960"
+            >
+            <div class="absolute bottom-2 start-2 font-mono text-[0.6875rem] px-2 py-1 bg-graphite-950/85 text-alloy-200 border border-graphite-700">
+              DIRECT 1-ON-1 COACHING
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 06: Skills in Industry (Field Guide Sector Grid)
+         ======================================================================= -->
+    <section id="skills-industry" class="py-16 sm:py-20 border-b border-[var(--border-hairline)] bg-[var(--surface-canvas)]">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Left-Aligned Header Block -->
+        <div class="text-start space-y-2 mb-8 max-w-2xl">
+          <span class="font-mono text-xs font-bold uppercase tracking-widest text-gold-500 block">
+            REAL-WORLD APPLICATIONS
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[var(--text-primary)]">
+            SKILLS IN INDUSTRY.
+          </h2>
+          <!-- Concise Sentence (10 words) -->
+          <p class="text-base text-[var(--text-secondary)]">
+            Practical qualifications applied across essential industrial and commercial infrastructure.
+          </p>
+        </div>
+
+        <!-- Wide Industrial Photograph -->
+        <div class="border border-[var(--border-strong)] bg-graphite-950 p-2 shadow-sm mb-6">
+          <div class="relative overflow-hidden aspect-[21/9] sm:aspect-[3/1] bg-graphite-900">
+            <img
+              src="assets/images/home2-career-pathways.jpg"
+              alt="Industrial high pressure steam pipe manifold installation and welding"
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+              width="1280"
+              height="853"
+            >
+            <div class="absolute bottom-2 start-2 font-mono text-[0.6875rem] px-2 py-1 bg-graphite-950/85 text-alloy-200 border border-graphite-700">
+              FIELD SECTOR // PRESSURE STEAM DISTRIBUTION
+            </div>
+          </div>
+        </div>
+
+        <!-- Short Typographic Labels (No cards, no promise of employment) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs text-start pt-2 border-t border-[var(--border-subtle)]">
+          <div>
+            <span class="text-gold-500 font-bold block">01 / STRUCTURAL</span>
+            <span class="text-[var(--text-primary)] font-bold font-sans">Steel Fabrication</span>
+          </div>
+          <div>
+            <span class="text-gold-500 font-bold block">02 / PIPING</span>
+            <span class="text-[var(--text-primary)] font-bold font-sans">Pressure Systems</span>
+          </div>
+          <div>
+            <span class="text-gold-500 font-bold block">03 / PRODUCTION</span>
+            <span class="text-[var(--text-primary)] font-bold font-sans">Manufacturing</span>
+          </div>
+          <div>
+            <span class="text-gold-500 font-bold block">04 / REPAIR</span>
+            <span class="text-[var(--text-primary)] font-bold font-sans">Plant Maintenance</span>
+          </div>
+        </div>
+
+        <div class="mt-4 text-start font-mono text-[0.6875rem] text-[var(--text-muted)]">
+          * Potential career pathways; employment depends on market demand and individual qualification.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 07: Explore Your Path (Compact High-Contrast Closing Focal)
+         ======================================================================= -->
+    <section id="explore-path" class="py-16 sm:py-20 bg-graphite-950 text-workshop-100">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        
+        <span class="font-mono text-xs font-bold uppercase tracking-widest text-gold-500 block">
+          ENROLLMENT COHORTS
+        </span>
+
+        <!-- Short Centered Heading -->
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-workshop-100 leading-tight">
+          EXPLORE YOUR PATH.
+        </h2>
+
+        <!-- Concise Supporting Sentence (9 words) -->
+        <p class="text-base sm:text-xl text-alloy-300 max-w-xl mx-auto font-medium">
+          Start hands-on welding education with dedicated booth time.
+        </p>
+
+        <!-- One Prominent Gold CTA -->
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <a href="programs.html" class="btn-action-primary focus-ring-tech group inline-flex items-center gap-2 text-base px-8 py-4">
+            <span>View Programs &amp; Schedules</span>
+            <svg class="h-4 w-4 rtl:rotate-180 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a href="contact.html" class="btn-action-secondary focus-ring-tech text-sm font-mono uppercase tracking-wider text-workshop-100 border-graphite-700 hover:border-gold-500 px-6 py-3.5">
+            <span>Contact Admissions</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Site Footer -->
+  <footer id="site-footer" class="w-full border-t border-[var(--border-hairline)] bg-[var(--surface-elevated)] transition-colors duration-150">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      
+      <!-- Footer Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+        
+        <!-- Column 1: Brand Wordmark & Purpose Statement -->
+        <div class="md:col-span-7 flex flex-col text-start">
+          <a href="index.html" class="brand-lockup group mb-4 inline-flex" aria-label="Welding Trade School Home">
+            <span class="brand-lockup-dominant text-xl sm:text-2xl">
+              WELDING
+            </span>
+            <span class="brand-lockup-sub text-xs">
+              TRADE SCHOOL
+            </span>
+          </a>
+
+          <!-- School Purpose Statement -->
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed max-w-lg mb-4">
+            Dedicated to advancing industrial fabrication and welding craftsmanship through rigorous hands-on technical education, metallurgical precision, and certified safety leadership.
+          </p>
+
+          <div class="font-mono text-xs text-[var(--text-muted)]">
+            <span class="inline-block px-2 py-0.5 border border-[var(--border-subtle)] bg-[var(--surface-canvas)]">
+              EST. 1994 // ACCREDITED TECHNICAL CURRICULUM
+            </span>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links Navigation -->
+        <div class="md:col-span-3 flex flex-col text-start">
+          <h2 class="font-mono text-xs tracking-wider uppercase text-[var(--text-primary)] font-bold mb-4 pb-1 border-b border-[var(--border-subtle)] flex items-center justify-between">
+            <span>QUICK LINKS</span>
+            <span class="text-[var(--text-muted)]">NAV</span>
+          </h2>
+          <nav aria-label="Footer Quick Links">
+            <ul role="list" class="space-y-2 list-none m-0 p-0 text-sm">
+              <li>
+                <a href="index.html" class="footer-link gap-2 focus-ring-tech">
+                  <span class="font-mono text-[0.6875rem] text-[var(--text-muted)]">›</span>
+                  <span>Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="programs.html" class="footer-link gap-2 focus-ring-tech">
+                  <span class="font-mono text-[0.6875rem] text-[var(--text-muted)]">›</span>
+                  <span>Programs</span>
+                </a>
+              </li>
+              <li>
+                <a href="instructors.html" class="footer-link gap-2 focus-ring-tech">
+                  <span class="font-mono text-[0.6875rem] text-[var(--text-muted)]">›</span>
+                  <span>Instructors</span>
+                </a>
+              </li>
+              <li>
+                <a href="about.html" class="footer-link gap-2 focus-ring-tech">
+                  <span class="font-mono text-[0.6875rem] text-[var(--text-muted)]">›</span>
+                  <span>About</span>
+                </a>
+              </li>
+              <li>
+                <a href="contact.html" class="footer-link gap-2 focus-ring-tech">
+                  <span class="font-mono text-[0.6875rem] text-[var(--text-muted)]">›</span>
+                  <span>Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Column 3: Portal Access -->
+        <div class="md:col-span-2 flex flex-col text-start">
+          <h2 class="font-mono text-xs tracking-wider uppercase text-[var(--text-primary)] font-bold mb-4 pb-1 border-b border-[var(--border-subtle)] flex items-center justify-between">
+            <span>PORTAL</span>
+            <span class="text-[var(--text-muted)]">AUTH</span>
+          </h2>
+          <div class="space-y-3">
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Authorized access for enrolled apprentices and technical instructors.
+            </p>
+            <a href="login.html" class="btn-primary-login focus-ring-tech site-login-btn w-full justify-center text-xs">
+              Student Login
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Sub-Bar with Dynamic Copyright Year -->
+      <div class="mt-8 pt-6 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[var(--text-muted)]">
+        <div>
+          &copy; <span id="copyright-year">2026</span> Welding Trade School. All rights reserved.
+        </div>
+        <div class="flex items-center gap-3">
+          <span>DIR: <span data-dir-label>LTR</span></span>
+          <span class="text-[var(--border-strong)]" aria-hidden="true">|</span>
+          <span>THEME: <span data-theme-label>LIGHT</span></span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

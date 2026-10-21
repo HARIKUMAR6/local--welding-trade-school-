@@ -1,0 +1,17 @@
+{
+  "_comment": "The Contact page shows a GENERAL interactive map of the area below, purely as a map demonstration. It has no pin and must never be presented as the school location. No school address is recorded.",
+  "generalMap": {
+    "label": "Chennai, India",
+    "bbox": [
+      80.17,
+      12.98,
+      80.33,
+      13.15
+    ],
+    "center": [
+      13.0827,
+      80.2707
+    ],
+    "zoom": 12
+  }
+}

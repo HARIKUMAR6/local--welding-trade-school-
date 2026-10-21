@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<script>
+  /* Theme + direction are applied before first paint so there is no flash on load or navigation. */
+  (function () {
+    try {
+      var t = localStorage.getItem('wts_theme');
+      var dark = t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', dark);
+      var d = localStorage.getItem('wts_dir');
+      document.documentElement.setAttribute('dir', d === 'rtl' ? 'rtl' : 'ltr');
+    } catch (e) { document.documentElement.setAttribute('dir', 'ltr'); }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Student Login and Dashboard | Welding Trade School</title>
+  <meta name="description" content="The Welding Trade School student portal: certification enrollment, lab-hour progress and exam results for enrolled students.">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M4 12h16"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 019.5 4 8.5 8.5 0 1020 14.5z"/></symbol>
+  <symbol id="i-dir" viewBox="0 0 24 24"><path d="M3 8h17M16 4l4 4-4 4M21 16H4M8 12l-4 4 4 4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path d="M5 11h14v10H5zM8 11V8a4 4 0 018 0v3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h7"/></symbol>
+  <symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5M9.5 9l2 2 3-3.5"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="s-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></symbol>
+  <symbol id="s-facebook" viewBox="0 0 24 24"><path d="M14.5 21v-7.5h2.6l.4-3h-3V8.7c0-.9.3-1.5 1.6-1.5h1.5V4.5a20 20 0 00-2.3-.1c-2.3 0-3.8 1.4-3.8 3.9v2.2H9v3h2.5V21"/></symbol>
+  <symbol id="s-youtube" viewBox="0 0 24 24"><path d="M21.2 8.2a2.6 2.6 0 00-1.8-1.8C17.8 6 12 6 12 6s-5.8 0-7.4.4a2.6 2.6 0 00-1.8 1.8C2.4 9.8 2.4 12 2.4 12s0 2.2.4 3.8a2.6 2.6 0 001.8 1.8C6.2 18 12 18 12 18s5.8 0 7.4-.4a2.6 2.6 0 001.8-1.8c.4-1.6.4-3.8.4-3.8s0-2.2-.4-3.8z"/><path d="M10.2 9.4v5.2l4.5-2.6z"/></symbol>
+  <symbol id="s-linkedin" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M8 10.5V16M8 7.6v.01M11.5 16v-5.5M11.5 13c0-1.5 1-2.5 2.3-2.5S16 11.5 16 13v3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 6l9 8 9-8"/></symbol>
+  <!-- AWS-style weld symbol glyphs (reference line + joint symbol) -->
+  <symbol id="w-fillet" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M16 14v10l10-10z" fill="currentColor"/></symbol>
+  <symbol id="w-vgroove" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M16 24l8-10 8 10"/></symbol>
+  <symbol id="w-bevel" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M20 14v10M20 24l9-10"/></symbol>
+  <symbol id="w-ugroove" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M16 14v4c0 8 16 8 16 0v-4"/></symbol>
+  <symbol id="w-square" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M21 14v10M27 14v10"/></symbol>
+</svg>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header" id="site-header">
+  <div class="wrap bar">
+    <a href="index.html" class="brand" aria-label="Welding Trade School, home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" fill="currentColor"/>
+        <path d="M12 22H34M12 22L5 31" style="stroke:var(--bg)" stroke-width="2.6" fill="none"/>
+        <path d="M18 22V30L26 22Z" fill="#FF5A1F"/>
+      </svg>
+      <span class="brand-name"><b>Welding</b><span>Trade School</span></span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <div class="nav-item">
+        <button type="button" class="nav-link" id="home-toggle" data-nav-group="index.html home-2.html" aria-expanded="false" aria-controls="home-menu">
+          Home <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg>
+        </button>
+        <ul class="dropdown" id="home-menu" hidden>
+          <li><a href="index.html" data-nav="index.html">Home 1</a></li>
+          <li><a href="home-2.html" data-nav="home-2.html">Home 2</a></li>
+        </ul>
+      </div>
+      <a href="programs.html" class="nav-link" data-nav="programs.html">Programs</a>
+      <a href="instructors.html" class="nav-link" data-nav="instructors.html">Instructors</a>
+      <a href="about.html" class="nav-link" data-nav="about.html">About</a>
+      <a href="contact.html" class="nav-link" data-nav="contact.html">Contact</a>
+      <a href="login.html" class="nav-link" data-nav="login.html" aria-current="page">Dashboard</a>
+    </nav>
+
+    <div class="actions-desktop">
+      <button type="button" class="ctl-btn" data-action="toggle-theme" data-icon-only aria-label="Switch to dark mode">
+        <span data-theme-icon aria-hidden="true">
+          <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+        </span>
+      </button>
+      <button type="button" class="ctl-btn ctl-btn-text" data-action="toggle-dir" data-icon-only aria-label="Text direction: left to right. Switch to right to left"><span data-dir-label>LTR</span></button>
+      <a href="login.html" class="btn btn-secondary btn-sm" data-nav="login.html" aria-current="page">
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#i-lock"/></svg>Student Login
+      </a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Enroll Now</a>
+    </div>
+
+    <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-sheet" aria-label="Open menu">
+      <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="icon icon-shut" aria-hidden="true" hidden><use href="#i-close"/></svg>
+    </button>
+  </div>
+
+  <div class="sheet" id="nav-sheet" hidden>
+    <nav aria-label="Mobile">
+      <button type="button" class="sheet-link" id="sheet-home-toggle" data-nav-group="index.html home-2.html" aria-expanded="false" aria-controls="sheet-home">
+        <span>Home</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+      </button>
+      <div class="sheet-sub" id="sheet-home" hidden>
+        <a href="index.html" data-nav="index.html">Home 1</a>
+        <a href="home-2.html" data-nav="home-2.html">Home 2</a>
+      </div>
+      <a href="programs.html" class="sheet-link" data-nav="programs.html">Programs</a>
+      <a href="instructors.html" class="sheet-link" data-nav="instructors.html">Instructors</a>
+      <a href="about.html" class="sheet-link" data-nav="about.html">About</a>
+      <a href="contact.html" class="sheet-link" data-nav="contact.html">Contact</a>
+      <a href="login.html" class="sheet-link" data-nav="login.html" aria-current="page">Dashboard</a>
+    </nav>
+    <div class="sheet-tools">
+      <div class="theme-pair" role="group" aria-label="Colour theme">
+        <button type="button" class="theme-opt" data-set-theme="light" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span>Light</span>
+        </button>
+        <button type="button" class="theme-opt" data-set-theme="dark" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span>Dark</span>
+        </button>
+      </div>
+      <button type="button" class="ctl-btn ctl-btn-text sheet-dir" data-action="toggle-dir" data-icon-only aria-label="Text direction: left to right. Switch to right to left"><span data-dir-label>LTR</span></button>
+    </div>
+    <div class="grid gap-3 mt-6">
+      <a href="contact.html" class="btn btn-primary">Enroll Now</a>
+      <a href="login.html" class="btn btn-secondary" data-nav="login.html" aria-current="page">
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#i-lock"/></svg>Student Login
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="tone-alt flex" style="flex:1 0 auto">
+  <div class="wrap flex" style="padding-block:var(--section-y)">
+    <div class="stub">
+      <p class="eyebrow">Student portal</p>
+      <h1 class="display d-lg mt-4">Student login and dashboard</h1>
+      <p class="body-2 mt-4">The student dashboard is where enrolled students follow their certification enrollment, lab-hour progress and exam results.</p>
+      <ul class="stub-list mt-6">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-badge"/></svg>Certification program enrollment</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Lab hours completed</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg>Exam results</li>
+      </ul>
+      <p class="stub-note mt-6">Online sign-in is not available on this website yet. Enrolled students with questions about their record can contact admissions.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="contact.html" class="btn btn-primary">Contact admissions <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="programs.html" class="btn btn-secondary">Explore programs</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer tone-ink" id="site-footer">
+  <div class="bead bead-arc" aria-hidden="true"></div>
+  <div class="wrap" style="padding-block: clamp(3rem, 2rem + 4vw, 5.5rem) 2rem">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <a href="index.html" class="brand brand-lg" aria-label="Welding Trade School, home">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <rect width="40" height="40" fill="currentColor"/>
+            <path d="M12 22H34M12 22L5 31" style="stroke:var(--bg)" stroke-width="2.6" fill="none"/>
+            <path d="M18 22V30L26 22Z" fill="#FF5A1F"/>
+          </svg>
+          <span class="brand-name"><b>Welding</b><span>Trade School</span></span>
+        </a>
+        <p class="mt-6 max-w-sm text-fg-2" style="font-size:1.0625rem">Hands-on welding training and certification preparation, built around real lab time at the booth.</p>
+        <div class="social mt-8">
+          <ul class="social-list" aria-label="Social media">
+            <li><span class="social-icon" role="img" aria-label="Instagram: profile not yet published"><svg class="icon" aria-hidden="true"><use href="#s-instagram"/></svg></span></li>
+            <li><span class="social-icon" role="img" aria-label="Facebook: profile not yet published"><svg class="icon" aria-hidden="true"><use href="#s-facebook"/></svg></span></li>
+            <li><span class="social-icon" role="img" aria-label="YouTube: channel not yet published"><svg class="icon" aria-hidden="true"><use href="#s-youtube"/></svg></span></li>
+            <li><span class="social-icon" role="img" aria-label="LinkedIn: page not yet published"><svg class="icon" aria-hidden="true"><use href="#s-linkedin"/></svg></span></li>
+          </ul>
+          <p class="social-note">Social profiles coming soon</p>
+        </div>
+      </div>
+
+      <div class="grid gap-10 sm:grid-cols-3 lg:col-span-7">
+        <nav class="footer-col" aria-label="Programs">
+          <h2>Programs</h2>
+          <ul>
+            <li><a href="programs.html" class="footer-link">MIG / GMAW</a></li>
+            <li><a href="programs.html" class="footer-link">TIG / GTAW</a></li>
+            <li><a href="programs.html" class="footer-link">Stick / SMAW</a></li>
+            <li><a href="programs.html" class="footer-link">All programs</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="School">
+          <h2>School</h2>
+          <ul>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="instructors.html" class="footer-link">Instructors</a></li>
+            <li><a href="index.html#certification" class="footer-link" data-home-anchor="certification">Certification</a></li>
+            <li><a href="index.html#careers" class="footer-link" data-home-anchor="careers">Careers</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Students</h2>
+          <ul>
+            <li><a href="login.html" class="footer-link footer-link-icon"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span>Student Login</span></a></li>
+            <li><a href="contact.html" class="footer-link footer-link-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>Contact admissions</span></a></li>
+          </ul>
+          <p class="mt-4 text-fg-2" style="font-size:.9375rem">The student portal covers certification enrollment, lab-hour tracking and exam results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="wrap flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-5" style="font-size:.875rem">
+      <p class="m-0 text-fg-2">&copy; <span data-year>2026</span> Welding Trade School. All rights reserved.</p>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <a href="credits.html" class="footer-link" style="min-height:2.5rem">Image credits</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="enroll-bar tone-ink" id="enroll-bar" role="region" aria-label="Enrollment">
+  <p>Ready to start welding?</p>
+  <a href="contact.html" class="btn btn-primary btn-sm">Enroll Now</a>
+</div>
+
+<button type="button" class="to-top" id="to-top" aria-label="Scroll to top" hidden>
+  <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg>
+</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

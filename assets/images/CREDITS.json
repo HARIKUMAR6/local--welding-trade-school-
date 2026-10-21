@@ -1,0 +1,434 @@
+{
+  "h1-hero": {
+    "page": "index.html",
+    "section": "Hero",
+    "file": "Mig Welding Overhead.jpg",
+    "author": "Prowelder87",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mig_Welding_Overhead.jpg"
+  },
+  "h1-lab": {
+    "page": "index.html",
+    "section": "Lab training",
+    "file": "Helping the range in high school shop class (27476439571).jpg",
+    "author": "Bureau of Land Management Oregon and Washington from Portland, America",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Helping_the_range_in_high_school_shop_class_(27476439571).jpg"
+  },
+  "h1-mig": {
+    "page": "index.html",
+    "section": "Process selector: MIG",
+    "file": "Gas Metal Arc Welding (Mig).jpg",
+    "author": "Weldscientist",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gas_Metal_Arc_Welding_(Mig).jpg"
+  },
+  "h1-tig": {
+    "page": "index.html",
+    "section": "Process selector: TIG",
+    "file": "Tig Welding WP9.jpg",
+    "author": "Prowelder87",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tig_Welding_WP9.jpg"
+  },
+  "h1-stick": {
+    "page": "index.html",
+    "section": "Process selector: Stick",
+    "file": "Shielded Metal Arc Welding .jpg",
+    "author": "Prowelder87",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shielded_Metal_Arc_Welding_.jpg"
+  },
+  "h1-instructor": {
+    "page": "index.html",
+    "section": "Instructors",
+    "file": "Welding Course.jpg",
+    "author": "Felicity.weary",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Welding_Course.jpg"
+  },
+  "h1-cert": {
+    "page": "index.html",
+    "section": "Certification",
+    "file": "US Navy 090821-N-1245S-003 Aviation Structural Mechanic 2nd Class Daniel Ussery assigned to the aircraft carrier USS Nimitz (CVN 68) welds a metal test plate.jpg",
+    "author": "U.S. Navy photo by Mass Communication Specialist 2nd Class Gregory A. Streit",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:US_Navy_090821-N-1245S-003_Aviation_Structural_Mechanic_2nd_Class_Daniel_Ussery_assigned_to_the_aircraft_carrier_USS_Nimitz_(CVN_68)_welds_a_metal_test_plate.jpg"
+  },
+  "h1-career-structural": {
+    "page": "index.html",
+    "section": "Careers: structural",
+    "file": "Great Bridge Lock Replacement 2014 (12680435433).jpg",
+    "author": "U.S. Army Corps of Engineers Norfolk District from United States",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Great_Bridge_Lock_Replacement_2014_(12680435433).jpg"
+  },
+  "h1-career-piping": {
+    "page": "index.html",
+    "section": "Careers: piping",
+    "file": "Welding pipe.jpg",
+    "author": "Newfoundlandguy",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Welding_pipe.jpg"
+  },
+  "h1-career-production": {
+    "page": "index.html",
+    "section": "Careers: production",
+    "file": "Welding Shop DVIDS186624.jpg",
+    "author": "Petty Officer 1st Class Carmichael Yepez",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Welding_Shop_DVIDS186624.jpg"
+  },
+  "h1-career-repair": {
+    "page": "index.html",
+    "section": "Careers: repair",
+    "file": "Modern Mig Welding.jpg",
+    "author": "Prowelder87",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Modern_Mig_Welding.jpg"
+  },
+  "h1-enroll": {
+    "page": "index.html",
+    "section": "Enrollment",
+    "file": "Mig wielder.jpg",
+    "author": "Luke Haggart",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mig_wielder.jpg"
+  },
+  "h2-hero-a": {
+    "page": "home-2.html",
+    "section": "Hero collage A",
+    "file": "Helping the range in high school shop class (27271912190).jpg",
+    "author": "Bureau of Land Management Oregon and Washington from Portland, America",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Helping_the_range_in_high_school_shop_class_(27271912190).jpg"
+  },
+  "h2-hero-b": {
+    "page": "home-2.html",
+    "section": "Hero collage B",
+    "file": "Welder - DPLA - 766b62e384e2c24160e7a3a522324aba.jpg",
+    "author": "David E. Lucas",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Welder_-_DPLA_-_766b62e384e2c24160e7a3a522324aba.jpg"
+  },
+  "h2-hero-c": {
+    "page": "home-2.html",
+    "section": "Hero collage C",
+    "file": "White Mountains Community College Advanced Welding Teaching Lab - 13764731094.jpg",
+    "author": "AMPedNH",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:White_Mountains_Community_College_Advanced_Welding_Teaching_Lab_-_13764731094.jpg"
+  },
+  "h2-mod-mig": {
+    "page": "home-2.html",
+    "section": "Skill module: MIG",
+    "file": "Mig Welding Lesson 2 at Milwaukee Makerspace (photo by Jason Gessner).jpg",
+    "author": "jason gessner",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mig_Welding_Lesson_2_at_Milwaukee_Makerspace_(photo_by_Jason_Gessner).jpg"
+  },
+  "h2-mod-tig": {
+    "page": "home-2.html",
+    "section": "Skill module: TIG",
+    "file": "TIG welding.jpg",
+    "author": "Mak04 at Slovenian Wikipedia",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:TIG_welding.jpg"
+  },
+  "h2-mod-stick": {
+    "page": "home-2.html",
+    "section": "Skill module: Stick",
+    "file": "Shielded Metal Arc Welding.jpg",
+    "author": "Weldscientist",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shielded_Metal_Arc_Welding.jpg"
+  },
+  "h2-instructor": {
+    "page": "home-2.html",
+    "section": "Instructor band",
+    "file": "Welding open house (13222190783).jpg",
+    "author": "University of the Fraser Valley",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Welding_open_house_(13222190783).jpg"
+  },
+  "h2-cert": {
+    "page": "home-2.html",
+    "section": "Certification and assessment",
+    "file": "U.S. Coast Guard Chief Warrant Officer Rick Nieves, left, and Chief Warrant Officer Dave Getchell, vessel inspectors with Coast Guard Sector Anchorage, inspect welds on the ferry Tustumena in Seward, Alaska 130731-G-ZR723-002.jpg",
+    "author": "Petty Officer 1st Class Shawn Eggert",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:U.S._Coast_Guard_Chief_Warrant_Officer_Rick_Nieves,_left,_and_Chief_Warrant_Officer_Dave_Getchell,_vessel_inspectors_with_Coast_Guard_Sector_Anchorage,_inspect_welds_on_the_ferry_Tustumena_in_Seward,_Alaska_130731-G-ZR723-002.jpg"
+  },
+  "h2-career-structural": {
+    "page": "home-2.html",
+    "section": "Careers panel: structural",
+    "file": "I-beam raw material at WP Welding 1.jpg",
+    "author": "W.carter",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:I-beam_raw_material_at_WP_Welding_1.jpg"
+  },
+  "h2-career-piping": {
+    "page": "home-2.html",
+    "section": "Careers panel: piping",
+    "file": "Spiral Welding.jpg",
+    "author": "Mostafa Gholamnejad",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Spiral_Welding.jpg"
+  },
+  "h2-career-production": {
+    "page": "home-2.html",
+    "section": "Careers panel: production",
+    "file": "Stainless pipe weld joints.jpg",
+    "author": "Flattrackers and Caferacers Parts and bikebuilds",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Stainless_pipe_weld_joints.jpg"
+  },
+  "h2-career-repair": {
+    "page": "home-2.html",
+    "section": "Careers panel: repair",
+    "file": "Fieldwelding.jpg",
+    "author": "Own work by Rvannatta",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Fieldwelding.jpg"
+  },
+  "h2-close": {
+    "page": "home-2.html",
+    "section": "Closing enrollment",
+    "file": "Welding in schools Cours de soudage dans les écoles (35301815762).jpg",
+    "author": "New Brunswick / Nouveau-Brunswick",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Welding_in_schools_Cours_de_soudage_dans_les_%C3%A9coles_(35301815762).jpg"
+  },
+  "pg-hero": {
+    "page": "programs.html",
+    "section": "Hero",
+    "file": "Helping the range in high school shop class (27514181706).jpg",
+    "author": "Bureau of Land Management Oregon and Washington from Portland, America",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Helping_the_range_in_high_school_shop_class_(27514181706).jpg"
+  },
+  "pg-mig": {
+    "page": "programs.html",
+    "section": "MIG / GMAW main",
+    "file": "Migpipe.jpg",
+    "author": "Weldscientist",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Migpipe.jpg"
+  },
+  "pg-mig-detail": {
+    "page": "programs.html",
+    "section": "MIG / GMAW detail",
+    "file": "GMAW.welding.af.ncs.jpg",
+    "author": "William M. Plate Jr.",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:GMAW.welding.af.ncs.jpg"
+  },
+  "pg-tig": {
+    "page": "programs.html",
+    "section": "TIG / GTAW",
+    "file": "RK CK.jpg",
+    "author": "Weldscientist",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:RK_CK.jpg"
+  },
+  "pg-stick": {
+    "page": "programs.html",
+    "section": "Stick / SMAW band",
+    "file": "GOPR4674.jpg",
+    "author": "Weldscientist",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:GOPR4674.jpg"
+  },
+  "pg-stick-detail": {
+    "page": "programs.html",
+    "section": "Stick / SMAW detail",
+    "file": "Shielded metal arc welding at TWI Ltd.jpg",
+    "author": "TWI Ltd",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shielded_metal_arc_welding_at_TWI_Ltd.jpg"
+  },
+  "pg-path": {
+    "page": "programs.html",
+    "section": "Training and certification pathway",
+    "file": "Behind the Scenes- Welder and Brazer Qualification Tests (9593462).jpg",
+    "author": "U.S. Army photo by Monique Freemon",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Behind_the_Scenes-_Welder_and_Brazer_Qualification_Tests_(9593462).jpg"
+  },
+  "in-hero-a": {
+    "page": "instructors.html",
+    "section": "Hero, start photo",
+    "file": "435 CTS strengthen contingency readiness (6203670).jpg",
+    "author": "U.S. Air Force photo by Senior Airman Milton Hamilton",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:435_CTS_strengthen_contingency_readiness_(6203670).jpg"
+  },
+  "in-hero-b": {
+    "page": "instructors.html",
+    "section": "Hero, end photo",
+    "file": "Students see how Seabees do STEM 150616-N-HA376-055.jpg",
+    "author": "Chief Petty Officer Lowell Whitman",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Students_see_how_Seabees_do_STEM_150616-N-HA376-055.jpg"
+  },
+  "in-demo": {
+    "page": "instructors.html",
+    "section": "Teaching approach",
+    "file": "Welding with an instructor.jpg",
+    "author": "Rwebogora",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Welding_with_an_instructor.jpg"
+  },
+  "in-watch": {
+    "page": "instructors.html",
+    "section": "At the booth",
+    "file": "Helping the range in high school shop class (27514157066).jpg",
+    "author": "Bureau of Land Management Oregon and Washington from Portland, America",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Helping_the_range_in_high_school_shop_class_(27514157066).jpg"
+  },
+  "in-review": {
+    "page": "instructors.html",
+    "section": "Support: reviewing work",
+    "file": "Helping the range in high school shop class (27514231126).jpg",
+    "author": "BLM Oregon & Washington",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Helping_the_range_in_high_school_shop_class_(27514231126).jpg"
+  },
+  "in-prep": {
+    "page": "instructors.html",
+    "section": "Support: assessment practice",
+    "file": "US Navy 090114-N-9704L-004 Hull Technician Fireman John Hansen lays beads for welding qualifications.jpg",
+    "author": "U.S. Navy photo by Mass Communication Specialist Seaman Apprentice Ridge Leoni",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:US_Navy_090114-N-9704L-004_Hull_Technician_Fireman_John_Hansen_lays_beads_for_welding_qualifications.jpg"
+  },
+  "in-safety": {
+    "page": "instructors.html",
+    "section": "Safety",
+    "file": "435 CTS strengthen contingency readiness (6203672).jpg",
+    "author": "U.S. Air Force photo by Senior Airman Milton Hamilton",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:435_CTS_strengthen_contingency_readiness_(6203672).jpg"
+  },
+  "in-close": {
+    "page": "instructors.html",
+    "section": "Closing CTA",
+    "file": "L-2022-05-02-B-2 (52047356593).jpg",
+    "author": "US Department of Labor",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:L-2022-05-02-B-2_(52047356593).jpg"
+  },
+  "ab-hero": {
+    "page": "about.html",
+    "section": "Hero, school plate",
+    "file": "7461 Welding in a Lincoln College workshop.jpg",
+    "author": "Ronald Charles Blackmore",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:7461_Welding_in_a_Lincoln_College_workshop.jpg"
+  },
+  "ab-who": {
+    "page": "about.html",
+    "section": "Who we are",
+    "file": "Students practicing Welding at Workshop.jpg",
+    "author": "Navinreddy23",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Students_practicing_Welding_at_Workshop.jpg"
+  },
+  "ab-philosophy": {
+    "page": "about.html",
+    "section": "Training philosophy",
+    "file": "Vocational students impressed by American military DVIDS251157.jpg",
+    "author": "Staff Sgt. Nichelle Anderson",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Vocational_students_impressed_by_American_military_DVIDS251157.jpg"
+  },
+  "ab-mig": {
+    "page": "about.html",
+    "section": "Learning the trade: MIG",
+    "file": "Welder welding Flickr.jpg",
+    "author": "Julian Carvajal",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Welder_welding_Flickr.jpg"
+  },
+  "ab-tig": {
+    "page": "about.html",
+    "section": "Learning the trade: TIG",
+    "file": "US Navy 090715-N-5821P-002 Aviation Support Equipment Technician Airman Anthony Hammond performs tungsten inert gas welding during a training evolution.jpg",
+    "author": "U.S. Navy photo by Mass Communication Specialist 2nd Class Jason T. Poplin",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:US_Navy_090715-N-5821P-002_Aviation_Support_Equipment_Technician_Airman_Anthony_Hammond_performs_tungsten_inert_gas_welding_during_a_training_evolution.jpg"
+  },
+  "ab-stick": {
+    "page": "about.html",
+    "section": "Learning the trade: Stick",
+    "file": "US Navy 091021-N-0807W-425 Hull Technician Fireman Adrine M. Thomas assigned to the amphibious dock landing ship USS Harpers Ferry (LSD 49), uses a Shielded-Metal Arc Welding (SMAW).jpg",
+    "author": "U.S. Navy photo by Mass Communication Specialist 2nd Class Joshua J. Wahl",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:US_Navy_091021-N-0807W-425_Hull_Technician_Fireman_Adrine_M._Thomas_assigned_to_the_amphibious_dock_landing_ship_USS_Harpers_Ferry_(LSD_49),_uses_a_Shielded-Metal_Arc_Welding_(SMAW).jpg"
+  },
+  "ct-hero": {
+    "page": "contact.html",
+    "section": "Hero",
+    "file": "Helping the range in high school shop class (27514170396).jpg",
+    "author": "Bureau of Land Management Oregon and Washington from Portland, America",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Helping_the_range_in_high_school_shop_class_(27514170396).jpg"
+  },
+  "ct-close": {
+    "page": "contact.html",
+    "section": "Visit or contact the school",
+    "file": "Bråvallagymnasiet Norrköping svets 2019-09-06 14.57.52-1.jpg",
+    "author": "OJH",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Br%C3%A5vallagymnasiet_Norrk%C3%B6ping_svets_2019-09-06_14.57.52-1.jpg"
+  }
+}

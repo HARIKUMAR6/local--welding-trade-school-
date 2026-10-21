@@ -1,0 +1,290 @@
+{
+  "h1-hero": {
+    "page": "index.html",
+    "section": "Hero",
+    "file": "Mig Welding Overhead.jpg",
+    "width": 1920
+  },
+  "h1-lab": {
+    "page": "index.html",
+    "section": "Lab training",
+    "file": "Helping the range in high school shop class (27476439571).jpg",
+    "width": 1920
+  },
+  "h1-mig": {
+    "page": "index.html",
+    "section": "Process selector: MIG",
+    "file": "Gas Metal Arc Welding (Mig).jpg",
+    "width": 1600
+  },
+  "h1-tig": {
+    "page": "index.html",
+    "section": "Process selector: TIG",
+    "file": "Tig Welding WP9.jpg",
+    "width": 1600
+  },
+  "h1-stick": {
+    "page": "index.html",
+    "section": "Process selector: Stick",
+    "file": "Shielded Metal Arc Welding .jpg",
+    "width": 1600
+  },
+  "h1-instructor": {
+    "page": "index.html",
+    "section": "Instructors",
+    "file": "Welding Course.jpg",
+    "width": 1600
+  },
+  "h1-cert": {
+    "page": "index.html",
+    "section": "Certification",
+    "file": "US Navy 090821-N-1245S-003 Aviation Structural Mechanic 2nd Class Daniel Ussery assigned to the aircraft carrier USS Nimitz (CVN 68) welds a metal test plate.jpg",
+    "width": 1920
+  },
+  "h1-career-structural": {
+    "page": "index.html",
+    "section": "Careers: structural",
+    "file": "Great Bridge Lock Replacement 2014 (12680435433).jpg",
+    "width": 1400
+  },
+  "h1-career-piping": {
+    "page": "index.html",
+    "section": "Careers: piping",
+    "file": "Welding pipe.jpg",
+    "width": 1400
+  },
+  "h1-career-production": {
+    "page": "index.html",
+    "section": "Careers: production",
+    "file": "Welding Shop DVIDS186624.jpg",
+    "width": 1400
+  },
+  "h1-career-repair": {
+    "page": "index.html",
+    "section": "Careers: repair",
+    "file": "Modern Mig Welding.jpg",
+    "width": 1400
+  },
+  "h1-enroll": {
+    "page": "index.html",
+    "section": "Enrollment",
+    "file": "Mig wielder.jpg",
+    "width": 1800
+  },
+  "h2-hero-a": {
+    "page": "home-2.html",
+    "section": "Hero collage A",
+    "file": "Helping the range in high school shop class (27271912190).jpg",
+    "width": 1920
+  },
+  "h2-hero-b": {
+    "page": "home-2.html",
+    "section": "Hero collage B",
+    "file": "Welder - DPLA - 766b62e384e2c24160e7a3a522324aba.jpg",
+    "width": 1600
+  },
+  "h2-hero-c": {
+    "page": "home-2.html",
+    "section": "Hero collage C",
+    "file": "White Mountains Community College Advanced Welding Teaching Lab - 13764731094.jpg",
+    "width": 1600
+  },
+  "h2-mod-mig": {
+    "page": "home-2.html",
+    "section": "Skill module: MIG",
+    "file": "Mig Welding Lesson 2 at Milwaukee Makerspace (photo by Jason Gessner).jpg",
+    "width": 1800
+  },
+  "h2-mod-tig": {
+    "page": "home-2.html",
+    "section": "Skill module: TIG",
+    "file": "TIG welding.jpg",
+    "width": 1800
+  },
+  "h2-mod-stick": {
+    "page": "home-2.html",
+    "section": "Skill module: Stick",
+    "file": "Shielded Metal Arc Welding.jpg",
+    "width": 1800
+  },
+  "h2-instructor": {
+    "page": "home-2.html",
+    "section": "Instructor band",
+    "file": "Welding open house (13222190783).jpg",
+    "width": 1920
+  },
+  "h2-cert": {
+    "page": "home-2.html",
+    "section": "Certification and assessment",
+    "file": "U.S. Coast Guard Chief Warrant Officer Rick Nieves, left, and Chief Warrant Officer Dave Getchell, vessel inspectors with Coast Guard Sector Anchorage, inspect welds on the ferry Tustumena in Seward, Alaska 130731-G-ZR723-002.jpg",
+    "width": 1800
+  },
+  "h2-career-structural": {
+    "page": "home-2.html",
+    "section": "Careers panel: structural",
+    "file": "I-beam raw material at WP Welding 1.jpg",
+    "width": 1400
+  },
+  "h2-career-piping": {
+    "page": "home-2.html",
+    "section": "Careers panel: piping",
+    "file": "Spiral Welding.jpg",
+    "width": 1400
+  },
+  "h2-career-production": {
+    "page": "home-2.html",
+    "section": "Careers panel: production",
+    "file": "Stainless pipe weld joints.jpg",
+    "width": 1400
+  },
+  "h2-career-repair": {
+    "page": "home-2.html",
+    "section": "Careers panel: repair",
+    "file": "Fieldwelding.jpg",
+    "width": 1400
+  },
+  "h2-close": {
+    "page": "home-2.html",
+    "section": "Closing enrollment",
+    "file": "Welding in schools Cours de soudage dans les écoles (35301815762).jpg",
+    "width": 1920
+  },
+  "pg-hero": {
+    "page": "programs.html",
+    "section": "Hero",
+    "file": "Helping the range in high school shop class (27514181706).jpg",
+    "width": 1920
+  },
+  "pg-mig": {
+    "page": "programs.html",
+    "section": "MIG / GMAW main",
+    "file": "Migpipe.jpg",
+    "width": 1920
+  },
+  "pg-mig-detail": {
+    "page": "programs.html",
+    "section": "MIG / GMAW detail",
+    "file": "GMAW.welding.af.ncs.jpg",
+    "width": 1600
+  },
+  "pg-tig": {
+    "page": "programs.html",
+    "section": "TIG / GTAW",
+    "file": "RK CK.jpg",
+    "width": 1600
+  },
+  "pg-stick": {
+    "page": "programs.html",
+    "section": "Stick / SMAW band",
+    "file": "GOPR4674.jpg",
+    "width": 1920
+  },
+  "pg-stick-detail": {
+    "page": "programs.html",
+    "section": "Stick / SMAW detail",
+    "file": "Shielded metal arc welding at TWI Ltd.jpg",
+    "width": 1400
+  },
+  "pg-path": {
+    "page": "programs.html",
+    "section": "Training and certification pathway",
+    "file": "Behind the Scenes- Welder and Brazer Qualification Tests (9593462).jpg",
+    "width": 1920
+  },
+  "in-hero-a": {
+    "page": "instructors.html",
+    "section": "Hero, start photo",
+    "file": "435 CTS strengthen contingency readiness (6203670).jpg",
+    "width": 1920
+  },
+  "in-hero-b": {
+    "page": "instructors.html",
+    "section": "Hero, end photo",
+    "file": "Students see how Seabees do STEM 150616-N-HA376-055.jpg",
+    "width": 1920
+  },
+  "in-demo": {
+    "page": "instructors.html",
+    "section": "Teaching approach",
+    "file": "Welding with an instructor.jpg",
+    "width": 1400
+  },
+  "in-watch": {
+    "page": "instructors.html",
+    "section": "At the booth",
+    "file": "Helping the range in high school shop class (27514157066).jpg",
+    "width": 1920
+  },
+  "in-review": {
+    "page": "instructors.html",
+    "section": "Support: reviewing work",
+    "file": "Helping the range in high school shop class (27514231126).jpg",
+    "width": 1600
+  },
+  "in-prep": {
+    "page": "instructors.html",
+    "section": "Support: assessment practice",
+    "file": "US Navy 090114-N-9704L-004 Hull Technician Fireman John Hansen lays beads for welding qualifications.jpg",
+    "width": 1600
+  },
+  "in-safety": {
+    "page": "instructors.html",
+    "section": "Safety",
+    "file": "435 CTS strengthen contingency readiness (6203672).jpg",
+    "width": 1600
+  },
+  "in-close": {
+    "page": "instructors.html",
+    "section": "Closing CTA",
+    "file": "L-2022-05-02-B-2 (52047356593).jpg",
+    "width": 1920
+  },
+  "ab-hero": {
+    "page": "about.html",
+    "section": "Hero, school plate",
+    "file": "7461 Welding in a Lincoln College workshop.jpg",
+    "width": 1600
+  },
+  "ab-who": {
+    "page": "about.html",
+    "section": "Who we are",
+    "file": "Students practicing Welding at Workshop.jpg",
+    "width": 1920
+  },
+  "ab-philosophy": {
+    "page": "about.html",
+    "section": "Training philosophy",
+    "file": "Vocational students impressed by American military DVIDS251157.jpg",
+    "width": 1920
+  },
+  "ab-mig": {
+    "page": "about.html",
+    "section": "Learning the trade: MIG",
+    "file": "Welder welding Flickr.jpg",
+    "width": 1400
+  },
+  "ab-tig": {
+    "page": "about.html",
+    "section": "Learning the trade: TIG",
+    "file": "US Navy 090715-N-5821P-002 Aviation Support Equipment Technician Airman Anthony Hammond performs tungsten inert gas welding during a training evolution.jpg",
+    "width": 1400
+  },
+  "ab-stick": {
+    "page": "about.html",
+    "section": "Learning the trade: Stick",
+    "file": "US Navy 091021-N-0807W-425 Hull Technician Fireman Adrine M. Thomas assigned to the amphibious dock landing ship USS Harpers Ferry (LSD 49), uses a Shielded-Metal Arc Welding (SMAW).jpg",
+    "width": 1400
+  },
+  "ct-hero": {
+    "page": "contact.html",
+    "section": "Hero",
+    "file": "Helping the range in high school shop class (27514170396).jpg",
+    "width": 1600
+  },
+  "ct-close": {
+    "page": "contact.html",
+    "section": "Visit or contact the school",
+    "file": "Bråvallagymnasiet Norrköping svets 2019-09-06 14.57.52-1.jpg",
+    "width": 1400
+  }
+}

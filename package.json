@@ -1,0 +1,40 @@
+{
+  "name": "welding-trade-school",
+  "version": "1.0.0",
+  "description": "Welding Trade School - Industrial & Technical Education Website",
+  "scripts": {
+    "build:css": "node scripts/build-css.js",
+    "build:pages": "node scripts/build-pages.js",
+    "build:images": "node scripts/build-images.js",
+    "build": "node scripts/build-pages.js && node scripts/build-css.js",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/css/styles.css --watch",
+    "start": "node server.js",
+    "test:functional": "node test/functional.js",
+    "test:contrast": "node test/contrast-audit.js",
+    "test:viewport": "node test/viewport-audit.js",
+    "test:images": "node test/image-audit.js",
+    "test:coverage": "node test/coverage.js",
+    "test": "node test/coverage.js && node test/image-audit.js && node test/functional.js && node test/shell.js && node test/programs.js && node test/instructors.js && node test/about.js && node test/contact.js && node test/heading-align.js programs.html && node test/heading-align.js instructors.html && node test/heading-align.js about.html && node test/heading-align.js contact.html && node test/viewport-audit.js && node test/contrast-audit.js",
+    "test:programs": "node test/programs.js",
+    "test:headings": "node test/heading-align.js programs.html && node test/heading-align.js instructors.html && node test/heading-align.js about.html && node test/heading-align.js contact.html",
+    "test:instructors": "node test/instructors.js",
+    "test:about": "node test/about.js",
+    "test:contact": "node test/contact.js",
+    "test:shell": "node test/shell.js"
+  },
+  "keywords": [
+    "welding",
+    "trade-school",
+    "technical-education",
+    "industrial"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "playwright-core": "^1.64.1",
+    "postcss": "^8.5.8",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^3.4.17"
+  }
+}

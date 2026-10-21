@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<script>
+  /* Theme + direction are applied before first paint so there is no flash on load or navigation. */
+  (function () {
+    try {
+      var t = localStorage.getItem('wts_theme');
+      var dark = t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', dark);
+      var d = localStorage.getItem('wts_dir');
+      document.documentElement.setAttribute('dir', d === 'rtl' ? 'rtl' : 'ltr');
+    } catch (e) { document.documentElement.setAttribute('dir', 'ltr'); }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Welding Trade School | Hands-on Welding Training and Certification</title>
+  <meta name="description" content="Welding Trade School: hands-on MIG, TIG and Stick welding training, lab-hour tracking and certification preparation, with a clear path from enrollment to a welding career.">
+</head>
+<body id="top">
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M4 12h16"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 019.5 4 8.5 8.5 0 1020 14.5z"/></symbol>
+  <symbol id="i-dir" viewBox="0 0 24 24"><path d="M3 8h17M16 4l4 4-4 4M21 16H4M8 12l-4 4 4 4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path d="M5 11h14v10H5zM8 11V8a4 4 0 018 0v3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h7"/></symbol>
+  <symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5M9.5 9l2 2 3-3.5"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="s-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></symbol>
+  <symbol id="s-facebook" viewBox="0 0 24 24"><path d="M14.5 21v-7.5h2.6l.4-3h-3V8.7c0-.9.3-1.5 1.6-1.5h1.5V4.5a20 20 0 00-2.3-.1c-2.3 0-3.8 1.4-3.8 3.9v2.2H9v3h2.5V21"/></symbol>
+  <symbol id="s-youtube" viewBox="0 0 24 24"><path d="M21.2 8.2a2.6 2.6 0 00-1.8-1.8C17.8 6 12 6 12 6s-5.8 0-7.4.4a2.6 2.6 0 00-1.8 1.8C2.4 9.8 2.4 12 2.4 12s0 2.2.4 3.8a2.6 2.6 0 001.8 1.8C6.2 18 12 18 12 18s5.8 0 7.4-.4a2.6 2.6 0 001.8-1.8c.4-1.6.4-3.8.4-3.8s0-2.2-.4-3.8z"/><path d="M10.2 9.4v5.2l4.5-2.6z"/></symbol>
+  <symbol id="s-linkedin" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M8 10.5V16M8 7.6v.01M11.5 16v-5.5M11.5 13c0-1.5 1-2.5 2.3-2.5S16 11.5 16 13v3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 6l9 8 9-8"/></symbol>
+  <!-- AWS-style weld symbol glyphs (reference line + joint symbol) -->
+  <symbol id="w-fillet" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M16 14v10l10-10z" fill="currentColor"/></symbol>
+  <symbol id="w-vgroove" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M16 24l8-10 8 10"/></symbol>
+  <symbol id="w-bevel" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M20 14v10M20 24l9-10"/></symbol>
+  <symbol id="w-ugroove" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M16 14v4c0 8 16 8 16 0v-4"/></symbol>
+  <symbol id="w-square" viewBox="0 0 48 32"><path d="M4 14h40M4 14L-1 6"/><path d="M21 14v10M27 14v10"/></symbol>
+</svg>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header" id="site-header">
+  <div class="wrap bar">
+    <a href="index.html" class="brand" aria-label="Welding Trade School, home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" fill="currentColor"/>
+        <path d="M12 22H34M12 22L5 31" style="stroke:var(--bg)" stroke-width="2.6" fill="none"/>
+        <path d="M18 22V30L26 22Z" fill="#FF5A1F"/>
+      </svg>
+      <span class="brand-name"><b>Welding</b><span>Trade School</span></span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <div class="nav-item">
+        <button type="button" class="nav-link" id="home-toggle" data-nav-group="index.html home-2.html" aria-current="true" aria-expanded="false" aria-controls="home-menu">
+          Home <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg>
+        </button>
+        <ul class="dropdown" id="home-menu" hidden>
+          <li><a href="index.html" data-nav="index.html" aria-current="page">Home 1</a></li>
+          <li><a href="home-2.html" data-nav="home-2.html">Home 2</a></li>
+        </ul>
+      </div>
+      <a href="programs.html" class="nav-link" data-nav="programs.html">Programs</a>
+      <a href="instructors.html" class="nav-link" data-nav="instructors.html">Instructors</a>
+      <a href="about.html" class="nav-link" data-nav="about.html">About</a>
+      <a href="contact.html" class="nav-link" data-nav="contact.html">Contact</a>
+      <a href="login.html" class="nav-link" data-nav="login.html">Dashboard</a>
+    </nav>
+
+    <div class="actions-desktop">
+      <button type="button" class="ctl-btn" data-action="toggle-theme" data-icon-only aria-label="Switch to dark mode">
+        <span data-theme-icon aria-hidden="true">
+          <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+        </span>
+      </button>
+      <button type="button" class="ctl-btn ctl-btn-text" data-action="toggle-dir" data-icon-only aria-label="Text direction: left to right. Switch to right to left"><span data-dir-label>LTR</span></button>
+      <a href="login.html" class="btn btn-secondary btn-sm" data-nav="login.html">
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#i-lock"/></svg>Student Login
+      </a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Enroll Now</a>
+    </div>
+
+    <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-sheet" aria-label="Open menu">
+      <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="icon icon-shut" aria-hidden="true" hidden><use href="#i-close"/></svg>
+    </button>
+  </div>
+
+  <div class="sheet" id="nav-sheet" hidden>
+    <nav aria-label="Mobile">
+      <button type="button" class="sheet-link" id="sheet-home-toggle" data-nav-group="index.html home-2.html" aria-current="true" aria-expanded="false" aria-controls="sheet-home">
+        <span>Home</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+      </button>
+      <div class="sheet-sub" id="sheet-home" hidden>
+        <a href="index.html" data-nav="index.html" aria-current="page">Home 1</a>
+        <a href="home-2.html" data-nav="home-2.html">Home 2</a>
+      </div>
+      <a href="programs.html" class="sheet-link" data-nav="programs.html">Programs</a>
+      <a href="instructors.html" class="sheet-link" data-nav="instructors.html">Instructors</a>
+      <a href="about.html" class="sheet-link" data-nav="about.html">About</a>
+      <a href="contact.html" class="sheet-link" data-nav="contact.html">Contact</a>
+      <a href="login.html" class="sheet-link" data-nav="login.html">Dashboard</a>
+    </nav>
+    <div class="sheet-tools">
+      <div class="theme-pair" role="group" aria-label="Colour theme">
+        <button type="button" class="theme-opt" data-set-theme="light" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span>Light</span>
+        </button>
+        <button type="button" class="theme-opt" data-set-theme="dark" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span>Dark</span>
+        </button>
+      </div>
+      <button type="button" class="ctl-btn ctl-btn-text sheet-dir" data-action="toggle-dir" data-icon-only aria-label="Text direction: left to right. Switch to right to left"><span data-dir-label>LTR</span></button>
+    </div>
+    <div class="grid gap-3 mt-6">
+      <a href="contact.html" class="btn btn-primary">Enroll Now</a>
+      <a href="login.html" class="btn btn-secondary" data-nav="login.html">
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#i-lock"/></svg>Student Login
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ===== HERO: split composition, ink tone ===== -->
+  <section class="hero-1 tone-ink" aria-labelledby="h1-title">
+    <div class="wrap hero-1-main">
+      <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+        <div class="lg:col-span-7">
+          <p class="eyebrow">Welding training &middot; Certification preparation</p>
+          <h1 id="h1-title" class="display d-hero mt-6">From first arc to a <span class="text-acc">welding career.</span></h1>
+          <p class="lead mt-6">Learn MIG, TIG and Stick welding at the booth, log your lab hours, prepare for certification, and follow a clear path from enrollment to the trade.</p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="contact.html" class="btn btn-primary">Enroll Now <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="programs.html" class="btn btn-secondary">Explore programs</a>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="plate">
+            <div class="photo hero-photo">
+              <picture><source type="image/webp" srcset="assets/images/h1/h1-hero-480.webp 480w, assets/images/h1/h1-hero-800.webp 800w, assets/images/h1/h1-hero-1200.webp 1200w, assets/images/h1/h1-hero-1600.webp 1600w, assets/images/h1/h1-hero-1920.webp 1920w" sizes="(min-width:1024px) 40vw, 100vw"><img src="assets/images/h1/h1-hero.jpg" alt="A welder in a protective helmet and gloves working an overhead MIG weld, with sparks and a bright arc" width="1920" height="1440" style="object-position:50% 40%" loading="eager" decoding="async" fetchpriority="high"></picture>
+              <span class="cap" style="position:absolute;inset-block-end:0;inset-inline-start:0">MIG welding, overhead position</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="wrap rail-wrap" aria-label="Your path through the school">
+      <ol class="rail">
+        <li><a href="#programs"><b>01</b><span>Programs</span></a></li>
+        <li><a href="#lab"><b>02</b><span>Lab training</span></a></li>
+        <li><a href="#certification"><b>03</b><span>Certification</span></a></li>
+        <li><a href="#careers"><b>04</b><span>Careers</span></a></li>
+        <li class="rail-last"><a href="#enroll"><b>05</b><span>Enroll</span></a></li>
+      </ol>
+    </nav>
+  </section>
+
+  <!-- ===== IDENTITY: editorial statement, paper tone ===== -->
+  <section class="section section-compact tone-paper" aria-labelledby="identity-title">
+    <div class="wrap">
+      <p class="eyebrow">The school</p>
+      <h2 id="identity-title" class="display d-lg school-title mt-4">A trade school for people who want to build with their hands.</h2>
+      <div class="school-body">
+        <p class="lead">Welding Trade School teaches welding as a skill you practice, a record you build and a credential you earn. Every step is meant to move you closer to work you can do.</p>
+        <ul class="triad">
+          <li><svg class="icon glyph" aria-hidden="true"><use href="#w-fillet"/></svg><span><b>Learn</b> the processes</span></li>
+          <li><svg class="icon glyph" aria-hidden="true"><use href="#w-vgroove"/></svg><span><b>Log</b> your lab hours</span></li>
+          <li><svg class="icon glyph" aria-hidden="true"><use href="#w-square"/></svg><span><b>Prepare</b> for certification</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STOP 01: PROGRAMS, process selector, alt tone ===== -->
+  <section class="section section-compact tone-alt" id="programs" aria-labelledby="programs-title">
+    <div class="wrap">
+      <div class="stop-head">
+        <span class="stop-num" aria-hidden="true">01</span>
+        <p class="eyebrow">Programs</p>
+        <div class="bead" aria-hidden="true"></div>
+      </div>
+      <div class="grid gap-4 lg:grid-cols-12 lg:items-end lg:gap-10">
+        <h2 id="programs-title" class="display d-lg lg:col-span-7">Three processes. One trade.</h2>
+        <p class="lead lg:col-span-5">Choose a welding process to see how it works and where it is used.</p>
+      </div>
+
+      <div class="tabs" data-tabs>
+        <div class="tablist" role="tablist" aria-label="Welding processes">
+          <button type="button" role="tab" id="tab-mig" aria-controls="panel-mig" aria-selected="true" class="tab">
+            <svg class="icon glyph" aria-hidden="true"><use href="#w-fillet"/></svg>
+            <span class="tab-num">01</span>
+            <span class="tab-name">MIG</span>
+            <span class="tab-sub">Gas Metal Arc Welding (GMAW)</span>
+          </button>
+          <button type="button" role="tab" id="tab-tig" aria-controls="panel-tig" aria-selected="false" class="tab" tabindex="-1">
+            <svg class="icon glyph" aria-hidden="true"><use href="#w-vgroove"/></svg>
+            <span class="tab-num">02</span>
+            <span class="tab-name">TIG</span>
+            <span class="tab-sub">Gas Tungsten Arc Welding (GTAW)</span>
+          </button>
+          <button type="button" role="tab" id="tab-stick" aria-controls="panel-stick" aria-selected="false" class="tab" tabindex="-1">
+            <svg class="icon glyph" aria-hidden="true"><use href="#w-bevel"/></svg>
+            <span class="tab-num">03</span>
+            <span class="tab-name">Stick</span>
+            <span class="tab-sub">Shielded Metal Arc Welding (SMAW)</span>
+          </button>
+        </div>
+
+        <div class="tabpanels">
+          <div role="tabpanel" id="panel-mig" aria-labelledby="tab-mig" class="tabpanel">
+            <div class="photo tab-photo">
+              <picture><source type="image/webp" srcset="assets/images/h1/h1-mig-480.webp 480w, assets/images/h1/h1-mig-800.webp 800w, assets/images/h1/h1-mig-1200.webp 1200w" sizes="(min-width:1024px) 55vw, 100vw"><img src="assets/images/h1/h1-mig.jpg" alt="Close view of a welder in a helmet making a MIG weld, with a shower of sparks" width="1920" height="2880" style="object-position:50% 35%" loading="lazy" decoding="async"></picture>
+            </div>
+            <div class="tab-copy">
+              <div><h3 class="spec-h">How it works</h3><p class="body-2">A wire electrode feeds continuously through the gun while shielding gas protects the weld. It is fast, steady and well suited to learning the fundamentals of arc control.</p></div>
+              <div><h3 class="spec-h">Typically used for</h3><p class="body-2">Fabrication shops, production welding, automotive and general repair, and structural assemblies.</p></div>
+              <a href="programs.html" class="arrow-link">MIG program details <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-tig" aria-labelledby="tab-tig" class="tabpanel" hidden>
+            <div class="photo tab-photo">
+              <picture><source type="image/webp" srcset="assets/images/h1/h1-tig-480.webp 480w, assets/images/h1/h1-tig-800.webp 800w, assets/images/h1/h1-tig-1200.webp 1200w, assets/images/h1/h1-tig-1600.webp 1600w" sizes="(min-width:1024px) 55vw, 100vw"><img src="assets/images/h1/h1-tig.jpg" alt="Gloved hands guiding a TIG torch and filler rod while a welder in a helmet works on a joint" width="1920" height="1406" style="object-position:50% 40%" loading="lazy" decoding="async"></picture>
+            </div>
+            <div class="tab-copy">
+              <div><h3 class="spec-h">How it works</h3><p class="body-2">A non-consumable tungsten electrode makes the arc while you add filler rod by hand. It is slower and demands steady hands, and it gives the most control.</p></div>
+              <div><h3 class="spec-h">Typically used for</h3><p class="body-2">Stainless steel and aluminum work, thin material, piping, and welds where appearance and precision matter.</p></div>
+              <a href="programs.html" class="arrow-link">TIG program details <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-stick" aria-labelledby="tab-stick" class="tabpanel" hidden>
+            <div class="photo tab-photo">
+              <picture><source type="image/webp" srcset="assets/images/h1/h1-stick-480.webp 480w, assets/images/h1/h1-stick-800.webp 800w, assets/images/h1/h1-stick-1200.webp 1200w, assets/images/h1/h1-stick-1600.webp 1600w" sizes="(min-width:1024px) 55vw, 100vw"><img src="assets/images/h1/h1-stick.jpg" alt="A welder in a helmet and heavy jacket running a stick weld on a steel plate, with sparks" width="1920" height="1440" style="object-position:50% 45%" loading="lazy" decoding="async"></picture>
+            </div>
+            <div class="tab-copy">
+              <div><h3 class="spec-h">How it works</h3><p class="body-2">A flux-coated electrode carries its own shielding, so no gas bottle is needed. The equipment is simple and rugged, and it handles wind, rust and rough conditions.</p></div>
+              <div><h3 class="spec-h">Typically used for</h3><p class="body-2">Structural steel, outdoor and field work, heavy equipment, and maintenance and repair.</p></div>
+              <a href="programs.html" class="arrow-link">Stick program details <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STOP 02: LAB, full-bleed photo with overlay plate ===== -->
+  <section class="lab tone-ink" id="lab" aria-labelledby="lab-title">
+    <div class="lab-photo photo">
+      <picture><source type="image/webp" srcset="assets/images/h1/h1-lab-480.webp 480w, assets/images/h1/h1-lab-800.webp 800w, assets/images/h1/h1-lab-1200.webp 1200w, assets/images/h1/h1-lab-1600.webp 1600w, assets/images/h1/h1-lab-1920.webp 1920w" sizes="100vw"><img src="assets/images/h1/h1-lab.jpg" alt="A school welding shop with several students working at stations, with gas cylinders, welding machines and red curtains" width="1920" height="1280" style="object-position:60% 50%" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="wrap lab-wrap">
+      <div class="lab-panel">
+        <div class="stop-head stop-head-compact">
+          <span class="stop-num" aria-hidden="true">02</span>
+          <p class="eyebrow">Lab training</p>
+        </div>
+        <h2 id="lab-title" class="display d-lg mt-4">Welding is learned at the booth.</h2>
+        <p class="body-2 mt-5" style="font-size:1.0625rem">Practical lab training puts you behind the helmet: running beads, building joints, and getting feedback while you work.</p>
+        <ul class="lab-points mt-7">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>Lab hours are logged in your student portal</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Instructor feedback at the bench</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-badge"/></svg><span>Protective equipment and safe practice</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STOP 03: CERTIFICATION, ladder + tall photo ===== -->
+  <section class="section tone-ink cert" id="certification" aria-labelledby="cert-title">
+    <div class="wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-7">
+        <div class="stop-head">
+          <span class="stop-num" aria-hidden="true">03</span>
+          <p class="eyebrow">Certification</p>
+          <div class="bead" aria-hidden="true"></div>
+        </div>
+        <h2 id="cert-title" class="display d-lg">A credential that shows what you can weld.</h2>
+        <p class="lead mt-5">Certification is a documented test of your work. The program is built around preparing you for it, and your progress stays visible from enrollment to results.</p>
+
+        <ol class="ladder mt-10">
+          <li>
+            <span class="ladder-num" aria-hidden="true">1</span>
+            <div><h3 class="display d-sm">Enroll</h3><p class="body-2">Pick a certification program and enroll through the student portal.</p></div>
+          </li>
+          <li>
+            <span class="ladder-num" aria-hidden="true">2</span>
+            <div><h3 class="display d-sm">Train and log hours</h3><p class="body-2">Work at the booth. Your lab hours are tracked as you complete them.</p></div>
+          </li>
+          <li>
+            <span class="ladder-num" aria-hidden="true">3</span>
+            <div><h3 class="display d-sm">Prepare</h3><p class="body-2">Practice for the assessment with instructor guidance.</p></div>
+          </li>
+          <li>
+            <span class="ladder-num" aria-hidden="true">4</span>
+            <div><h3 class="display d-sm">Take the assessment</h3><p class="body-2">Your work is evaluated against the certification requirements.</p></div>
+          </li>
+          <li>
+            <span class="ladder-num" aria-hidden="true">5</span>
+            <div><h3 class="display d-sm">See your results</h3><p class="body-2">Exam results are available in your student dashboard.</p></div>
+          </li>
+        </ol>
+        <p class="spec mt-8">Certification details vary by program.</p>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="cert-photo-wrap">
+          <div class="plate plate-flip">
+            <div class="photo cert-photo">
+              <picture><source type="image/webp" srcset="assets/images/h1/h1-cert-480.webp 480w, assets/images/h1/h1-cert-800.webp 800w, assets/images/h1/h1-cert-1200.webp 1200w, assets/images/h1/h1-cert-1600.webp 1600w" sizes="(min-width:1024px) 38vw, 100vw"><img src="assets/images/h1/h1-cert.jpg" alt="A welder in a helmet running a TIG weld on a metal test plate in a dark workshop" width="1920" height="1277" style="object-position:50% 50%" loading="lazy" decoding="async"></picture>
+              <span class="cap" style="position:absolute;inset-block-end:0;inset-inline-start:0">Welding a test plate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTRUCTORS: offset photo on orange backing, paper tone ===== -->
+  <section class="section tone-paper" id="instructors" aria-labelledby="instr-title">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-6 lg:order-2">
+        <div class="plate">
+          <div class="photo instr-photo">
+            <picture><source type="image/webp" srcset="assets/images/h1/h1-instructor-480.webp 480w, assets/images/h1/h1-instructor-800.webp 800w, assets/images/h1/h1-instructor-1200.webp 1200w, assets/images/h1/h1-instructor-1600.webp 1600w" sizes="(min-width:1024px) 48vw, 100vw"><img src="assets/images/h1/h1-instructor.jpg" alt="An instructor and a student smiling at a workbench in a welding workshop, with welding helmets on the bench" width="1920" height="1440" style="object-position:50% 40%" loading="lazy" decoding="async"></picture>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-6 lg:order-1">
+        <p class="eyebrow">Instructors</p>
+        <h2 id="instr-title" class="display d-lg mt-5">Taught by people who demonstrate, watch and correct.</h2>
+        <p class="lead mt-5">Good welding is shown first, then practiced under watch. Instructors guide you through the same loop until the weld is right.</p>
+        <ol class="loop mt-8">
+          <li><b>Demonstrate</b><span>See the technique done correctly.</span></li>
+          <li><b>Practice</b><span>Repeat it yourself at the booth.</span></li>
+          <li><b>Correct</b><span>Get specific feedback and try again.</span></li>
+        </ol>
+        <a href="instructors.html" class="arrow-link mt-6">Meet the instructors <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STOP 04: CAREERS, typographic rows, alt tone ===== -->
+  <section class="section tone-alt" id="careers" aria-labelledby="careers-title">
+    <div class="wrap">
+      <div class="stop-head">
+        <span class="stop-num" aria-hidden="true">04</span>
+        <p class="eyebrow">Careers</p>
+        <div class="bead" aria-hidden="true"></div>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+        <h2 id="careers-title" class="display d-lg lg:col-span-7">Where welding skills are used.</h2>
+        <p class="lead lg:col-span-5">Welding supports many industries. These are the main areas graduates may work in.</p>
+      </div>
+
+      <ul class="career-rows mt-12">
+        <li class="career-row">
+          <span class="career-num" aria-hidden="true">01</span>
+          <div class="career-text">
+            <h3 class="display d-md">Structural &amp; infrastructure</h3>
+            <p class="body-2">Buildings, bridges and civil works that rely on welded steel.</p>
+          </div>
+          <div class="photo career-photo"><picture><source type="image/webp" srcset="assets/images/h1/h1-career-structural-480.webp 480w, assets/images/h1/h1-career-structural-800.webp 800w, assets/images/h1/h1-career-structural-1200.webp 1200w, assets/images/h1/h1-career-structural-1600.webp 1600w" sizes="(min-width:1024px) 22rem, 90vw"><img src="assets/images/h1/h1-career-structural.jpg" alt="A welder in a hard hat and face shield cutting steel with a torch at a construction site" width="1920" height="1280" style="object-position:40% 50%" loading="lazy" decoding="async"></picture></div>
+        </li>
+        <li class="career-row">
+          <span class="career-num" aria-hidden="true">02</span>
+          <div class="career-text">
+            <h3 class="display d-md">Piping</h3>
+            <p class="body-2">Pipe fabrication and installation, in the shop and out in the field.</p>
+          </div>
+          <div class="photo career-photo"><picture><source type="image/webp" srcset="assets/images/h1/h1-career-piping-480.webp 480w, assets/images/h1/h1-career-piping-800.webp 800w, assets/images/h1/h1-career-piping-1200.webp 1200w, assets/images/h1/h1-career-piping-1600.webp 1600w" sizes="(min-width:1024px) 22rem, 90vw"><img src="assets/images/h1/h1-career-piping.jpg" alt="A pipeline welder working on a large pipe at an outdoor construction site" width="1920" height="1282" style="object-position:60% 50%" loading="lazy" decoding="async"></picture></div>
+        </li>
+        <li class="career-row">
+          <span class="career-num" aria-hidden="true">03</span>
+          <div class="career-text">
+            <h3 class="display d-md">Production fabrication</h3>
+            <p class="body-2">Shop-floor welding for manufactured parts and assemblies.</p>
+          </div>
+          <div class="photo career-photo"><picture><source type="image/webp" srcset="assets/images/h1/h1-career-production-480.webp 480w, assets/images/h1/h1-career-production-800.webp 800w, assets/images/h1/h1-career-production-1200.webp 1200w, assets/images/h1/h1-career-production-1600.webp 1600w" sizes="(min-width:1024px) 22rem, 90vw"><img src="assets/images/h1/h1-career-production.jpg" alt="A welder in a decorated helmet grinding a weld in a fabrication shop, with sparks flying" width="1920" height="1371" style="object-position:50% 50%" loading="lazy" decoding="async"></picture></div>
+        </li>
+        <li class="career-row">
+          <span class="career-num" aria-hidden="true">04</span>
+          <div class="career-text">
+            <h3 class="display d-md">Repair &amp; maintenance</h3>
+            <p class="body-2">On-site and workshop repair of equipment, vehicles and structures.</p>
+          </div>
+          <div class="photo career-photo"><picture><source type="image/webp" srcset="assets/images/h1/h1-career-repair-480.webp 480w, assets/images/h1/h1-career-repair-800.webp 800w, assets/images/h1/h1-career-repair-1200.webp 1200w, assets/images/h1/h1-career-repair-1600.webp 1600w" sizes="(min-width:1024px) 22rem, 90vw"><img src="assets/images/h1/h1-career-repair.jpg" alt="A welder lying on the ground welding underneath a truck, with a spray of sparks" width="1920" height="1440" style="object-position:50% 50%" loading="lazy" decoding="async"></picture></div>
+        </li>
+      </ul>
+      <p class="spec mt-8">Employment depends on the job market and your qualifications. No placement is guaranteed.</p>
+    </div>
+  </section>
+
+  <!-- ===== WHAT YOU WALK AWAY WITH: ledger, paper tone ===== -->
+  <section class="section tone-paper" aria-labelledby="walk-title">
+    <div class="wrap">
+      <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+        <h2 id="walk-title" class="display d-lg lg:col-span-7">What you walk away with.</h2>
+        <p class="lead lg:col-span-5">Three things you can point to when you apply for work.</p>
+      </div>
+      <dl class="ledger mt-12">
+        <div>
+          <dt><svg class="icon glyph" aria-hidden="true"><use href="#w-fillet"/></svg>Skill</dt>
+          <dd>Hands-on experience with MIG, TIG and Stick welding.</dd>
+        </div>
+        <div>
+          <dt><svg class="icon glyph" aria-hidden="true"><use href="#w-vgroove"/></svg>A record</dt>
+          <dd>Lab hours and exam results, kept in your student dashboard.</dd>
+        </div>
+        <div>
+          <dt><svg class="icon glyph" aria-hidden="true"><use href="#w-square"/></svg>Readiness</dt>
+          <dd>Preparation for the certification assessments in your program.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== STOP 05: ENROLL, arc band ===== -->
+  <section class="section tone-arc enroll" id="enroll" aria-labelledby="enroll-title">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-7">
+        <div class="stop-head">
+          <span class="stop-num" aria-hidden="true">05</span>
+          <p class="eyebrow">Enroll</p>
+          <div class="bead" aria-hidden="true"></div>
+        </div>
+        <h2 id="enroll-title" class="display d-xl">Start your first weld.</h2>
+        <ol class="steps mt-8">
+          <li><b>1</b><span>Contact admissions with your questions.</span></li>
+          <li><b>2</b><span>Choose the program that fits your goals.</span></li>
+          <li><b>3</b><span>Enroll and log in to your student portal.</span></li>
+        </ol>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href="contact.html" class="btn btn-primary">Enroll Now <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="programs.html" class="btn btn-secondary">Explore programs</a>
+        </div>
+        <p class="mt-6" style="font-weight:600">Questions first? <a href="contact.html" class="link">Contact admissions</a>.</p>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="plate plate-ink">
+          <div class="photo enroll-photo">
+            <picture><source type="image/webp" srcset="assets/images/h1/h1-enroll-480.webp 480w, assets/images/h1/h1-enroll-800.webp 800w, assets/images/h1/h1-enroll-1200.webp 1200w, assets/images/h1/h1-enroll-1600.webp 1600w" sizes="(min-width:1024px) 40vw, 100vw"><img src="assets/images/h1/h1-enroll.jpg" alt="An empty welding booth with a red curtain, a welding machine and a steel work table" width="1920" height="1273" style="object-position:50% 50%" loading="lazy" decoding="async"></picture>
+            <span class="cap" style="position:absolute;inset-block-end:0;inset-inline-start:0">A welding booth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer tone-ink" id="site-footer">
+  <div class="bead bead-arc" aria-hidden="true"></div>
+  <div class="wrap" style="padding-block: clamp(3rem, 2rem + 4vw, 5.5rem) 2rem">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <a href="index.html" class="brand brand-lg" aria-label="Welding Trade School, home">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <rect width="40" height="40" fill="currentColor"/>
+            <path d="M12 22H34M12 22L5 31" style="stroke:var(--bg)" stroke-width="2.6" fill="none"/>
+            <path d="M18 22V30L26 22Z" fill="#FF5A1F"/>
+          </svg>
+          <span class="brand-name"><b>Welding</b><span>Trade School</span></span>
+        </a>
+        <p class="mt-6 max-w-sm text-fg-2" style="font-size:1.0625rem">Hands-on welding training and certification preparation, built around real lab time at the booth.</p>
+        <div class="social mt-8">
+          <ul class="social-list" aria-label="Social media">
+            <li><span class="social-icon" role="img" aria-label="Instagram: profile not yet published"><svg class="icon" aria-hidden="true"><use href="#s-instagram"/></svg></span></li>
+            <li><span class="social-icon" role="img" aria-label="Facebook: profile not yet published"><svg class="icon" aria-hidden="true"><use href="#s-facebook"/></svg></span></li>
+            <li><span class="social-icon" role="img" aria-label="YouTube: channel not yet published"><svg class="icon" aria-hidden="true"><use href="#s-youtube"/></svg></span></li>
+            <li><span class="social-icon" role="img" aria-label="LinkedIn: page not yet published"><svg class="icon" aria-hidden="true"><use href="#s-linkedin"/></svg></span></li>
+          </ul>
+          <p class="social-note">Social profiles coming soon</p>
+        </div>
+      </div>
+
+      <div class="grid gap-10 sm:grid-cols-3 lg:col-span-7">
+        <nav class="footer-col" aria-label="Programs">
+          <h2>Programs</h2>
+          <ul>
+            <li><a href="programs.html" class="footer-link">MIG / GMAW</a></li>
+            <li><a href="programs.html" class="footer-link">TIG / GTAW</a></li>
+            <li><a href="programs.html" class="footer-link">Stick / SMAW</a></li>
+            <li><a href="programs.html" class="footer-link">All programs</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="School">
+          <h2>School</h2>
+          <ul>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="instructors.html" class="footer-link">Instructors</a></li>
+            <li><a href="index.html#certification" class="footer-link" data-home-anchor="certification">Certification</a></li>
+            <li><a href="index.html#careers" class="footer-link" data-home-anchor="careers">Careers</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Students</h2>
+          <ul>
+            <li><a href="login.html" class="footer-link footer-link-icon"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span>Student Login</span></a></li>
+            <li><a href="contact.html" class="footer-link footer-link-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>Contact admissions</span></a></li>
+          </ul>
+          <p class="mt-4 text-fg-2" style="font-size:.9375rem">The student portal covers certification enrollment, lab-hour tracking and exam results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="wrap flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-5" style="font-size:.875rem">
+      <p class="m-0 text-fg-2">&copy; <span data-year>2026</span> Welding Trade School. All rights reserved.</p>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <a href="credits.html" class="footer-link" style="min-height:2.5rem">Image credits</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="enroll-bar tone-ink" id="enroll-bar" role="region" aria-label="Enrollment">
+  <p>Ready to start welding?</p>
+  <a href="contact.html" class="btn btn-primary btn-sm">Enroll Now</a>
+</div>
+
+<button type="button" class="to-top" id="to-top" aria-label="Scroll to top" hidden>
+  <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg>
+</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
