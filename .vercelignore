@@ -1,0 +1,11 @@
+# Vercel deploys this site as static files (see vercel.json).
+# server.js is only the local preview server (npm start); excluding it stops Vercel from
+# treating it as the deployment entrypoint, which is what made "/" return 404.
+server.js
+
+# Not used by the build or the live site
+_legacy/
+assets/images/_legacy/
+scripts/.cache/
+test/
+node_modules/
