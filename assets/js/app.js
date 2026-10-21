@@ -35,9 +35,9 @@
     ],
     // neutral sample entries; no official names, scores or certification outcomes
     exams: [
-      { name: 'Sample assessment 1: MIG practical', date: '2026-09-19', state: 'result', label: 'Demo result', detail: 'Reviewed', next: 'No action needed' },
-      { name: 'Sample assessment 2: TIG practical', date: '2026-11-06', state: 'pending', label: 'Pending', detail: 'Scheduled (sample date)', next: 'Practise TIG technique at the booth' },
-      { name: 'Sample certification assessment', date: null, state: 'na', label: 'Not available', detail: 'Opens after lab hours are complete', next: 'Complete the remaining lab hours' }
+      { name: 'Assessment 1: MIG practical', date: '2026-09-19', state: 'result', label: 'Result', detail: 'Reviewed', next: 'No action needed' },
+      { name: 'Assessment 2: TIG practical', date: '2026-11-06', state: 'pending', label: 'Pending', detail: 'Scheduled', next: 'Practise TIG technique at the booth' },
+      { name: 'Certification assessment', date: null, state: 'na', label: 'Not available', detail: 'Opens after lab hours are complete', next: 'Complete the remaining lab hours' }
     ]
   };
 
@@ -63,12 +63,12 @@
     $$('[data-lab="remaining"]').forEach(function (e) { e.textContent = remaining; });
     $$('[data-lab="percent"]').forEach(function (e) { e.textContent = percent; });
     $$('[data-lab="status"]').forEach(function (e) {
-      e.textContent = remaining === 0 ? 'Complete (demo): all sample hours recorded.' : 'In progress (demo): ' + remaining + ' of ' + required + ' sample hours remaining.';
+      e.textContent = remaining === 0 ? 'Complete: all hours recorded.' : 'In progress: ' + remaining + ' of ' + required + ' hours remaining.';
     });
     $$('[data-lab-progress]').forEach(function (bar) {
       bar.setAttribute('aria-valuemax', required);
       bar.setAttribute('aria-valuenow', completed);
-      bar.setAttribute('aria-valuetext', completed + ' of ' + required + ' hours (' + percent + '%), demo data');
+      bar.setAttribute('aria-valuetext', completed + ' of ' + required + ' hours (' + percent + '%)');
       $('i', bar).style.width = percent + '%';
     });
     var tbody = $('[data-sessions] tbody');
@@ -78,7 +78,7 @@
         return '<tr><td data-label="Date">' + fmtDate(s[0]) + '</td><td data-label="Process">' + esc(s[1]) + '</td><td data-label="Hours" class="num"><span dir="ltr">' + s[2] + ' h</span></td></tr>';
       }).join('');
       var note = $('[data-sessions-note]');
-      if (note) note.textContent = 'Showing the 6 most recent of ' + DEMO.sessions.length + ' sample sessions. All ' + DEMO.sessions.length + ' add up to the ' + completed + ' completed hours shown above.';
+      if (note) note.textContent = 'Showing the 6 most recent of ' + DEMO.sessions.length + ' sessions. All ' + DEMO.sessions.length + ' add up to the ' + completed + ' completed hours shown above.';
     }
 
     // ---- exams ----
@@ -107,19 +107,19 @@
       list.innerHTML = DEMO.options.map(function (o) {
         var on = selected === o.id;
         return '<li class="prog' + (on ? ' is-selected' : '') + '">' +
-          '<div class="prog-main"><p class="prog-k">Sample option</p><h3 class="prog-h">' + esc(o.process) + ' track</h3>' +
+          '<div class="prog-main"><p class="prog-k">Program option</p><h3 class="prog-h">' + esc(o.process) + ' track</h3>' +
           '<p class="prog-s">' + esc(o.summary) + '</p></div>' +
           '<div class="prog-actions">' +
-          (on ? '<span class="status status-selected"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Selected (demo)</span>' : '') +
+          (on ? '<span class="status status-selected"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Selected</span>' : '') +
           '<a class="btn btn-secondary btn-sm" href="' + o.href + '">View program<span class="sr-only">: ' + esc(o.process) + '</span></a>' +
           (on
             ? '<button type="button" class="btn btn-secondary btn-sm" data-enroll-clear>Clear selection<span class="sr-only">: ' + esc(o.process) + '</span></button>'
-            : '<button type="button" class="btn btn-primary btn-sm" data-enroll="' + o.id + '">Enroll<span class="sr-only">: ' + esc(o.process) + ' (demo)</span></button>') +
+            : '<button type="button" class="btn btn-primary btn-sm" data-enroll="' + o.id + '">Enroll<span class="sr-only">: ' + esc(o.process) + '</span></button>') +
           '</div></li>';
       }).join('');
       var sel = DEMO.options.filter(function (o) { return o.id === selected; })[0];
       $$('[data-enroll-summary]').forEach(function (e) {
-        e.innerHTML = sel ? '<b>' + esc(sel.process) + ' track</b><span>Demo selection only. Nothing has been submitted.</span>' : 'No sample option selected.';
+        e.innerHTML = sel ? '<b>' + esc(sel.process) + ' track</b><span>Nothing has been submitted.</span>' : 'No program option selected.';
       });
     }
     if (list) {
@@ -133,8 +133,8 @@
         renderPrograms();
         var sel = DEMO.options.filter(function (o) { return o.id === selected; })[0];
         status.innerHTML = sel
-          ? '<svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><b>Demo enrollment selected: ' + esc(sel.process) + ' track.</b> No real enrollment has been submitted. To enroll, contact admissions.</span>'
-          : '<svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Demo selection cleared.</span>';
+          ? '<svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><b>Enrollment option selected: ' + esc(sel.process) + ' track.</b> No real enrollment has been submitted. To enroll, contact admissions.</span>'
+          : '<svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Selection cleared.</span>';
         status.classList.add('is-on');
         // keep keyboard focus on the matching control after re-render
         var again = sel ? $('[data-enroll-clear]', list) : $('[data-enroll="' + prev + '"]', list);
@@ -152,7 +152,7 @@
         if (a.getAttribute('data-view-link') === name) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
       });
       var t = $('[data-view-title]'); if (t) t.textContent = titles[name];
-      document.title = titles[name] + ' | Student Dashboard (Demo) | Welding Trade School';
+      document.title = titles[name] + ' | Student Dashboard | Welding Trade School';
       if (focus) { var m = $('#app-main'); m.focus({ preventScroll: true }); window.scrollTo(0, 0); }
     }
     root.classList.add('js-views');
@@ -271,8 +271,8 @@
       ]
     };
     var MESSAGES = {
-      signin: '<b>Sign-in is not connected.</b> This is a static demo portal, so your details were not checked and you have not been signed in. Nothing was sent or saved.',
-      register: '<b>Registration is not connected.</b> This is a static demo portal, so no account has been created. Nothing was sent or saved.'
+      signin: '<b>Sign-in is not connected.</b> Your details were not checked and you have not been signed in. Nothing was sent or saved.',
+      register: '<b>Registration is not connected.</b> No account has been created. Nothing was sent or saved.'
     };
     function show(id, msg) {
       var el = document.getElementById(id), err = document.getElementById(id + '-err');

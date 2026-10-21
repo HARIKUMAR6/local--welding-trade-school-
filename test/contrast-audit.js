@@ -99,7 +99,7 @@ function measureInPage(rootSel) {
   });
 
   // ---- control boundaries (button-like things must be distinguishable from their surroundings) ----
-  root.querySelectorAll('.btn, .icon-btn, .utility-btn, .ctl-btn, .theme-opt, .to-top, .social-icon, .tab[aria-selected="true"], .xp').forEach((el) => {
+  root.querySelectorAll('.btn, .icon-btn, .utility-btn, .ctl-btn, .to-top, .social-icon, .tab[aria-selected="true"], .xp').forEach((el) => {
     if (!visible(el)) return;
     const cs = getComputedStyle(el);
     const outer = backdrop(el.parentElement || el);
@@ -233,7 +233,7 @@ async function run() {
 
         // ---- hover states (pointer devices) ----
         if (!vpName.startsWith('mobile')) {
-          const sel = '.btn, .nav-link, .arrow-link, .utility-btn, .ctl-btn, .theme-opt, .icon-btn, .tab, .paths a, .footer-link, .mods-index a, .rail a, .link, .dropdown a';
+          const sel = '.btn, .nav-link, .arrow-link, .utility-btn, .ctl-btn, .icon-btn, .tab, .paths a, .footer-link, .mods-index a, .rail a, .link, .dropdown a';
           const els = await p.$$(sel);
           let n = 0;
           for (const el of els) {

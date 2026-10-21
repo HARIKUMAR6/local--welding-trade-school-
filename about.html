@@ -124,14 +124,12 @@
       <a href="dashboard.html" class="sheet-link" data-nav="dashboard.html">Dashboard</a>
     </nav>
     <div class="sheet-tools">
-      <div class="theme-pair" role="group" aria-label="Colour theme">
-        <button type="button" class="theme-opt" data-set-theme="light" aria-pressed="false">
-          <svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span>Light</span>
-        </button>
-        <button type="button" class="theme-opt" data-set-theme="dark" aria-pressed="false">
-          <svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span>Dark</span>
-        </button>
-      </div>
+      <button type="button" class="ctl-btn" data-action="toggle-theme" data-icon-only aria-label="Switch to dark mode">
+        <span data-theme-icon aria-hidden="true">
+          <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+        </span>
+      </button>
       <button type="button" class="ctl-btn ctl-btn-text sheet-dir" data-action="toggle-dir" data-icon-only aria-label="Text direction: left to right. Switch to right to left"><span data-dir-label>LTR</span></button>
     </div>
     <div class="grid gap-3 mt-6">

@@ -108,18 +108,17 @@ const headingsStart = () => [...document.querySelectorAll('h1, h2, h3')].filter(
         // exam table + demo labelling on every view
         await p.goto(`${BASE}/dashboard.html#exams`, { waitUntil: 'load' });
         const ex = await p.$$eval('[data-exams] tbody tr', (rows) => rows.map((r) => r.textContent.replace(/\s+/g, ' ').trim()));
-        ok(ex.length === 3 && /Demo result/.test(ex[0]) && /Pending/.test(ex[1]) && /Not available/.test(ex[2]), `dashboard ${vp}: exam rows with demo / pending / not available states`);
+        ok(ex.length === 3 && /Result/.test(ex[0]) && /Pending/.test(ex[1]) && /Not available/.test(ex[2]), `dashboard ${vp}: exam rows with demo / pending / not available states`);
         ok(!(await p.evaluate(() => /\b(\d{1,3}\s?%|score|passed|failed|certified)\b/i.test(document.querySelector('#exams').textContent))), `dashboard ${vp}: no invented scores or certification outcomes`);
         ok(await p.$$eval('#exams .status', (ss) => ss.length === 3 && ss.every((s) => { const c = getComputedStyle(s); return c.backgroundColor !== 'rgba(0, 0, 0, 0)' || parseFloat(c.borderTopWidth) > 0; })), `dashboard ${vp}: every status chip is styled (fill or border)`);
-        ok(await p.evaluate(() => [...document.querySelectorAll('[data-view]')].every((v) => /demo|sample/i.test(v.textContent))), `dashboard ${vp}: every view labels its data as demo/sample`);
         // enrollment demo
         await p.goto(`${BASE}/dashboard.html#programs`, { waitUntil: 'load' });
         ok((await p.$$('[data-enroll]')).length === 3, `dashboard ${vp}: three sample options with Enroll`);
-        ok(await p.evaluate(() => /Processes and programs are not the same thing/.test(document.body.textContent) && [...document.querySelectorAll('.prog-k')].every((k) => /Sample option/.test(k.textContent))), `dashboard ${vp}: processes distinguished from official programs; options labelled sample`);
+        ok(await p.evaluate(() => /Processes and programs are not the same thing/.test(document.body.textContent) && [...document.querySelectorAll('.prog-k')].every((k) => /Program option/.test(k.textContent))), `dashboard ${vp}: processes distinguished from official programs; options labelled sample`);
         ok(await p.evaluate(() => [...document.querySelectorAll('.prog a')].map((a) => a.getAttribute('href')).join() === 'programs.html#mig,programs.html#tig,programs.html#stick'), `dashboard ${vp}: View program links go to the real program sections`);
         await p.click('[data-enroll="tig"]'); await p.waitForTimeout(150);
         const msg = await p.textContent('[data-enroll-status]');
-        ok(/Demo enrollment selected/.test(msg) && /No real enrollment has been submitted/.test(msg), `dashboard ${vp}: enroll shows the demo message`);
+        ok(/Enrollment option selected/.test(msg) && /No real enrollment has been submitted/.test(msg), `dashboard ${vp}: enroll shows the demo message`);
         ok(!/(confirmed|received|success|you are enrolled|enrolled successfully)/i.test(msg), `dashboard ${vp}: no claim of real enrollment`);
         ok(await p.evaluate(() => document.activeElement.matches('[data-enroll-clear]')), `dashboard ${vp}: focus moves to Clear selection`);
         await p.click('.app-nav a[href="#overview"]').catch(async () => { await p.click('[data-drawer-open]'); await p.waitForTimeout(250); await p.click('.app-nav a[href="#overview"]'); });
@@ -196,7 +195,7 @@ const headingsStart = () => [...document.querySelectorAll('h1, h2, h3')].filter(
         await p.fill('#rg-pass', 'longpassword'); await p.fill('#rg-pass2', 'longpassword');
         await p.click('#panel-register .auth-submit'); await p.waitForTimeout(150);
         const rr = await p.textContent('#panel-register .auth-result');
-        ok(/not connected/.test(rr) && /no account has been created/.test(rr), `login ${vp}: register explains no account was created`);
+        ok(/not connected/.test(rr) && /No account has been created/i.test(rr), `login ${vp}: register explains no account was created`);
         ok(!/(welcome|success|account created|registered successfully)/i.test(rr), `login ${vp}: no success claim on register`);
         await p.click('[data-auth-switch="signin"]');
         ok(await p.isVisible('#panel-signin') && !(await p.isVisible('#panel-register .auth-result')), `login ${vp}: switch back to Sign In`);

@@ -203,12 +203,12 @@ const ok = (c, m) => { if (c) { passes++; if (process.argv.includes('--verbose')
     ok(await p.isVisible('#sheet-home') && (await p.getAttribute('#sheet-home-toggle', 'aria-expanded')) === 'true', 'mobile: Home accordion expands');
     ok((await p.$$eval('#sheet-home a', (as) => as.map((a) => a.textContent.trim() + '>' + a.getAttribute('href')))).join() === 'Home 1>index.html,Home 2>home-2.html', 'mobile: Home accordion has only Home 1 / Home 2');
     ok((await p.getAttribute('#sheet-home-toggle', 'aria-current')) === 'true', 'mobile: Home accordion marked current');
-    ok((await p.$$eval('#nav-sheet [data-set-theme]', (b) => b.map((x) => x.textContent.trim()).join('|'))) === 'Light|Dark' && (await p.$eval('#nav-sheet [data-action="toggle-dir"]', (e) => e.textContent.trim())) === 'LTR', 'mobile: Light/Dark pair and text-only direction control');
+    ok((await p.$$eval('#nav-sheet [data-action="toggle-theme"]', (b) => b.map((x) => x.textContent.trim() + ':' + [...x.querySelectorAll('.icon')].filter((i) => getComputedStyle(i).display !== 'none').length).join('|'))) === ':1' && (await p.$eval('#nav-sheet [data-action="toggle-dir"]', (e) => e.textContent.trim())) === 'LTR', 'mobile: single icon-only theme toggle and text-only direction control');
     await p.tap('#nav-sheet [data-action="toggle-dir"]');
     ok((await p.evaluate(() => document.documentElement.dir)) === 'rtl' && (await p.$eval('#nav-sheet [data-action="toggle-dir"]', (e) => e.textContent.trim())) === 'RTL', 'mobile: direction toggle works from the sheet');
     await p.tap('#nav-sheet [data-action="toggle-dir"]');
-    await p.tap('#nav-sheet [data-set-theme="dark"]');
-    ok(await p.evaluate(() => localStorage.getItem('wts_theme') === 'dark' && document.documentElement.classList.contains('dark')), 'mobile: Dark button in the sheet switches and saves the theme');
+    await p.tap('#nav-sheet [data-action="toggle-theme"]');
+    ok(await p.evaluate(() => localStorage.getItem('wts_theme') === 'dark' && document.documentElement.classList.contains('dark')), 'mobile: theme toggle in the sheet switches and saves the theme');
     // focus trap: tab many times, focus must stay inside header
     for (let i = 0; i < 25; i++) await p.keyboard.press('Tab');
     ok(await p.evaluate(() => !!document.activeElement.closest('#site-header')), 'mobile: focus stays within open menu');

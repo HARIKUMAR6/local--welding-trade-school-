@@ -59,21 +59,21 @@ function coveredBy(sel) {
         ok((await p.$$eval('#site-header [title], footer [title], [data-action][title], [data-set-theme][title]', (e) => e.length)) === 0, `${tag}: no title tooltips in header/footer controls`);
 
         if (!desktop) {
-          // equal Light / Dark buttons
-          const pair = await p.$$eval('[data-set-theme]', (bs) => bs.map((x) => { const r = x.getBoundingClientRect(); return [Math.round(r.width * 10) / 10, Math.round(r.height * 10) / 10, Math.round(r.top), x.textContent.trim()]; }));
-          ok(pair.length === 2 && pair[0][0] === pair[1][0] && pair[0][1] === pair[1][1] && pair[0][2] === pair[1][2], `${tag}: Light/Dark equal size, side by side ${JSON.stringify(pair)}`);
+          // one icon-only theme toggle beside a text-only direction toggle, same row, same height
+          const tg = await p.$$eval('#nav-sheet [data-action]', (bs) => bs.map((x) => { const r = x.getBoundingClientRect(); return [x.getAttribute('data-action'), Math.round(r.height * 10) / 10, Math.round(r.top), x.textContent.trim(), x.querySelectorAll('svg').length]; }));
+          ok(tg.length === 2 && tg[0][0] === 'toggle-theme' && tg[0][3] === '' && tg[1][0] === 'toggle-dir' && tg[1][4] === 0 && tg[0][1] === tg[1][1] && tg[0][2] === tg[1][2], `${tag}: icon-only theme toggle and text-only direction toggle aligned ${JSON.stringify(tg)}`);
           if (vpName === 'mobile-390' && dir === 'ltr' && page === 'index.html') {
             const tipBefore = await p.$$eval('[role="tooltip"], [role="alert"], [aria-live]', (e) => e.filter((x) => x.offsetParent !== null && !x.closest('form') && !x.closest('[data-map]')).length);
-            await p.tap('[data-set-theme="dark"]');
-            ok(await p.evaluate(() => document.documentElement.classList.contains('dark') && localStorage.getItem('wts_theme') === 'dark'), 'Dark button switches and saves the theme');
-            ok((await p.getAttribute('[data-set-theme="dark"]', 'aria-pressed')) === 'true' && (await p.getAttribute('[data-set-theme="light"]', 'aria-pressed')) === 'false', 'pressed state follows the theme');
+            await p.tap('#nav-sheet [data-action="toggle-theme"]');
+            ok(await p.evaluate(() => document.documentElement.classList.contains('dark') && localStorage.getItem('wts_theme') === 'dark'), 'theme toggle switches to dark and saves');
+            ok(await p.$eval('#nav-sheet .icon-sun', (i) => getComputedStyle(i).display !== 'none') && await p.$eval('#nav-sheet .icon-moon', (i) => getComputedStyle(i).display === 'none'), 'dark mode shows only the sun');
             await p.tap('#nav-sheet [data-action="toggle-dir"]');
             ok(await p.evaluate(() => document.documentElement.dir === 'rtl'), 'menu direction button switches to RTL');
             const tipAfter = await p.$$eval('[role="tooltip"], [role="alert"], [aria-live]', (e) => e.filter((x) => x.offsetParent !== null && !x.closest('form') && !x.closest('[data-map]')).length);
             ok(tipAfter === tipBefore, 'no pop-up or toast appears after theme/direction changes');
             await p.tap('#nav-sheet [data-action="toggle-dir"]');
-            await p.tap('[data-set-theme="light"]');
-            ok(await p.evaluate(() => !document.documentElement.classList.contains('dark')), 'Light button switches back');
+            await p.tap('#nav-sheet [data-action="toggle-theme"]');
+            ok(await p.evaluate(() => !document.documentElement.classList.contains('dark')), 'theme toggle switches back to light');
           }
           await p.tap('#nav-toggle'); await p.waitForTimeout(80);
         }

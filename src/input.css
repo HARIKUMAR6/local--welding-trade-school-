@@ -332,19 +332,7 @@
   .sheet-sub[hidden] { display: none; }
   .sheet-sub a { display: flex; align-items: baseline; gap: .75rem; min-height: 2.75rem; padding: .35rem 0; color: var(--fg); text-decoration: none; font-weight: 700; }
   .sheet-sub a span { color: var(--acc); font-weight: 800; font-size: .875rem; }
-  .sheet-tools { display: grid; gap: .75rem; margin-top: 1.25rem; }
-  /* Light / Dark: two equal columns, identical size, side by side at every width */
-  .theme-pair { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
-  .theme-opt {
-    display: inline-flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; min-height: 3rem; padding: .5rem .75rem;
-    font: inherit; font-weight: 800; font-size: .875rem; letter-spacing: .08em; text-transform: uppercase;
-    color: var(--fg); background: transparent; border: 2px solid var(--ui); border-radius: 0; cursor: pointer;
-    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
-  }
-  .theme-opt .icon { width: 1.125rem; height: 1.125rem; }
-  .theme-opt:hover { border-color: var(--fg); }
-  .theme-opt[aria-pressed='true'] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
-  .sheet-dir { justify-self: start; }
+  .sheet-tools { display: flex; align-items: center; gap: .5rem; margin-top: 1.25rem; }
 
   .enroll-bar {
     position: fixed; inset-inline: 0; bottom: 0; z-index: 50; display: none;
