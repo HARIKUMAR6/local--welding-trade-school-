@@ -183,6 +183,10 @@
   .btn-sm { min-height: 2.5rem; padding: .5rem .875rem; font-size: .8125rem; }
   .btn[aria-disabled='true'], .btn:disabled { cursor: not-allowed; background: transparent; color: var(--fg-3); border: 2px dashed var(--ui); }
   .btn[aria-pressed='true'] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  /* CTA groups on tablet/mobile: wrapped buttons of one group share the row width so stacked CTAs line up */
+  @media (max-width: 1279px) {
+    :is(.flex.flex-wrap, .ct-actions, .pg-cta-actions, .in-hero-ctas) > .btn { flex: 1 1 12rem; min-width: 0; white-space: normal; }
+  }
 
   .link { color: var(--fg); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .2em; text-decoration-color: var(--acc); }
   .link:hover { color: var(--acc); }
@@ -261,6 +265,7 @@
   .nav-desktop { display: none; }
   .actions-desktop { display: none; }
   .nav-toggle { display: inline-flex; }
+  .nav-toggle [hidden] { display: none; }
   @media (min-width: 1280px) {
     .nav-desktop { display: flex; align-items: stretch; height: 100%; gap: .125rem; }
     .actions-desktop { display: flex; align-items: center; gap: .5rem; flex: none; }
@@ -332,7 +337,9 @@
   .sheet-sub[hidden] { display: none; }
   .sheet-sub a { display: flex; align-items: baseline; gap: .75rem; min-height: 2.75rem; padding: .35rem 0; color: var(--fg); text-decoration: none; font-weight: 700; }
   .sheet-sub a span { color: var(--acc); font-weight: 800; font-size: .875rem; }
-  .sheet-tools { display: flex; align-items: center; gap: .5rem; margin-top: 1.25rem; }
+  .sheet-tools { display: grid; gap: .75rem; margin-top: 1.25rem; }
+  .sheet-tools .ctl-btn { width: 100%; height: 3rem; font-size: .875rem; }
+  .nav-toggle[aria-expanded="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
   .enroll-bar {
     position: fixed; inset-inline: 0; bottom: 0; z-index: 50; display: none;

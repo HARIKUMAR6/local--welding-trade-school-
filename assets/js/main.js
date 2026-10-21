@@ -123,8 +123,8 @@
     navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     var o = $('.icon-open', navToggle), s = $('.icon-shut', navToggle);
-    if (o) o.hidden = open;
-    if (s) s.hidden = !open;
+    if (o) o.toggleAttribute('hidden', open);
+    if (s) s.toggleAttribute('hidden', !open);
     document.body.classList.toggle('nav-open', open);
     if (open) { var first = $('a, button', sheet); if (first) first.focus(); }
     else if (returnFocus) navToggle.focus();

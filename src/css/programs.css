@@ -155,4 +155,5 @@
   .pg-cta { display: grid; gap: 1.5rem; align-items: center; }
   @media (min-width: 1024px) { .pg-cta { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; } }
   .pg-cta-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; }
+  .pg-cta-actions > .arrow-link { flex: 1 0 100%; }
 }
