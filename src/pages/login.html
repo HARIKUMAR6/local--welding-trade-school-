@@ -2,34 +2,119 @@
 <html lang="en" dir="ltr">
 <head>
   <!--@head-->
-  <title>Student Login and Dashboard | Welding Trade School</title>
-  <meta name="description" content="The Welding Trade School student portal: certification enrollment, lab-hour progress and exam results for enrolled students.">
+  <title>Student Portal: Sign In | Welding Trade School</title>
+  <meta name="description" content="Welding Trade School student portal. This static demo shows the sign-in and registration screens; accounts and sign-in are not connected.">
+  <meta name="robots" content="noindex">
 </head>
-<body>
+<body class="app" data-app="login">
 <!--@sprite-->
-<!--@header-->
+<a href="#portal-main" class="skip-link">Skip to sign in</a>
 
-<main id="main-content" class="tone-alt flex" style="flex:1 0 auto">
-  <div class="wrap flex" style="padding-block:var(--section-y)">
-    <div class="stub">
-      <p class="eyebrow">Student portal</p>
-      <h1 class="display d-lg mt-4">Student login and dashboard</h1>
-      <p class="body-2 mt-4">The student dashboard is where enrolled students follow their certification enrollment, lab-hour progress and exam results.</p>
-      <ul class="stub-list mt-6">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-badge"/></svg>Certification program enrollment</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Lab hours completed</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg>Exam results</li>
-      </ul>
-      <p class="stub-note mt-6">Online sign-in is not available on this website yet. Enrolled students with questions about their record can contact admissions.</p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="contact.html" class="btn btn-primary">Contact admissions <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a href="programs.html" class="btn btn-secondary">Explore programs</a>
+<div class="portal">
+  <!-- ===== Brand panel ===== -->
+  <section class="portal-brand tone-ink" aria-label="Welding Trade School student portal">
+    <div class="portal-brand-top">
+      <a href="index.html" class="brand app-brand" aria-label="Welding Trade School, home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" fill="currentColor"/>
+          <path d="M12 22H34M12 22L5 31" style="stroke:var(--bg)" stroke-width="2.6" fill="none"/>
+          <path d="M18 22V30L26 22Z" fill="#FF5A1F"/>
+        </svg>
+        <span class="brand-name"><b>Welding</b><span>Trade School</span></span>
+      </a>
+      <div class="app-controls">
+        <button type="button" class="ctl-btn" data-action="toggle-theme" data-icon-only aria-label="Switch to dark mode">
+          <span data-theme-icon aria-hidden="true">
+            <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+            <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+          </span>
+        </button>
+        <button type="button" class="ctl-btn ctl-btn-text" data-action="toggle-dir" data-icon-only aria-label="Text direction: left to right. Switch to right to left"><span data-dir-label>LTR</span></button>
       </div>
     </div>
-  </div>
-</main>
+    <div class="portal-brand-copy">
+      <p class="eyebrow">Student portal</p>
+      <p class="portal-statement">Enrollment, lab hours and exam results in one place.</p>
+      <div class="bead bead-arc" aria-hidden="true"></div>
+      <p class="portal-demo"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Static demo portal: sign-in and registration are not connected. You can <a href="dashboard.html" class="link">explore the demo dashboard</a> without an account.</span></p>
+    </div>
+  </section>
 
-<!--@footer-->
+  <!-- ===== Forms ===== -->
+  <main class="portal-main tone-paper" id="portal-main" tabindex="-1">
+    <div class="portal-card">
+      <div class="auth-tabs" role="tablist" aria-label="Account">
+        <button type="button" role="tab" id="tab-signin" aria-controls="panel-signin" aria-selected="true">Sign In</button>
+        <button type="button" role="tab" id="tab-register" aria-controls="panel-register" aria-selected="false" tabindex="-1">Register</button>
+      </div>
+
+      <!-- Sign in -->
+      <section role="tabpanel" id="panel-signin" aria-labelledby="tab-signin" class="auth-panel">
+        <h1 class="auth-h">Sign in</h1>
+        <form class="auth-form" data-auth-form="signin" novalidate>
+          <div class="ct-field">
+            <label for="si-email">Email</label>
+            <input id="si-email" name="email" type="email" autocomplete="username" inputmode="email" required aria-describedby="si-email-err">
+            <p class="ct-err" id="si-email-err" hidden></p>
+          </div>
+          <div class="ct-field">
+            <label for="si-pass">Password</label>
+            <div class="pw-wrap">
+              <input id="si-pass" name="password" type="password" autocomplete="current-password" required aria-describedby="si-pass-err">
+              <button type="button" class="pw-toggle" data-pw-toggle="si-pass" aria-pressed="false" aria-label="Show password"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></button>
+            </div>
+            <p class="ct-err" id="si-pass-err" hidden></p>
+          </div>
+          <label class="check"><input type="checkbox" name="remember"><span>Remember me <span class="check-note">(demo preference, not saved)</span></span></label>
+          <button type="submit" class="btn btn-primary auth-submit">Sign In</button>
+          <div class="auth-result" role="status" tabindex="-1" hidden></div>
+        </form>
+        <p class="auth-switch">New to the portal? <button type="button" class="link-btn" data-auth-switch="register">Create an account</button></p>
+      </section>
+
+      <!-- Register -->
+      <section role="tabpanel" id="panel-register" aria-labelledby="tab-register" class="auth-panel" hidden>
+        <h1 class="auth-h">Register</h1>
+        <form class="auth-form" data-auth-form="register" novalidate>
+          <div class="ct-field">
+            <label for="rg-name">Full name</label>
+            <input id="rg-name" name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby="rg-name-err">
+            <p class="ct-err" id="rg-name-err" hidden></p>
+          </div>
+          <div class="ct-field">
+            <label for="rg-email">Email</label>
+            <input id="rg-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="rg-email-err">
+            <p class="ct-err" id="rg-email-err" hidden></p>
+          </div>
+          <div class="auth-row">
+            <div class="ct-field">
+              <label for="rg-pass">Password</label>
+              <div class="pw-wrap">
+                <input id="rg-pass" name="password" type="password" autocomplete="new-password" required minlength="8" aria-describedby="rg-pass-hint rg-pass-err">
+                <button type="button" class="pw-toggle" data-pw-toggle="rg-pass" aria-pressed="false" aria-label="Show password"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></button>
+              </div>
+              <p class="ct-hint" id="rg-pass-hint">At least 8 characters.</p>
+              <p class="ct-err" id="rg-pass-err" hidden></p>
+            </div>
+            <div class="ct-field">
+              <label for="rg-pass2">Confirm password</label>
+              <div class="pw-wrap">
+                <input id="rg-pass2" name="confirm" type="password" autocomplete="new-password" required aria-describedby="rg-pass2-err">
+                <button type="button" class="pw-toggle" data-pw-toggle="rg-pass2" aria-pressed="false" aria-label="Show password"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></button>
+              </div>
+              <p class="ct-err" id="rg-pass2-err" hidden></p>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary auth-submit">Register</button>
+          <div class="auth-result" role="status" tabindex="-1" hidden></div>
+        </form>
+        <p class="auth-switch">Already registered? <button type="button" class="link-btn" data-auth-switch="signin">Sign in instead</button></p>
+      </section>
+    </div>
+  </main>
+</div>
+
 <script src="assets/js/main.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

@@ -48,10 +48,23 @@ npm run test:contrast   # every text node, icon, control boundary, hover/selecte
 npm test                # all of the above
 ```
 
+## Student portal (static demo)
+
+`dashboard.html` and `login.html` are application pages: no marketing header/footer, own navigation, `assets/js/app.js`
+(styles in `src/css/app.css`). Both are **static demos**: no backend, authentication, accounts or storage.
+
+- Dashboard: sidebar (drawer below 1024px) with Overview, Certification Programs, Lab Hours, Exam Results (hash views).
+  All figures come from the `DEMO` object in `app.js` and are labelled demo/sample; completed hours are the sum of the
+  sample sessions, so completed + remaining always equals required. Enroll only sets an in-memory demo selection.
+- Login: Sign In / Register tabs with client-side validation; a valid submit explains that sign-in/registration is not
+  connected. Form values are never sent or stored. Logout on the dashboard links to `login.html`; the brand links to
+  `index.html`.
+- To make it real: replace the `DEMO` object with an API, and connect the forms to an authentication service.
+- `npm run test:portal` covers both pages at the 7 required viewports, light/dark, LTR/RTL.
+
 ## Shared shell
 
-- Header: Home (Home 1 / Home 2), Programs, Instructors, About, Contact, Dashboard. There is no separate dashboard page; the
-  dashboard sits behind the student portal, so **Dashboard links to `login.html`** until a dashboard route exists.
+- Header: Home (Home 1 / Home 2), Programs, Instructors, About, Contact, Dashboard (`dashboard.html`). Student Login opens `login.html`.
 - Theme and direction controls have accessible names only (no `title` tooltips). The mobile menu has an equal-width
   Light / Dark pair (`[data-set-theme]`).
 - One scroll-to-top button (`#to-top`, rendered by `partials/footer.html`): free-floating in the side margin on wide

@@ -48,7 +48,7 @@ const inner = html.match(/class="inner-hero /); ok(!!inner, 'hero uses the share
   await p0.goto(`${BASE}/programs.html`, { waitUntil: 'networkidle' });
   ok(errs.length === 0, 'no console errors ' + errs.join(' | '));
   ok((await p0.getAttribute('a.nav-link[href="programs.html"]', 'aria-current')) === 'page', 'Programs is the current page in the header');
-  ok((await p0.getAttribute('a.nav-link[data-home-anchor="certification"]', 'href')) === '#certification', 'header Certification link resolves to the pathway section');
+  ok((await p0.$$('#site-header [data-home-anchor]')).length === 0, 'header has no Certification or Careers links (removed site-wide)');
   for (const id of ['compare', 'mig', 'tig', 'stick', 'certification', 'enroll']) ok((await p0.$('#' + id)) !== null, `anchor #${id} exists`);
   const board = await p0.$$eval('.pg-board a', (as) => as.map((a) => a.getAttribute('href')));
   ok(board.join() === '#mig,#tig,#stick', 'hero directory links to the three process sections');

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!--@head-->
+  <title>Student Dashboard (Demo) | Welding Trade School</title>
+  <meta name="description" content="Demo student dashboard for Welding Trade School: sample certification program enrollment, lab-hour progress and exam results. All values are illustrative demo data.">
+  <meta name="robots" content="noindex">
+</head>
+<body class="app" data-app="dashboard">
+<!--@sprite-->
+<a href="#app-main" class="skip-link">Skip to main content</a>
+
+<div class="app-shell">
+  <!-- ===== Sidebar (persistent on desktop, drawer below 1024px) ===== -->
+  <aside class="app-side tone-ink" id="app-nav" aria-label="Dashboard" data-drawer>
+    <div class="app-side-top">
+      <a href="index.html" class="brand app-brand" aria-label="Welding Trade School, home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" fill="currentColor"/>
+          <path d="M12 22H34M12 22L5 31" style="stroke:var(--bg)" stroke-width="2.6" fill="none"/>
+          <path d="M18 22V30L26 22Z" fill="#FF5A1F"/>
+        </svg>
+        <span class="brand-name"><b>Welding</b><span>Trade School</span></span>
+      </a>
+      <button type="button" class="app-icon-btn app-close" data-drawer-close aria-label="Close menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <p class="app-side-label">Student portal</p>
+    <nav aria-label="Dashboard sections">
+      <ul class="app-nav">
+        <li><a href="#overview" data-view-link="overview"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><span>Overview</span></a></li>
+        <li><a href="#programs" data-view-link="programs"><svg class="icon" aria-hidden="true"><use href="#i-badge"/></svg><span>Certification Programs</span></a></li>
+        <li><a href="#lab-hours" data-view-link="lab-hours"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>Lab Hours</span></a></li>
+        <li><a href="#exams" data-view-link="exams"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span>Exam Results</span></a></li>
+      </ul>
+    </nav>
+    <div class="app-side-foot">
+      <div class="app-controls">
+        <button type="button" class="ctl-btn" data-action="toggle-theme" data-icon-only aria-label="Switch to dark mode">
+          <span data-theme-icon aria-hidden="true">
+            <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+            <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+          </span>
+        </button>
+        <button type="button" class="ctl-btn ctl-btn-text" data-action="toggle-dir" data-icon-only aria-label="Text direction: left to right. Switch to right to left"><span data-dir-label>LTR</span></button>
+      </div>
+      <a href="login.html" class="app-logout app-logout-side"><svg class="icon" aria-hidden="true"><use href="#i-logout"/></svg><span>Logout</span></a>
+    </div>
+  </aside>
+  <div class="app-backdrop" data-drawer-backdrop hidden></div>
+
+  <!-- ===== Main column ===== -->
+  <div class="app-body tone-paper" data-app-body>
+    <header class="app-bar">
+      <button type="button" class="app-icon-btn app-menu" data-drawer-open aria-controls="app-nav" aria-expanded="false" aria-label="Open menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+      <div class="app-bar-title">
+        <p class="app-bar-k">Student dashboard</p>
+        <h1 class="app-bar-h" data-view-title>Overview</h1>
+      </div>
+      <span class="demo-pill" aria-hidden="true">Demo data</span>
+      <a href="login.html" class="app-logout"><svg class="icon" aria-hidden="true"><use href="#i-logout"/></svg><span>Logout</span></a>
+    </header>
+
+    <main id="app-main" class="app-main" tabindex="-1">
+      <p class="demo-note" role="note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><b>Demo dashboard.</b> Every value on this page is illustrative sample data. It is not a real student record, and nothing here is saved or sent.</span></p>
+
+      <!-- ===== Overview ===== -->
+      <section class="app-view" id="overview" data-view="overview" aria-labelledby="ov-title">
+        <h2 id="ov-title" class="app-h2">Your training at a glance</h2>
+        <div class="ov-grid">
+          <article class="panel ov-hours" aria-labelledby="ov-hours-t">
+            <header class="panel-head"><h3 id="ov-hours-t">Lab hours</h3><span class="tag-demo">Demo</span></header>
+            <p class="ov-figure"><b data-lab="completed">0</b><span> of <span data-lab="required">0</span> hours</span></p>
+            <div class="meter-bar" role="progressbar" aria-label="Lab hours completed (demo)" aria-valuemin="0" data-lab-progress><i></i></div>
+            <p class="panel-sub"><span data-lab="remaining">0</span> hours remaining &middot; <span data-lab="percent">0</span>% complete</p>
+            <a href="#lab-hours" class="panel-link" data-view-link="lab-hours">View lab hours <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="panel" aria-labelledby="ov-enr-t">
+            <header class="panel-head"><h3 id="ov-enr-t">Program enrollment</h3><span class="tag-demo">Demo</span></header>
+            <p class="ov-enr" data-enroll-summary>No sample option selected.</p>
+            <a href="#programs" class="panel-link" data-view-link="programs">Explore sample options <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="panel" aria-labelledby="ov-exam-t">
+            <header class="panel-head"><h3 id="ov-exam-t">Next assessment</h3><span class="tag-demo">Demo</span></header>
+            <p class="ov-exam" data-next-exam></p>
+            <a href="#exams" class="panel-link" data-view-link="exams">View exam results <svg class="icon icon-go icon-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+
+        <article class="panel ov-next" aria-labelledby="ov-next-t">
+          <header class="panel-head"><h3 id="ov-next-t">Next steps</h3></header>
+          <ol class="next-list">
+            <li><span class="next-n" aria-hidden="true">1</span><span>Explore the sample enrollment options in <a href="#programs" class="link" data-view-link="programs">Certification Programs</a>.</span></li>
+            <li><span class="next-n" aria-hidden="true">2</span><span>Review lab-hour progress in <a href="#lab-hours" class="link" data-view-link="lab-hours">Lab Hours</a>.</span></li>
+            <li><span class="next-n" aria-hidden="true">3</span><span>Check assessment status in <a href="#exams" class="link" data-view-link="exams">Exam Results</a>.</span></li>
+          </ol>
+        </article>
+      </section>
+
+      <!-- ===== Certification programs ===== -->
+      <section class="app-view" id="programs" data-view="programs" aria-labelledby="pr-title">
+        <h2 id="pr-title" class="app-h2">Certification programs</h2>
+        <div class="callout" role="note">
+          <p><b>Processes and programs are not the same thing.</b> The school teaches three welding processes: MIG, TIG and Stick. Official certification programs, their requirements and enrollment are confirmed by admissions. The options below are <b>sample enrollment options</b> built from those processes so you can try the interface.</p>
+        </div>
+        <div class="enr-status" data-enroll-status role="status" aria-live="polite"></div>
+        <ul class="prog-list" data-programs></ul>
+      </section>
+
+      <!-- ===== Lab hours ===== -->
+      <section class="app-view" id="lab-hours" data-view="lab-hours" aria-labelledby="lh-title">
+        <h2 id="lh-title" class="app-h2">Lab hours</h2>
+        <article class="panel lh-main" aria-labelledby="lh-prog-t">
+          <header class="panel-head"><h3 id="lh-prog-t">Completion progress</h3><span class="tag-demo">Demo data</span></header>
+          <dl class="lh-figures">
+            <div><dt>Completed</dt><dd><span dir="ltr"><b data-lab="completed">0</b> h</span></dd></div>
+            <div><dt>Required (sample)</dt><dd><span dir="ltr"><b data-lab="required">0</b> h</span></dd></div>
+            <div><dt>Remaining</dt><dd><span dir="ltr"><b data-lab="remaining">0</b> h</span></dd></div>
+          </dl>
+          <div class="meter-bar meter-lg" role="progressbar" aria-label="Lab hours completed (demo)" aria-valuemin="0" data-lab-progress><i></i></div>
+          <p class="lh-status"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span data-lab="status"></span></p>
+          <p class="panel-sub">Illustrative values only. No attendance has been recorded, approved or verified.</p>
+        </article>
+
+        <article class="panel" aria-labelledby="lh-log-t">
+          <header class="panel-head"><h3 id="lh-log-t">Recent lab sessions</h3><span class="tag-demo">Demo data</span></header>
+          <table class="data-table" data-sessions>
+            <caption class="sr-only">Recent lab sessions (demo data)</caption>
+            <thead><tr><th scope="col">Date</th><th scope="col">Process</th><th scope="col" class="num">Hours</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <p class="panel-sub" data-sessions-note></p>
+        </article>
+      </section>
+
+      <!-- ===== Exam results ===== -->
+      <section class="app-view" id="exams" data-view="exams" aria-labelledby="ex-title">
+        <h2 id="ex-title" class="app-h2">Exam results</h2>
+        <article class="panel" aria-labelledby="ex-list-t">
+          <header class="panel-head"><h3 id="ex-list-t">Assessments</h3><span class="tag-demo">Demo data</span></header>
+          <table class="data-table exam-table" data-exams>
+            <caption class="sr-only">Assessments and results (demo data)</caption>
+            <thead><tr><th scope="col">Assessment</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col">Next step</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <p class="panel-sub">Sample entries only. They are not official exams, scores or certification results.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

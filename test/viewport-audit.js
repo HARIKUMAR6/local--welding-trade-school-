@@ -14,7 +14,7 @@
 const { launch, BASE, VIEWPORTS } = require('./lib/browser');
 const args = process.argv.slice(2);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
-const PAGES = opt('--pages', 'index.html,home-2.html,programs.html,instructors.html,about.html,contact.html,login.html,credits.html').split(',');
+const PAGES = opt('--pages', 'index.html,home-2.html,programs.html,instructors.html,about.html,contact.html,login.html,dashboard.html,credits.html').split(',');
 const EXTRA = { 'w360': { width: 360, height: 740 }, 'w414': { width: 414, height: 896 }, 'w600': { width: 600, height: 900 }, 'w900': { width: 900, height: 1000 }, 'w1100': { width: 1100, height: 800 }, 'w1239': { width: 1239, height: 800 }, 'w1241': { width: 1241, height: 800 }, 'w1920': { width: 1920, height: 1080 } };
 const ALL = Object.assign({}, VIEWPORTS, EXTRA);
 const NAMES = opt('--viewports', Object.keys(ALL).join(',')).split(',');

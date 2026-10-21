@@ -6,7 +6,7 @@ const { launch, BASE } = require('./lib/browser');
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..');
-const PAGES = ['index.html', 'home-2.html', 'programs.html', 'instructors.html', 'about.html', 'contact.html', 'login.html', 'credits.html'];
+const PAGES = ['index.html', 'home-2.html', 'programs.html', 'instructors.html', 'about.html', 'contact.html', 'credits.html']; // login/dashboard are app pages: see test/portal.js
 let fails = 0, passes = 0;
 const ok = (c, m) => { if (c) { passes++; if (process.argv.includes('--verbose')) console.log('  ok  ', m); } else { fails++; console.log('FAIL', m); } };
 
@@ -156,7 +156,7 @@ const ok = (c, m) => { if (c) { passes++; if (process.argv.includes('--verbose')
     ok((await p.getAttribute('#home-toggle', 'aria-current')) === null, 'Home not marked current on other pages');
     await p.goto(BASE + '/index.html', { waitUntil: 'networkidle' });
     ok((await p.$('#site-header [data-home-anchor]')) === null, 'header has no Certification or Careers links');
-    ok((await p.getAttribute('a.nav-link[href="login.html"]', 'href')) === 'login.html', 'Dashboard links to the student portal');
+    ok((await p.getAttribute('a.nav-link[data-nav="dashboard.html"]', 'href')) === 'dashboard.html', 'Dashboard links to dashboard.html');
     // enroll CTAs
     const enrollHrefs = await p.$$eval('a.btn-primary', (as) => as.map((a) => a.getAttribute('href')));
     ok(enrollHrefs.length >= 3 && enrollHrefs.every((h) => ['contact.html', 'programs.html'].includes(h)), `primary CTAs point to contact/programs (${enrollHrefs.join(',')})`);
@@ -164,7 +164,7 @@ const ok = (c, m) => { if (c) { passes++; if (process.argv.includes('--verbose')
     ok(true, 'header Enroll Now navigates to contact.html');
     await p.goto(`${BASE}/index.html`);
     await p.click('header a.btn-secondary'); await p.waitForURL('**/login.html');
-    ok((await p.getAttribute('header a.btn-secondary', 'aria-current')) === 'page', 'Student Login marked current on login page');
+    ok(await p.isVisible('[role="tablist"]') && (await p.$('#site-header')) === null, 'Student Login opens the portal (app page, no marketing header)');
     // Home 1 tabs keyboard
     await p.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
     await p.focus('#tab-mig'); await p.keyboard.press('ArrowDown');

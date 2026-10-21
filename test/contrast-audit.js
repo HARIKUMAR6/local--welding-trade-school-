@@ -13,7 +13,7 @@ const { launch, BASE, VIEWPORTS } = require('./lib/browser');
 
 const args = process.argv.slice(2);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
-const PAGES = opt('--pages', 'index.html,home-2.html,programs.html,instructors.html,about.html,contact.html,login.html,credits.html').split(',');
+const PAGES = opt('--pages', 'index.html,home-2.html,programs.html,instructors.html,about.html,contact.html,login.html,dashboard.html,credits.html').split(',');
 const VPS = opt('--viewports', 'desktop-1440,mobile-390').split(',');
 const VERBOSE = args.includes('--verbose');
 
@@ -178,10 +178,39 @@ async function run() {
         for (const tab of await p.$$('[role="tab"]')) {
           if (!(await tab.isVisible())) continue;
           await tab.click(); await p.waitForTimeout(150);
-          record(ctx + ' [tab selected]', await p.evaluate(measureInPage, '[data-tabs]'));
+          record(ctx + ' [tab selected]', await p.evaluate(measureInPage, (await p.$('[data-tabs]')) ? '[data-tabs]' : '.portal-card'));
         }
         const panels = await p.$$('[data-panel-btn]');
         for (const pb of panels) { if (!(await pb.isVisible())) continue; await pb.click(); await p.waitForTimeout(450); record(ctx + ' [panel open]', await p.evaluate(measureInPage, '[data-panels]')); }
+
+        // ---- student portal states ----
+        if (await p.$('[data-app="dashboard"]')) {
+          for (const v of ['programs', 'lab-hours', 'exams', 'overview']) {
+            await p.evaluate((h) => { location.hash = h; }, v); await p.waitForTimeout(150);
+            record(ctx + ` [view ${v}]`, await p.evaluate(measureInPage, '#app-main'));
+          }
+          await p.evaluate(() => { location.hash = 'programs'; }); await p.waitForTimeout(120);
+          await p.click('[data-enroll="mig"]'); await p.waitForTimeout(120);
+          record(ctx + ' [demo enrollment]', await p.evaluate(measureInPage, '#programs'));
+          await p.click('[data-enroll-clear]');
+          if (await p.isVisible('[data-drawer-open]')) {
+            await p.click('[data-drawer-open]'); await p.waitForTimeout(300);
+            record(ctx + ' [drawer open]', await p.evaluate(measureInPage, '#app-nav'));
+            await p.keyboard.press('Escape'); await p.waitForTimeout(250);
+          }
+        }
+        if (await p.$('[data-app="login"]')) {
+          await p.click('#tab-signin'); await p.waitForTimeout(80);
+          await p.click('#panel-signin .auth-submit'); await p.waitForTimeout(120);
+          record(ctx + ' [sign-in errors]', await p.evaluate(measureInPage, '#panel-signin'));
+          await p.fill('#si-email', 'audit@example.com'); await p.fill('#si-pass', 'audit-pass');
+          await p.click('#panel-signin .auth-submit'); await p.waitForTimeout(120);
+          record(ctx + ' [sign-in result]', await p.evaluate(measureInPage, '#panel-signin'));
+          await p.click('#tab-register'); await p.waitForTimeout(100);
+          await p.click('#panel-register .auth-submit'); await p.waitForTimeout(120);
+          record(ctx + ' [register errors]', await p.evaluate(measureInPage, '#panel-register'));
+          await p.click('#tab-signin');
+        }
 
         // ---- form states: errors, then the result message ----
         if (await p.$('[data-demo-form]')) {

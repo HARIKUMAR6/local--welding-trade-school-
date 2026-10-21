@@ -9,7 +9,7 @@
  *    mirrors in RTL, and never covers text, links, buttons or form controls while it is visible
  */
 const { launch, BASE, VIEWPORTS } = require('./lib/browser');
-const PAGES = ['index.html', 'home-2.html', 'programs.html', 'instructors.html', 'about.html', 'contact.html', 'login.html', 'credits.html'];
+const PAGES = ['index.html', 'home-2.html', 'programs.html', 'instructors.html', 'about.html', 'contact.html', 'credits.html']; // login/dashboard are app pages: see test/portal.js
 let fails = 0, passes = 0;
 const ok = (c, m) => { if (c) { passes++; if (process.argv.includes('--verbose')) console.log('  ok  ', m); } else { fails++; console.log('FAIL', m); } };
 
@@ -55,7 +55,7 @@ function coveredBy(sel) {
         const items = await p.$$eval(`${navSel} > *`, (els) => els.filter((e) => e.offsetParent !== null && !e.matches('.sheet-sub')).map((e) => e.innerText.trim().replace(/\s+/g, ' ')));
         ok(items.join('|').toLowerCase() === 'home|programs|instructors|about|contact|dashboard', `${tag}: nav items ${items.join('|')}`);
         ok((await p.$$eval('#site-header a, #site-header button', (els) => els.filter((e) => /^(Certification|Careers)$/.test(e.textContent.trim())).length)) === 0, `${tag}: no Certification or Careers in header`);
-        ok((await p.$$eval('#site-header a', (as) => as.filter((a) => a.textContent.trim() === 'Dashboard').map((a) => a.getAttribute('href')))).every((h) => h === 'login.html'), `${tag}: Dashboard links to login.html`);
+        ok((await p.$$eval('#site-header a', (as) => as.filter((a) => a.textContent.trim() === 'Dashboard').map((a) => a.getAttribute('href')))).every((h) => h === 'dashboard.html'), `${tag}: Dashboard links to dashboard.html`);
         ok((await p.$$eval('#site-header [title], footer [title], [data-action][title], [data-set-theme][title]', (e) => e.length)) === 0, `${tag}: no title tooltips in header/footer controls`);
 
         if (!desktop) {

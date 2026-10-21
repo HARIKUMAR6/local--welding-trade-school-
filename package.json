@@ -14,13 +14,14 @@
     "test:viewport": "node test/viewport-audit.js",
     "test:images": "node test/image-audit.js",
     "test:coverage": "node test/coverage.js",
-    "test": "node test/coverage.js && node test/image-audit.js && node test/functional.js && node test/shell.js && node test/programs.js && node test/instructors.js && node test/about.js && node test/contact.js && node test/heading-align.js programs.html && node test/heading-align.js instructors.html && node test/heading-align.js about.html && node test/heading-align.js contact.html && node test/viewport-audit.js && node test/contrast-audit.js",
+    "test": "node test/coverage.js && node test/image-audit.js && node test/functional.js && node test/shell.js && node test/portal.js && node test/programs.js && node test/instructors.js && node test/about.js && node test/contact.js && node test/heading-align.js programs.html && node test/heading-align.js instructors.html && node test/heading-align.js about.html && node test/heading-align.js contact.html && node test/viewport-audit.js && node test/contrast-audit.js",
     "test:programs": "node test/programs.js",
     "test:headings": "node test/heading-align.js programs.html && node test/heading-align.js instructors.html && node test/heading-align.js about.html && node test/heading-align.js contact.html",
     "test:instructors": "node test/instructors.js",
     "test:about": "node test/about.js",
     "test:contact": "node test/contact.js",
-    "test:shell": "node test/shell.js"
+    "test:shell": "node test/shell.js",
+    "test:portal": "node test/portal.js"
   },
   "keywords": [
     "welding",

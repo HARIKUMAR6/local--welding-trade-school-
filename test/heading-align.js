@@ -17,25 +17,27 @@ function inPage() {
   const wrapEdge = () => pageEdge;
   document.querySelectorAll('main h1, main h2').forEach((h) => {
     const r = h.getBoundingClientRect(); if (!r.width) return;
-    const sec = h.closest('section');
+    const sec = h.closest('section') || h.closest('main');
     const group = [h];
     // eyebrow / lead that introduce this heading: siblings or nearest in the same heading container
     const box = h.parentElement;
     const eb = box.querySelector(':scope > .eyebrow') || sec.querySelector('.eyebrow');
     const lead = box.querySelector(':scope > .lead') || sec.querySelector('.lead');
     const edge = wrapEdge(h);
-    const plate = h.closest('.pg-band-plate, .lab-panel');
+    const plate = h.closest('.pg-band-plate, .lab-panel, .stub');
     // a heading group inside a solid plate is aligned by the plate's edge; the text inside is inset by the plate's own padding
     const ref = plate ? plate.getBoundingClientRect() : null;
     const start = (e) => { const b = e.getBoundingClientRect(); const inner = plate ? (rtl ? ref.right - b.right : b.left - ref.left) : 0; return plate ? (rtl ? edge - ref.right : ref.left - edge) + (inner * 0) : (rtl ? edge - b.right : b.left - edge); }; // distance from the content start edge (0 = on the edge)
+    // a centred card (equal gaps either side) is a centred composition: its group is measured inside the card
+    const centredCard = !!(plate && plate.matches('.stub') && (() => { const w = (plate.closest('.wrap') || document.body).getBoundingClientRect(); return Math.abs((ref.left - w.left) - (w.right - ref.right)) < 4; })());
     const cs = getComputedStyle(h);
     out.push({
       id: (sec.id || sec.getAttribute('aria-labelledby') || '?') + ' / ' + h.tagName.toLowerCase(),
       text: h.textContent.trim().slice(0, 28),
       textAlign: cs.textAlign,
-      headStart: Math.round(start(h)),
-      eyebrowStart: eb && eb.getBoundingClientRect().width ? Math.round(start(eb)) : null,
-      leadStart: lead && lead.getBoundingClientRect().width ? Math.round(start(lead)) : null,
+      headStart: centredCard ? 0 : Math.round(start(h)),
+      eyebrowStart: eb && eb.getBoundingClientRect().width ? (centredCard ? 0 : Math.round(start(eb))) : null,
+      leadStart: lead && lead.getBoundingClientRect().width ? (centredCard ? 0 : Math.round(start(lead))) : null,
       headWidth: Math.round(r.width),
       // centred groups: every part must be centred and share one axis
       center: (() => { const c = (e) => { if (!e) return null; const b = e.getBoundingClientRect(); return b.width ? { x: Math.round(b.left + b.width / 2), a: getComputedStyle(e).textAlign } : null; }; return { h: c(h), eb: c(eb), lead: c(lead) }; })(),
