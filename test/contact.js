@@ -66,7 +66,7 @@ ok(new Set(sources).size === sources.length, 'every photo on the site comes from
     const invalid = await p.$$eval('[aria-invalid="true"]', (els) => els.map((e) => e.id));
     ok(invalid.join() === 'f-name,f-email,f-topic,f-msg', 'required fields flagged; optional phone is not (' + invalid.join() + ')');
     ok((await p.$$eval('[data-error-list] a', (a) => a.length)) === 4, 'summary lists 4 problems with links');
-    ok(!(await p.isVisible('#form-result')), 'no success message after a failed submit');
+    ok((await p.$('#form-result')) === null, 'no result/success panel exists in the form');
     await p.click('[data-error-list] a[href="#f-email"]');
     ok((await p.evaluate(() => document.activeElement.id)) === 'f-email', 'summary link moves focus to its field');
     // specific messages
@@ -85,15 +85,14 @@ ok(new Set(sources).size === sources.length, 'every photo on the site comes from
     await p.fill('#f-msg', 'Which process should I learn first if I am new to welding?');
     ok((await p.textContent('[data-count]')) === String('Which process should I learn first if I am new to welding?'.length), 'character counter updates');
     await p.click('#enquiry-form button[type=submit]');
-    ok(await p.isVisible('#form-result') && !(await p.isVisible('#form-errors')), 'valid submit shows the result panel');
-    const resultText = await p.textContent('#form-result');
-    ok(/has not been sent/.test(resultText) && /not connected/.test(resultText), 'result says clearly that nothing was sent');
-    ok(!/thank you|we.ll be in touch|has been sent|received your/i.test(resultText), 'result never claims delivery');
-    ok((await p.evaluate(() => document.activeElement.id)) === 'form-result', 'focus moves to the result message');
+    ok(!(await p.isVisible('#form-errors')), 'valid submit clears the error summary');
+    const formText = await p.textContent('#enquiry');
+    ok(!/demonstration|not connected|has not been sent|not been sent/i.test(formText), 'no demonstration / not-sent message anywhere in the enquiry section');
+    ok(!/thank you|we.ll be in touch|has been sent|received your/i.test(formText), 'section never claims delivery');
     ok(posts.length === 0, 'no request is sent anywhere ' + posts.join(' | '));
     ok(p.url().endsWith('/contact.html'), 'page does not navigate on submit');
     await p.click('#enquiry-form button[type=reset]');
-    ok(!(await p.isVisible('#form-result')) && (await p.$$eval('[aria-invalid="true"]', (e) => e.length)) === 0, 'clear resets fields, errors and result');
+    ok((await p.$$eval('[aria-invalid="true"]', (e) => e.length)) === 0, 'clear resets fields and errors');
     // regression: clicking Submit while focused in an invalid field must still submit (blur error must not swallow the click)
     await p.fill('#f-email', 'nope'); await p.fill('#f-msg', 'short');
     await p.click('#enquiry-form button[type=submit]'); await p.waitForTimeout(200);

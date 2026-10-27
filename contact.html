@@ -196,7 +196,7 @@
     </div>
   </section>
 
-  <!-- ===== 3. SEND AN ENQUIRY: validated form (frontend demonstration, not connected) ===== -->
+  <!-- ===== 3. SEND AN ENQUIRY: validated form ===== -->
   <section class="section section-compact tone-alt" id="enquiry" aria-labelledby="enq-title">
     <div class="wrap ct-enq">
       <div class="ct-enq-intro">
@@ -205,14 +205,9 @@
           <h2 id="enq-title" class="display d-lg mt-4">Ask admissions a question.</h2>
           <p class="lead mt-4">Tell us what you want to know. Fields marked required must be filled in.</p>
         </header>
-        <div class="ct-demo" role="note">
-          <p class="ct-demo-k">Demonstration form</p>
-          <p>This form checks your entries but is not yet connected to an email service. Submitting it will <strong>not</strong> send your enquiry.</p>
-        </div>
       </div>
 
-      <form class="ct-form" id="enquiry-form" novalidate data-demo-form aria-describedby="form-note">
-        <p id="form-note" class="sr-only">Demonstration form. Enquiries are not sent.</p>
+      <form class="ct-form" id="enquiry-form" novalidate data-demo-form>
         <div class="ct-errors" id="form-errors" role="alert" tabindex="-1" hidden>
           <p class="ct-errors-t">Please fix <span data-error-count></span> before continuing:</p>
           <ul data-error-list></ul>
@@ -264,11 +259,6 @@
         <div class="ct-actions">
           <button type="submit" class="btn btn-primary">Check my enquiry</button>
           <button type="reset" class="btn btn-secondary">Clear form</button>
-        </div>
-
-        <div class="ct-result" id="form-result" role="status" tabindex="-1" hidden>
-          <p class="ct-result-t">Your enquiry looks complete, but it has not been sent.</p>
-          <p>This form is a demonstration and is not connected to an email service yet. Your details were not stored or sent anywhere.</p>
         </div>
       </form>
     </div>

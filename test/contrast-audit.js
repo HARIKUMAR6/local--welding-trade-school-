@@ -227,7 +227,6 @@ async function run() {
           await p.fill('#f-name', 'Audit Test'); await p.fill('#f-email', 'audit@example.com'); await p.selectOption('#f-topic', { index: 1 });
           await p.fill('#f-msg', 'A long enough message for the audit run.');
           await p.click('[data-demo-form] button[type=submit]'); await p.waitForTimeout(150);
-          record(ctx + ' [form result]', await p.evaluate(measureInPage, '#form-result'));
           await p.click('[data-demo-form] button[type=reset]');
         }
 

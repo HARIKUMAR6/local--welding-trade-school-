@@ -293,10 +293,9 @@
     open(0);
   });
 
-  /* ---------- Enquiry form (frontend demonstration: validates, never claims delivery) ---------- */
+  /* ---------- Enquiry form (validates; nothing is sent and delivery is never claimed) ---------- */
   $$('[data-demo-form]').forEach(function (form) {
     var summary = $('#form-errors', form);
-    var result = $('#form-result', form);
     var msg = $('#f-msg', form);
     var counter = $('[data-count]', form);
     var rules = [
@@ -321,14 +320,13 @@
         if (to && form.contains(to) && (to.type === 'submit' || to.type === 'reset')) return;
         if (rule.el.value || rule.el.getAttribute('aria-invalid') === 'true') check(rule);
       });
-      rule.el.addEventListener('input', function () { if (rule.el.getAttribute('aria-invalid') === 'true') check(rule); if (result) result.hidden = true; });
+      rule.el.addEventListener('input', function () { if (rule.el.getAttribute('aria-invalid') === 'true') check(rule); });
       rule.el.addEventListener('change', function () { if (rule.el.getAttribute('aria-invalid') === 'true') check(rule); });
     });
     if (msg && counter) msg.addEventListener('input', function () { counter.textContent = msg.value.length; });
     form.addEventListener('submit', function (e) {
       e.preventDefault(); // no backend is connected: nothing is ever sent or stored
       var failed = rules.map(function (r) { return { r: r, m: check(r) }; }).filter(function (x) { return x.m; });
-      result.hidden = true;
       if (failed.length) {
         var list = $('[data-error-list]', summary);
         list.innerHTML = '';
@@ -344,12 +342,10 @@
         return;
       }
       summary.hidden = true;
-      result.hidden = false;
-      result.focus();
     });
     form.addEventListener('reset', function () {
       rules.forEach(function (r) { show(r, ''); });
-      summary.hidden = true; result.hidden = true;
+      summary.hidden = true;
       if (counter) counter.textContent = '0';
     });
   });

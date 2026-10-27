@@ -776,9 +776,6 @@
   /* ---------- 3. Enquiry form ---------- */
   .ct-enq { display: grid; gap: 2rem; }
   @media (min-width: 1024px) { .ct-enq { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 3.5rem; align-items: start; } }
-  .ct-demo { margin-top: 1.5rem; padding: 1rem 1.25rem; border: 2px dashed var(--fg); background: var(--surf); }
-  .ct-demo p { margin: 0; color: var(--fg); }
-  .ct-demo-k { margin-bottom: .35rem !important; font-weight: 800; font-size: .8125rem; letter-spacing: .14em; text-transform: uppercase; color: var(--acc) !important; }
   .ct-form { display: grid; gap: 1.1rem; padding: clamp(1.25rem, 3vw, 2rem); background: var(--surf); border: 3px solid var(--fg); }
   .ct-row { display: grid; gap: 1.1rem; }
   @media (min-width: 640px) { .ct-row { grid-template-columns: 1fr 1fr; } }
@@ -814,11 +811,7 @@
   .ct-errors-t { margin: 0 0 .4rem; font-weight: 800; color: var(--fg); }
   .ct-errors ul { margin: 0; padding-inline-start: 1.25rem; }
   .ct-errors a { color: var(--err); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
-  .ct-result { padding: 1rem 1.25rem; border: 3px solid var(--fg); border-inline-start-width: 10px; background: var(--bg); }
-  .ct-result[hidden] { display: none; }
-  .ct-result p { margin: 0; color: var(--fg); }
-  .ct-result-t { margin-bottom: .35rem !important; font-weight: 800; }
-  .ct-errors:focus, .ct-result:focus { outline: 3px solid var(--fg); outline-offset: 3px; }
+  .ct-errors:focus { outline: 3px solid var(--fg); outline-offset: 3px; }
 
   /* ---------- 4. Location / general map ---------- */
   .ct-map { margin: clamp(1.5rem, 1rem + 1.5vw, 2.25rem) 0 0; }
