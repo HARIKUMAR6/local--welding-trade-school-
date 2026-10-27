@@ -2,7 +2,6 @@
  * Image audit (static + browser):
  *  - every photo referenced by a page exists locally; no remote image URLs
  *  - NO photo is used on more than one page, and none twice on the same page (keyed by image id, ignoring width/format)
- *  - every photo has a CREDITS entry (author + license) and appears on credits.html
  *  - alt text present; width/height attributes present
  *  - weight budget per file; browser check that every image (incl. hidden tab panels) loads
  * Prints the page -> section -> file inventory.
@@ -11,7 +10,6 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const pages = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html'));
-const credits = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets/images/CREDITS.json'), 'utf8'));
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/image-manifest.json'), 'utf8'));
 let fails = 0;
 const fail = (m) => { fails++; console.log('FAIL', m); };
@@ -45,14 +43,9 @@ for (const [key, list] of Object.entries(usage).sort()) {
   const pagesUsing = [...new Set(list)];
   if (pagesUsing.length > 1) fail(`${key} used on multiple pages: ${pagesUsing.join(', ')}`);
   if (list.length > 1) fail(`${key} used ${list.length} times on ${list[0]}`);
-  const c = credits[key];
-  if (!c || !c.author || !c.license) fail(`${key} has no credit entry`);
-  if (c && c.page !== pagesUsing[0]) fail(`${key} credited to ${c.page} but used on ${pagesUsing[0]}`);
-  console.log(`  ${pagesUsing[0].padEnd(12)} ${(c ? c.section : '?').padEnd(30)} ${key.padEnd(24)} ${c ? c.license : ''}`);
+  console.log(`  ${pagesUsing[0].padEnd(12)} ${(manifest[key] ? manifest[key].section : '?').padEnd(30)} ${key}`);
 }
 for (const key of Object.keys(manifest)) if (!usage[key]) fail(`manifest image ${key} is not used on any page (remove it or place it)`);
-const creditsHtml = fs.readFileSync(path.join(ROOT, 'credits.html'), 'utf8');
-for (const [key, c] of Object.entries(credits)) if (!creditsHtml.includes(c.author.slice(0, 20).replace(/&/g, '&amp;'))) fail(`credits.html lacks author for ${key}`);
 
 // weight budget
 for (const dir of ['h1', 'h2', 'programs', 'instructors', 'about', 'contact']) for (const f of fs.readdirSync(path.join(ROOT, 'assets/images', dir))) {

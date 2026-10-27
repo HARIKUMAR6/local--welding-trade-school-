@@ -37,7 +37,7 @@ ok(!/(school|we) (is|are) (located|based) in/i.test(text), 'page never claims wh
 const imgs = [...html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1]);
 ok(imgs.length === 2, `2 photos on the page (${imgs.length})`);
 ok(imgs.every((s) => s.startsWith('assets/images/contact/ct-') && fs.existsSync(path.join(ROOT, s))), 'photos are local, in assets/images/contact');
-const others = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && !['contact.html', 'credits.html'].includes(f)).map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('');
+const others = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && !['contact.html'].includes(f)).map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('');
 ok(imgs.every((s) => !others.includes('contact/' + path.basename(s, '.jpg'))), 'no Contact photo appears on another page');
 const sources = Object.values(JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/image-manifest.json'), 'utf8'))).map((m) => m.file);
 ok(new Set(sources).size === sources.length, 'every photo on the site comes from a different source image');

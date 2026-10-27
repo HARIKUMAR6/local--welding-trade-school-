@@ -13,7 +13,7 @@ const { launch, BASE, VIEWPORTS } = require('./lib/browser');
 
 const args = process.argv.slice(2);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
-const PAGES = opt('--pages', 'index.html,home-2.html,programs.html,instructors.html,about.html,contact.html,login.html,dashboard.html,credits.html').split(',');
+const PAGES = opt('--pages', 'index.html,home-2.html,programs.html,instructors.html,about.html,contact.html,login.html,dashboard.html').split(',');
 const VPS = opt('--viewports', 'desktop-1440,mobile-390').split(',');
 const VERBOSE = args.includes('--verbose');
 

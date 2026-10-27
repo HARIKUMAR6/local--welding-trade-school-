@@ -1,6 +1,6 @@
 /**
- * Image pipeline: downloads each photo in scripts/image-manifest.json from Wikimedia Commons,
- * records author/license metadata, and writes optimized, responsive local copies.
+ * Image pipeline: downloads each photo in scripts/image-manifest.json from Wikimedia Commons
+ * and writes optimized, responsive local copies.
  *   node scripts/build-images.js            # download (cached) + metadata + optimize
  *   node scripts/build-images.js --offline  # optimize from cache only
  */
@@ -48,35 +48,6 @@ async function download() {
   }
 }
 
-async function credits() {
-  const out = {};
-  const entries = Object.entries(manifest);
-  for (let i = 0; i < entries.length; i += 10) {
-    const batch = entries.slice(i, i + 10);
-    const titles = batch.map(([, m]) => 'File:' + m.file).join('|');
-    const url = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=extmetadata|url&titles=' + encodeURIComponent(titles);
-    const j = JSON.parse((await fetchBuf(url)).toString());
-    const pages = Object.values(j.query.pages);
-    for (const [key, m] of batch) {
-      const p = pages.find((x) => x.title.replace(/_/g, ' ') === 'File:' + m.file) || pages.find((x) => x.title === 'File:' + m.file.replace(/_/g, ' '));
-      const ii = p && p.imageinfo && p.imageinfo[0];
-      const md = (ii && ii.extmetadata) || {};
-      const strip = (s) => (s || '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
-      out[key] = {
-        page: m.page, section: m.section, file: m.file,
-        author: strip(md.Artist && md.Artist.value) || 'Unknown',
-        license: strip(md.LicenseShortName && md.LicenseShortName.value),
-        licenseUrl: strip(md.LicenseUrl && md.LicenseUrl.value),
-        source: ii ? ii.descriptionurl || 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(m.file.replace(/ /g, '_')) : ''
-      };
-      if (!ii) console.log('WARN no metadata for', key);
-    }
-    await sleep(2500);
-  }
-  fs.writeFileSync(path.join(OUT, 'CREDITS.json'), JSON.stringify(out, null, 2));
-  console.log('credits written');
-}
-
 async function optimize() {
   const data = {};
   for (const key of Object.keys(manifest)) {
@@ -101,6 +72,6 @@ async function optimize() {
 }
 
 (async () => {
-  if (!offline) { await download(); await credits(); }
+  if (!offline) { await download(); }
   await optimize();
 })();

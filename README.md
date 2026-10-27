@@ -11,11 +11,11 @@ Static multi-page site (HTML + Tailwind CSS + vanilla JS). No framework, no runt
 | Design tokens + shared components | `src/input.css` (themes, section tones, buttons, header, footer) |
 | Per-homepage styles | `src/css/home-1.css`, `src/css/home-2.css` |
 | Behaviour | `assets/js/main.js` |
-| Photos | `scripts/image-manifest.json` is the single list of photos; `assets/images/CREDITS.json` is generated |
+| Photos | `scripts/image-manifest.json` is the single list of photos |
 
 ```
 npm run build          # pages + CSS
-npm run build:images   # (re)download from Wikimedia Commons, write credits, optimize (needs network)
+npm run build:images   # (re)download from Wikimedia Commons, optimize (needs network)
 node scripts/build-images.js --offline   # re-optimize from the local cache only
 npm start              # http://localhost:3000
 ```
@@ -40,7 +40,7 @@ Photos for a page use the `pg-` style key prefix and live in their own folder (`
 
 ```
 npm run test:coverage   # core business information on both homepages; structural difference; no unverified claims
-npm run test:images     # unique photo per page, credits, alt, weight, all images load
+npm run test:images     # unique photo per page, alt, weight, all images load
 npm run test:programs   # Programs page: content, no unverified facts, anchors, hero height rule at 8 viewports, light/dark, LTR/RTL
 npm run test:functional # console errors, links, shared shell, theme/dir persistence, menus, tabs, panels
 npm run test:viewport   # 8 required viewports + intermediate widths, both themes: overflow, clipping, hero fit
@@ -93,5 +93,5 @@ The site deliberately states no school-specific facts that were not supplied: no
 accreditation, class sizes, schedules, tuition, named certifications, instructor names or student outcomes.
 Add them in `partials/footer.html` and the page sources when available.
 
-Photos are credited on `credits.html` (generated from `assets/images/CREDITS.json`). Pre-redesign files are archived in
+Pre-redesign files are archived in
 `_legacy/` and `assets/images/_legacy/` and can be deleted.

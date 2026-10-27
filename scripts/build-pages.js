@@ -5,7 +5,6 @@
  * Tokens in page sources:
  *   <!--@head-->  <!--@sprite-->  <!--@header-->  <!--@footer-->
  *   {{pic key="h1-hero" alt="..." sizes="..." class="..." eager}}   responsive <picture> from assets/images/image-data.json
- *   {{credits}}                                                       image credit list from assets/images/CREDITS.json
  *   {{map}}                                                           OpenStreetMap embed from partials/location.json (only when the location is verified)
  * Header/footer links carrying data-nav="file.html" get aria-current="page" on that page.
  */
@@ -20,7 +19,6 @@ const IMG = path.join(ROOT, 'assets', 'images');
 const read = (p) => fs.readFileSync(p, 'utf8');
 const partial = (n) => read(path.join(PARTIALS, n + '.html')).trimEnd();
 const imageData = fs.existsSync(path.join(IMG, 'image-data.json')) ? JSON.parse(read(path.join(IMG, 'image-data.json'))) : {};
-const credits = fs.existsSync(path.join(IMG, 'CREDITS.json')) ? JSON.parse(read(path.join(IMG, 'CREDITS.json'))) : {};
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 let errors = 0;
@@ -78,19 +76,6 @@ function mapHtml(cfg) {
 }
 module.exports = { mapHtml };
 
-function creditsHtml() {
-  const byPage = {};
-  for (const [key, c] of Object.entries(credits)) (byPage[c.page] = byPage[c.page] || []).push([key, c]);
-  const label = { 'index.html': 'Home 1', 'home-2.html': 'Home 2', 'programs.html': 'Programs', 'instructors.html': 'Instructors', 'about.html': 'About', 'contact.html': 'Contact' };
-  return Object.entries(byPage).map(([page, list]) =>
-    `<section class="credit-group"><h2 class="display d-md">${label[page] || page}</h2><ul class="credit-list">` +
-    list.map(([, c]) =>
-      `<li><span class="credit-sec">${esc(c.section)}</span> <span><a class="link" href="${esc(c.source)}" rel="noopener">${esc(c.file.replace(/\.jpe?g$/i, ''))}</a>` +
-      ` &mdash; ${esc(c.author)}. <a class="link" href="${esc(c.licenseUrl || c.source)}" rel="noopener">${esc(c.license)}</a>. Source: Wikimedia Commons.</span></li>`
-    ).join('') + '</ul></section>'
-  ).join('\n');
-}
-
 function build(file) {
   const page = path.basename(file);
   let html = read(path.join(SRC, file));
@@ -100,7 +85,6 @@ function build(file) {
     .replace('<!--@header-->', partial('header'))
     .replace('<!--@footer-->', partial('footer'))
     .replace(/\{\{pic\s+([^}]*)\}\}/g, (_, a) => picture(parseAttrs(a)))
-    .replace('{{credits}}', creditsHtml())
     .replace('{{map}}', mapHtml());
   html = html.replace(/<a ([^>]*?)data-nav="([^"]+)"([^>]*)>/g, (m, a, target, b) =>
     target === page ? `<a ${a}data-nav="${target}" aria-current="page"${b}>` : m);

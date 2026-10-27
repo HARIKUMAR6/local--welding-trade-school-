@@ -32,7 +32,7 @@ const imgs = [...html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1]);
 ok(imgs.length === 8, `8 photos on the page (${imgs.length})`);
 ok(new Set(imgs).size === imgs.length, 'no photo used twice on this page');
 ok(imgs.every((s) => s.startsWith('assets/images/instructors/in-') && fs.existsSync(path.join(ROOT, s))), 'all photos local, in assets/images/instructors, and present');
-const others = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && f !== 'instructors.html' && f !== 'credits.html').map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('');
+const others = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && f !== 'instructors.html').map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('');
 const keys = imgs.map((s) => path.basename(s, '.jpg'));
 ok(keys.every((k) => !others.includes(k)), 'no Instructors photo (any size or format) appears on another page');
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/image-manifest.json'), 'utf8'));

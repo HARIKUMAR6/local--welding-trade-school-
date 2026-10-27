@@ -7,7 +7,9 @@
   .in-hero-start { grid-area: a; }
   .in-hero-end { grid-area: b; }
   .in-hero-side { aspect-ratio: 4 / 3; }
-  .in-hero-copy { grid-area: copy; padding: 2rem var(--gutter) 2.5rem; text-align: center; }
+  /* photos and statement live inside the standard container; the dark band stays full-width */
+  .in-hero { padding-inline: max(var(--gutter), calc((100% - var(--wrap)) / 2 + var(--gutter))); }
+  .in-hero-copy { grid-area: copy; padding: 2rem 0 2.5rem; text-align: center; }
   .in-title { font-size: clamp(2.4rem, 1rem + 3.2vw, 3.6rem); }
   .in-hero-copy .lead { margin-inline: auto; max-width: 34rem; }
   .in-hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }

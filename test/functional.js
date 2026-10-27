@@ -6,7 +6,7 @@ const { launch, BASE } = require('./lib/browser');
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..');
-const PAGES = ['index.html', 'home-2.html', 'programs.html', 'instructors.html', 'about.html', 'contact.html', 'credits.html']; // login/dashboard are app pages: see test/portal.js
+const PAGES = ['index.html', 'home-2.html', 'programs.html', 'instructors.html', 'about.html', 'contact.html']; // login/dashboard are app pages: see test/portal.js
 let fails = 0, passes = 0;
 const ok = (c, m) => { if (c) { passes++; if (process.argv.includes('--verbose')) console.log('  ok  ', m); } else { fails++; console.log('FAIL', m); } };
 
