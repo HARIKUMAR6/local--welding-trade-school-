@@ -61,12 +61,6 @@ function mapHtml(cfg) {
   const open = `https://www.openstreetmap.org/#map=${g.zoom}/${g.center[0]}/${g.center[1]}`;
   return '<figure class="ct-map" data-map-state="general" data-map>' +
     '<div class="ct-map-stage">' +
-    // fallback sits underneath the frame; the script raises it if the provider cannot load
-    `<div class="ct-map-fallback" data-map-fallback role="status">` +
-    `<p class="ct-map-loading">Loading the map&hellip;</p>` +
-    `<div class="ct-map-failed"><p class="ct-map-k">Map unavailable</p>` +
-    `<p>The interactive map could not load. You can open the general map of ${label} on OpenStreetMap instead.</p>` +
-    `<a class="btn btn-primary btn-sm" href="${open}" target="_blank" rel="noopener">Open the map<span class="sr-only"> of ${label} on OpenStreetMap (opens in a new tab)</span></a></div></div>` +
     `<iframe class="ct-map-frame" data-map-frame title="Interactive general map of ${label}. Not the school&#39;s location." src="${src}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>` +
     '</div>' +
     `<figcaption class="ct-map-cap"><span class="ct-map-tag">General map: ${label}</span>` +

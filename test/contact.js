@@ -146,21 +146,8 @@ ok(new Set(sources).size === sources.length, 'every photo on the site comes from
     ok(controls, `OpenStreetMap embed loads with zoom controls (${vp.width})`);
     ok(zoomed, `Zoom In loads tiles at a deeper zoom level (${vp.width})`);
     ok(panned, `dragging the map pans it and loads new tiles (${vp.width})`);
-    ok(!(await p.$eval('[data-map]', (m) => m.classList.contains('is-failed'))), `fallback stays hidden while the map works (${vp.width})`);
     ok(await p.$eval('.ct-map-cap a[href*="openstreetmap.org/#map="]', (a) => a.target === '_blank'), 'external "Open in OpenStreetMap" link present');
     ok(await p.$eval('.ct-map-cap a[href*="openstreetmap.org/copyright"]', () => true), 'OpenStreetMap attribution link present');
-    await ctx.close();
-  }
-  {
-    const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
-    await ctx.route(/openstreetmap\.org/, (r) => r.abort());
-    const p = await ctx.newPage();
-    await p.goto(`${BASE}/contact.html`, { waitUntil: 'load', timeout: 60000 });
-    await p.$eval('#location', (e) => e.scrollIntoView());
-    await p.waitForTimeout(4000);
-    ok(await p.$eval('[data-map]', (m) => m.classList.contains('is-failed')), 'provider blocked: fallback is raised');
-    ok(await p.isVisible('.ct-map-failed') && /could not load/.test(await p.textContent('.ct-map-failed')), 'provider blocked: fallback message is visible');
-    ok(await p.$eval('.ct-map-failed a[href*="openstreetmap.org/#map="]', (a) => a.target === '_blank'), 'provider blocked: fallback offers an external link');
     await ctx.close();
   }
 

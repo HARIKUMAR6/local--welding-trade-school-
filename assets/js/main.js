@@ -350,30 +350,10 @@
     });
   });
 
-  /* ---------- General map: raise the fallback if the provider cannot load ---------- */
+  /* ---------- General map: keyboard focus ring (focus inside a cross-origin frame) ---------- */
   $$('[data-map]').forEach(function (map) {
     var frame = $('[data-map-frame]', map);
     if (!frame) return;
-    var loaded = false, timer = null;
-    function fail() { if (!loaded) map.classList.add('is-failed'); }
-    frame.addEventListener('load', function () { loaded = true; if (timer) clearTimeout(timer); });
-    frame.addEventListener('error', fail);
-    if (navigator.onLine === false) { fail(); return; }
-    // the frame is lazy: start the clock only once it is close to the viewport
-    // an iframe still fires "load" when the browser shows its own error page, so also probe the provider directly:
-    // an opaque no-cors request resolves when the server is reachable and rejects on a network failure
-    var probe = function () {
-      if (!window.fetch) return;
-      var origin = frame.src.split('/').slice(0, 3).join('/');
-      fetch(origin + '/favicon.ico?probe=' + Date.now(), { mode: 'no-cors', cache: 'no-store' }).catch(function () { loaded = false; fail(); });
-    };
-    var started = false;
-    var start = function () { if (started) return; started = true; probe(); if (!loaded) timer = setTimeout(fail, 15000); };
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) { if (entries.some(function (e) { return e.isIntersecting; })) { start(); io.disconnect(); } }, { rootMargin: '200px' });
-      io.observe(map);
-    } else { start(); }
-    window.addEventListener('offline', fail);
     // focus inside a cross-origin frame never matches :focus in this document, so flag it for the focus ring
     var setFocus = function () { map.classList.toggle('is-focused', document.activeElement === frame); };
     var syncFocus = function () { setFocus(); setTimeout(setFocus, 0); };
