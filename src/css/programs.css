@@ -13,15 +13,14 @@
   .pg-board-title { margin: 0 0 .5rem; font-weight: 800; font-size: .8125rem; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-2); }
   .pg-board ol { list-style: none; margin: 0; padding: 0; }
   .pg-board a {
-    display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: .75rem; min-height: 3rem; padding-block: .125rem;
+    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .75rem; min-height: 3rem; padding-block: .125rem;
     border-top: 2px solid var(--ui); color: var(--fg); text-decoration: none;
   }
   .pg-board li:last-child a { border-bottom: 2px solid var(--ui); }
-  .pg-board b { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 1.5rem; line-height: 1; color: var(--acc); }
   .pg-board span { font-weight: 800; letter-spacing: .06em; text-transform: uppercase; font-size: .9375rem; }
   .pg-board .glyph { width: 2.5rem; height: 1.6667rem; color: var(--acc); }
   .pg-board a:hover { background: var(--fg); color: var(--bg); }
-  .pg-board a:hover b, .pg-board a:hover .glyph { color: inherit; }
+  .pg-board a:hover .glyph { color: inherit; }
   @media (min-width: 768px) {
     .pg-hero-wrap { min-height: var(--inner-hero-h); }
     .pg-hero-copy { max-width: min(36rem, calc(58% - 2rem)); }
@@ -54,7 +53,6 @@
     .cmp thead th, .cmp thead td { padding: 0 1.25rem 1rem; vertical-align: bottom; border-bottom: 4px solid var(--fg); }
     .cmp thead th { font-weight: 400; text-align: start; }
     .cmp thead td.cmp-corner { width: 12rem; padding-inline: 0; border-top: 0; border-inline-start: 0; }
-    .cmp-num { display: block; font-weight: 800; font-size: .8125rem; letter-spacing: .12em; color: var(--acc); }
     .cmp-name { display: inline; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 2.25rem; line-height: 1; text-transform: uppercase; color: var(--fg); }
     .cmp-sub { margin-inline-start: .6rem; font-weight: 800; font-size: .8125rem; letter-spacing: .14em; color: var(--fg-2); }
     .cmp tbody tr { padding: 0; border-top: 0; }
@@ -66,8 +64,8 @@
     .cmp td::before { content: none; }
     .cmp tbody td + td, .cmp thead th + th { border-inline-start: 2px solid var(--ui); }
   }
-  .cmp-num, .cmp-name, .cmp-sub { display: none; }
-  @media (min-width: 768px) { .cmp-num { display: block; } .cmp-name, .cmp-sub { display: inline; } }
+  .cmp-name, .cmp-sub { display: none; }
+  @media (min-width: 768px) { .cmp-name, .cmp-sub { display: inline; } }
 
   /* ---------- Section heading group: eyebrow, heading and lead always share the start edge ---------- */
   .pg-head { max-width: 44rem; text-align: start; }
@@ -86,7 +84,7 @@
   }
   .pg-proc-copy .arrow-link { margin-top: 1rem; }
   .pg-proc-below { margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.25rem); align-items: start; }
-  @media (min-width: 1024px) { .pg-proc-below { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
+  @media (min-width: 1024px) { .pg-proc-below { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: center; } }
   .pg-proc-below .pg-spec { margin-top: 0; }
   .pg-spec { margin: 1.25rem 0 0; display: grid; gap: 1.1rem; }
   .pg-spec > div, .pg-ledger > div { padding-top: .75rem; border-top: 3px solid var(--fg); }
@@ -110,11 +108,6 @@
   /* TIG: reversed, numbered skills */
   .pg-tig-photo { aspect-ratio: 4 / 3; }
   @media (min-width: 1024px) { .pg-tig-photo { aspect-ratio: 5 / 6; } }
-  .pg-steps { list-style: none; margin: 1.25rem 0 0; padding: 0; }
-  .pg-steps li { display: grid; grid-template-columns: 3rem 1fr; align-items: baseline; gap: .5rem; padding: .7rem 0; border-top: 2px solid var(--ui); }
-  .pg-steps li:last-child { border-bottom: 2px solid var(--ui); }
-  .pg-steps b { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 1.5rem; line-height: 1; color: var(--acc); }
-  .pg-steps span { font-weight: 700; font-size: 1.0625rem; }
   .pg-use { margin: 1.1rem 0 0; color: var(--fg-2); }
   .pg-use b { display: block; margin-bottom: .3rem; font-weight: 800; font-size: .8125rem; letter-spacing: .14em; text-transform: uppercase; color: var(--fg); }
 

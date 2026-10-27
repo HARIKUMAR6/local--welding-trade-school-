@@ -89,9 +89,8 @@
   .in-watchlist { margin: 0; display: grid; }
   .in-watchlist > div { padding: .9rem 0; border-top: 2px solid var(--ui); }
   .in-watchlist > div:last-child { border-bottom: 2px solid var(--ui); }
-  .in-watchlist dt { display: flex; align-items: baseline; gap: .9rem; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 1.75rem; line-height: 1; text-transform: uppercase; }
-  .in-watchlist dt b { font-size: 1.25rem; color: var(--acc); min-width: 2rem; }
-  .in-watchlist dd { margin: .4rem 0 0; padding-inline-start: 2.9rem; color: var(--fg-2); }
+  .in-watchlist dt { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 1.75rem; line-height: 1; text-transform: uppercase; }
+  .in-watchlist dd { margin: .4rem 0 0; color: var(--fg-2); }
   #booth .arrow-link { display: inline-flex; }
 
   /* ---------- Support ---------- */
